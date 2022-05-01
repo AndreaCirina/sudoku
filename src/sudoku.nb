@@ -1,0 +1,68 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      1922,         60]
+NotebookOptionsPosition[      1065,         35]
+NotebookOutlinePosition[      1848,         59]
+CellTagsIndexPosition[      1805,         56]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[StyleBox["Sudoku",
+ FontSize->48]], "Title",
+ CellChangeTimes->{{3.860383187324687*^9, 3.8603831922668915`*^9}, {
+  3.860383260717304*^9, 3.860383261716346*^9}},
+ TextAlignment->Center,ExpressionUUID->"276241b3-a41c-4e07-91dc-bbb47acbdccc"],
+
+Cell[TextData[StyleBox["", "Subtitle",
+ FontSize->24]], "Text",
+ CellChangeTimes->{{3.860383198044023*^9, 3.860383198668418*^9}, 
+   3.860383258245263*^9},ExpressionUUID->"9ceec6fe-c9a1-4c03-a88c-\
+2b370c2ebc55"]
+}, Open  ]]
+},
+WindowSize->{576., 573.6},
+WindowMargins->{{-4.8, Automatic}, {Automatic, 0}},
+FrontEndVersion->"13.0 for Microsoft Windows (64-bit) (February 4, 2022)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> 
+     FrontEnd`FileName[{"SlideShow"}, "Earth.nb", CharacterEncoding -> 
+       "UTF-8"]]]}, WindowSize -> {582.6, 488.4}, 
+  WindowMargins -> {{0, Automatic}, {Automatic, 0}}, Visible -> False, 
+  FrontEndVersion -> "13.0 for Microsoft Windows (64-bit) (February 4, 2022)",
+   StyleDefinitions -> "PrivateStylesheetFormatting.nb"],
+ExpressionUUID->"aa3ba23a-012a-44de-86b9-47e132f7fc63"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 254, 4, 260, "Title",ExpressionUUID->"276241b3-a41c-4e07-91dc-bbb47acbdccc"],
+Cell[837, 28, 212, 4, 60, "Text",ExpressionUUID->"9ceec6fe-c9a1-4c03-a88c-2b370c2ebc55"]
+}, Open  ]]
+}
+]
+*)
+

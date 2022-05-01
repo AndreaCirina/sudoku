@@ -1,0 +1,13 @@
+(* ::Package:: *)
+
+(* :Title:*)
+(* :Context:*)
+(* :Author:*)
+(* :Summary:*)
+(* :Copyright: *)
+(* :Package Version: *)
+(* :Mathematica Version:*)
+(* :History: *)
+(* :Keywords: *)
+(* :Sources:  *)
+(* :Discussion:*)
