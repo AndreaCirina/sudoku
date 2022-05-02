@@ -10,41 +10,384 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      1922,         60]
-NotebookOptionsPosition[      1065,         35]
-NotebookOutlinePosition[      1848,         59]
-CellTagsIndexPosition[      1805,         56]
+NotebookDataLength[     15917,        411]
+NotebookOptionsPosition[     14835,        386]
+NotebookOutlinePosition[     15241,        402]
+CellTagsIndexPosition[     15198,        399]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"$Path", ",", " ", 
+    RowBox[{"NotebookDirectory", "[", "]"}]}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{3.860500368636446*^9},
+ CellLabel->"In[10]:=",ExpressionUUID->"9a39f568-919f-4adb-8af6-e8e71e19f064"],
+
+Cell[BoxData[
+ RowBox[{"<<", " ", "Sudoku`"}]], "Input",
+ CellChangeTimes->{{3.8605003335934033`*^9, 3.860500333749993*^9}, {
+  3.860500366188586*^9, 3.8605003750664425`*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"f74477cc-5091-4301-8864-0f395ffe0271"],
 
 Cell[CellGroupData[{
-Cell[TextData[StyleBox["Sudoku",
- FontSize->48]], "Title",
- CellChangeTimes->{{3.860383187324687*^9, 3.8603831922668915`*^9}, {
-  3.860383260717304*^9, 3.860383261716346*^9}},
- TextAlignment->Center,ExpressionUUID->"276241b3-a41c-4e07-91dc-bbb47acbdccc"],
 
-Cell[TextData[StyleBox["", "Subtitle",
- FontSize->24]], "Text",
- CellChangeTimes->{{3.860383198044023*^9, 3.860383198668418*^9}, 
-   3.860383258245263*^9},ExpressionUUID->"9ceec6fe-c9a1-4c03-a88c-\
-2b370c2ebc55"]
-}, Open  ]]
+Cell[BoxData[
+ RowBox[{"?", "CreateSudoku"}]], "Input",
+ CellChangeTimes->{{3.8605003805693626`*^9, 3.860500384786579*^9}},
+ CellLabel->"In[32]:=",ExpressionUUID->"423ffae2-6041-4243-a41d-4be3275970a1"],
+
+Cell[BoxData[
+ InterpretationBox[
+  StyleBox[
+   FrameBox[
+    DynamicModuleBox[{System`InformationDump`open$$ = False, 
+     System`InformationDump`mouseOver$$ = False}, 
+     PaneSelectorBox[{True->
+      TagBox[GridBox[{
+         {
+          ItemBox[
+           PaneBox[
+            StyleBox["\<\" Symbol\"\>", "InformationTitleText",
+             StripOnInput->False,
+             BaseStyle -> None],
+            FrameMargins->{{4, 0}, {-1, 1}}],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], 
+          ItemBox["\<\"\"\>",
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False]},
+         {
+          ItemBox[
+           PaneBox[
+            StyleBox["\<\"Crea sudoku 3\"\>", "InformationUsageText",
+             StripOnInput->False,
+             LineSpacing->{1.5, 1.5, 3.}],
+            FrameMargins->{{10, 10}, {8, 10}}],
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False], 
+          ItemBox["\<\"\"\>",
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False]},
+         {
+          PaneBox[
+           TagBox[GridBox[{
+              {
+               StyleBox[
+                TagBox[
+                 TooltipBox[
+                  StyleBox["\<\" Definitions\"\>", "InformationRowLabel",
+                   StripOnInput->False],
+                  "\"Definitions\"",
+                  TooltipStyle->"TextStyling"],
+                 Annotation[#, "Definitions", "Tooltip"]& ], "DialogStyle",
+                StripOnInput->False]},
+              {
+               TemplateBox[{"\"\[ThinSpace]\"", 
+                 GridBox[{{
+                    RowBox[{
+                    RowBox[{"CreateSudoku", "[", 
+                    
+                    RowBox[{
+                    "Sudoku`Private`dim_", ",", "Sudoku`Private`nEl_"}], 
+                    "]"}], ":=", 
+                    RowBox[{"Module", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"Sudoku`Private`fullBoard", ",", 
+                    "Sudoku`Private`sudokuPuzzle"}], "}"}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"Sudoku`Private`fullBoard", ",", 
+                    "Sudoku`Private`sudokuPuzzle"}], "}"}], "=", 
+                    RowBox[{
+                    
+                    RowBox[{"ResourceFunction", "[", 
+                    "\"GenerateSudokuPuzzle\"", "]"}], "[", 
+                    RowBox[{"3", ",", "0.4`"}], "]"}]}], ";", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    
+                    RowBox[{"ResourceFunction", "[", 
+                    "\"DisplaySudokuPuzzle\"", "]"}], "[", "#1", "]"}], "&"}],
+                     ")"}], "/@", 
+                    RowBox[{"{", 
+                    
+                    RowBox[{"Sudoku`Private`fullBoard", ",", 
+                    "Sudoku`Private`sudokuPuzzle"}], "}"}]}]}]}], "]"}]}]}, {
+                   " "}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+                  DefaultBaseStyle -> "Column", 
+                  GridBoxItemSize -> {
+                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]},
+                "RowDefault"]}
+             },
+             DefaultBaseStyle->"Column",
+             GridBoxAlignment->{"Columns" -> {{Left}}},
+             
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+            "Column"],
+           FrameMargins->{{6, 0}, {3, 6}}], "\<\"\"\>"},
+         {
+          PaneBox[GridBox[{
+             {
+              
+              DynamicModuleBox[{System`InformationDump`open$$ = {
+               False, False, False, False, False, False}}, 
+               StyleBox[GridBox[{
+                  {
+                   TagBox[
+                    TooltipBox[
+                    StyleBox["\<\" Full Name\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                    "\"FullName\"",
+                    TooltipStyle->"TextStyling"],
+                    
+                    Annotation[#, "FullName", 
+                    "Tooltip"]& ], "\<\"Sudoku`CreateSudoku\"\>"}
+                 },
+                 AutoDelete->False,
+                 GridBoxAlignment->{"Columns" -> {Right, Left}},
+                 GridBoxDividers->None,
+                 GridBoxItemSize->{"Columns" -> {Automatic, Automatic}},
+                 GridBoxSpacings->{"Columns" -> {
+                    Offset[0.27999999999999997`], {
+                    Offset[0.5599999999999999]}, 
+                    Offset[0.27999999999999997`]}, "Rows" -> {
+                    Offset[0.2], {
+                    Offset[0.8]}, 
+                    Offset[0.2]}}], "DialogStyle",
+                StripOnInput->False],
+               DynamicModuleValues:>{}]}
+            },
+            DefaultBaseStyle->"Column",
+            GridBoxAlignment->{"Columns" -> {{Left}}},
+            GridBoxDividers->{"Columns" -> {{False}}, "Rows" -> {{False}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {
+                Offset[0.27999999999999997`], {
+                 Offset[0.5599999999999999]}, 
+                Offset[0.27999999999999997`]}, "Rows" -> {
+                Offset[0.2], {
+                 Offset[3.6]}, 
+                Offset[0.2]}}],
+           FrameMargins->{{6, 6}, {6, 3}}], ""},
+         {
+          ItemBox[
+           TagBox[
+            ButtonBox[
+             PaneSelectorBox[{False->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "UpPointerOpener"]], True->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "UpPointerOpenerHot"]]}, Dynamic[
+              System`InformationDump`mouseOver$$]],
+             Alignment->Left,
+             Appearance->{"Default" -> None},
+             
+             ButtonFunction:>FEPrivate`Set[
+              System`InformationDump`open$$, False],
+             Evaluator->Automatic,
+             FrameMargins->{{9, 0}, {0, 0}},
+             ImageMargins->0,
+             ImageSize->Full,
+             Method->"Preemptive"],
+            
+            EventHandlerTag[{
+             "MouseEntered" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, True], 
+              "MouseExited" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, False], 
+              Method -> "Preemptive", PassEventsDown -> Automatic, 
+              PassEventsUp -> True}]],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], "\[SpanFromLeft]"}
+        },
+        AutoDelete->False,
+        FrameStyle->Directive[
+          GrayLevel[0.8], 
+          Thickness[Tiny]],
+        GridBoxAlignment->{"Columns" -> {Left, Right}, "Rows" -> {{Center}}},
+        GridBoxDividers->{
+         "Columns" -> {{None}}, "Rows" -> {False, {True}, False}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+       "Grid"], False->
+      TagBox[GridBox[{
+         {
+          ItemBox[
+           PaneBox[
+            StyleBox["\<\" Symbol\"\>", "InformationTitleText",
+             StripOnInput->False],
+            FrameMargins->{{4, 0}, {-1, 1}}],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], 
+          ItemBox["\<\"\"\>",
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False]},
+         {
+          ItemBox[
+           PaneBox[
+            StyleBox["\<\"Crea sudoku 3\"\>", "InformationUsageText",
+             StripOnInput->False,
+             LineSpacing->{1.5, 1.5, 3.}],
+            FrameMargins->{{10, 10}, {8, 10}}],
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False], 
+          ItemBox["\<\"\"\>",
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False]},
+         {
+          ItemBox[
+           TagBox[
+            ButtonBox[
+             PaneSelectorBox[{False->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "DownPointerOpener"],
+               ImageSizeCache->{10., {3., 7.}}], True->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "DownPointerOpenerHot"],
+               ImageSizeCache->{10., {3., 7.}}]}, Dynamic[
+              System`InformationDump`mouseOver$$]],
+             Alignment->Left,
+             Appearance->{"Default" -> None},
+             
+             ButtonFunction:>FEPrivate`Set[
+              System`InformationDump`open$$, True],
+             Evaluator->Automatic,
+             FrameMargins->{{9, 0}, {0, 0}},
+             ImageMargins->0,
+             ImageSize->Full,
+             Method->"Preemptive"],
+            
+            EventHandlerTag[{
+             "MouseEntered" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, True], 
+              "MouseExited" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, False], 
+              Method -> "Preemptive", PassEventsDown -> Automatic, 
+              PassEventsUp -> True}]],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], "\[SpanFromLeft]"}
+        },
+        AutoDelete->False,
+        FrameStyle->Directive[
+          GrayLevel[0.8], 
+          Thickness[Tiny]],
+        GridBoxAlignment->{"Columns" -> {Left, Right}, "Rows" -> {{Center}}},
+        GridBoxDividers->{
+         "Columns" -> {{None}}, "Rows" -> {False, {True}, False}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+       "Grid"]}, Dynamic[System`InformationDump`open$$],
+      BaselinePosition->Baseline,
+      FrameMargins->0,
+      ImageSize->Automatic],
+     DynamicModuleValues:>{}],
+    BaseStyle->"InformationGridFrame",
+    StripOnInput->False], "InformationGridPlain",
+   StripOnInput->False],
+  InformationData[<|
+   "ObjectType" -> "Symbol", "Usage" -> "Crea sudoku 3", "Documentation" -> 
+    None, "OwnValues" -> None, "UpValues" -> None, "DownValues" -> 
+    Information`InformationValueForm[
+     DownValues, Sudoku`CreateSudoku, {Sudoku`CreateSudoku[
+         Pattern[Sudoku`Private`dim, 
+          Blank[]], 
+         Pattern[Sudoku`Private`nEl, 
+          Blank[]]] :> 
+       Module[{Sudoku`Private`fullBoard, 
+          Sudoku`Private`sudokuPuzzle}, {
+           Sudoku`Private`fullBoard, Sudoku`Private`sudokuPuzzle} = 
+          ResourceFunction["GenerateSudokuPuzzle"][3, 0.4]; 
+         Map[ResourceFunction["DisplaySudokuPuzzle"][#]& , {
+           Sudoku`Private`fullBoard, Sudoku`Private`sudokuPuzzle}]]}], 
+    "SubValues" -> None, "DefaultValues" -> None, "NValues" -> None, 
+    "FormatValues" -> None, "Options" -> None, "Attributes" -> {}, "FullName" -> 
+    "Sudoku`CreateSudoku"|>, False]]], "Output",
+ CellChangeTimes->{3.8605003853190928`*^9, 3.860500554644848*^9, 
+  3.860500639456213*^9, 3.8605008204302425`*^9, 3.8605008806880274`*^9},
+ CellLabel->"Out[32]=",ExpressionUUID->"a5640612-4c16-4ddf-93d1-baf52caa7327"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"c", "=", 
+    RowBox[{"CreateSudoku", "[", 
+     RowBox[{"3", ",", "0.5"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.8605010209226627`*^9, 3.8605010397408447`*^9}, {
+  3.8605010698286114`*^9, 3.860501087430394*^9}},
+ CellLabel->"In[63]:=",ExpressionUUID->"86114c3a-f0d7-4b9a-a987-123db3d467a7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ShowSudoku", "[", 
+  RowBox[{
+   RowBox[{"c", "[", 
+    RowBox[{"[", "\"\<fullBoard\>\"", "]"}], "]"}], ",", " ", "30", ",", " ", 
+   "Yellow"}], "]"}]], "Input",
+ CellChangeTimes->{{3.860501110281067*^9, 3.8605011171440086`*^9}, {
+  3.860501236061412*^9, 3.860501245529789*^9}},
+ CellLabel->"In[65]:=",ExpressionUUID->"ec1a6dcd-de40-4272-b80b-fd9dacb888ae"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"1", "3", "2", "4", "5", "7", "6", "8", "9"},
+    {"6", "5", "8", "3", "9", "2", "1", "7", "4"},
+    {"9", "7", "4", "6", "8", "1", "5", "3", "2"},
+    {"2", "9", "5", "8", "7", "4", "3", "1", "6"},
+    {"8", "1", "3", "5", "6", "9", "2", "4", "7"},
+    {"4", "6", "7", "1", "2", "3", "8", "9", "5"},
+    {"7", "4", "6", "2", "3", "8", "9", "5", "1"},
+    {"5", "8", "9", "7", "1", "6", "4", "2", "3"},
+    {"3", "2", "1", "9", "4", "5", "7", "6", "8"}
+   },
+   AutoDelete->False,
+   BaseStyle->30,
+   GridBoxDividers->{"Columns" -> {{{
+         RGBColor[1, 1, 0], 
+         Thickness[3]}, 
+        RGBColor[1, 1, 0], 
+        RGBColor[1, 1, 0]}}, "Rows" -> {{{
+         RGBColor[1, 1, 0], 
+         Thickness[3]}, 
+        RGBColor[1, 1, 0], 
+        RGBColor[1, 1, 0]}}},
+   GridBoxItemSize->{"Columns" -> {{All}}, "Rows" -> {{All}}},
+   GridBoxSpacings->{"Columns" -> {{
+        Offset[0.9]}}, "Rows" -> {{
+        Offset[0.6]}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{
+  3.8605011175382247`*^9, {3.8605012307879763`*^9, 3.860501246219157*^9}},
+ CellLabel->"Out[65]=",ExpressionUUID->"79c42d42-2331-4f1c-ba27-40b7d9682ec0"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.860500651945018*^9, 3.860500701766369*^9}, 
+   3.8605008141257524`*^9},ExpressionUUID->"aad37cfb-0d75-425f-a319-\
+3e396c151c9a"]
 },
-WindowSize->{576., 573.6},
+WindowSize->{574.8, 573.6},
 WindowMargins->{{-4.8, Automatic}, {Automatic, 0}},
 FrontEndVersion->"13.0 for Microsoft Windows (64-bit) (February 4, 2022)",
-StyleDefinitions->Notebook[{
-   Cell[
-    StyleData[
-    StyleDefinitions -> 
-     FrontEnd`FileName[{"SlideShow"}, "Earth.nb", CharacterEncoding -> 
-       "UTF-8"]]]}, WindowSize -> {582.6, 488.4}, 
-  WindowMargins -> {{0, Automatic}, {Automatic, 0}}, Visible -> False, 
-  FrontEndVersion -> "13.0 for Microsoft Windows (64-bit) (February 4, 2022)",
-   StyleDefinitions -> "PrivateStylesheetFormatting.nb"],
+StyleDefinitions->"Default.nb",
 ExpressionUUID->"aa3ba23a-012a-44de-86b9-47e132f7fc63"
 ]
 (* End of Notebook Content *)
@@ -58,10 +401,18 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
+Cell[558, 20, 274, 6, 28, "Input",ExpressionUUID->"9a39f568-919f-4adb-8af6-e8e71e19f064"],
+Cell[835, 28, 254, 4, 28, "Input",ExpressionUUID->"f74477cc-5091-4301-8864-0f395ffe0271"],
 Cell[CellGroupData[{
-Cell[580, 22, 254, 4, 260, "Title",ExpressionUUID->"276241b3-a41c-4e07-91dc-bbb47acbdccc"],
-Cell[837, 28, 212, 4, 60, "Text",ExpressionUUID->"9ceec6fe-c9a1-4c03-a88c-2b370c2ebc55"]
-}, Open  ]]
+Cell[1114, 36, 202, 3, 28, "Input",ExpressionUUID->"423ffae2-6041-4243-a41d-4be3275970a1"],
+Cell[1319, 41, 11352, 281, 93, "Output",ExpressionUUID->"a5640612-4c16-4ddf-93d1-baf52caa7327"]
+}, Open  ]],
+Cell[12686, 325, 376, 9, 48, "Input",ExpressionUUID->"86114c3a-f0d7-4b9a-a987-123db3d467a7"],
+Cell[CellGroupData[{
+Cell[13087, 338, 382, 8, 28, "Input",ExpressionUUID->"ec1a6dcd-de40-4272-b80b-fd9dacb888ae"],
+Cell[13472, 348, 1167, 30, 467, "Output",ExpressionUUID->"79c42d42-2331-4f1c-ba27-40b7d9682ec0"]
+}, Open  ]],
+Cell[14654, 381, 177, 3, 28, "Input",ExpressionUUID->"aad37cfb-0d75-425f-a319-3e396c151c9a"]
 }
 ]
 *)
