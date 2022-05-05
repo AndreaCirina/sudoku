@@ -16,6 +16,8 @@
 BeginPackage["Sudoku`"]
 
 SudokuGame::usage="Gioco del sudoku"
+ShowSudoku::usage="mostra"
+CreateSudoku::usage=" "
 Begin["`Private`"]
 
 
@@ -23,17 +25,13 @@ Begin["`Private`"]
 (*"Crea sudoku 2*)
 
 
-ShowSudoku[board_, dim_, color_]:= Module[
-{length = Length[board], n, divs},
-dd=Table[color,3];
-dd[[1]]={color, Thickness[3]};
-Grid[board, ItemSize->Full,BaseStyle->dim, Spacings->{Offset[0.9],Offset[0.6]}, Dividers->{{dd}, {dd}}]
-]
+ShowSudoku[board_, dim_, cursor_:{0,0}]:= Module[{},
+Grid[board,ItemSize->Full,Frame->If[Equal[cursor,{0,0}],All,{All,All,cursor->{Blue}}],BaseStyle->dim,Spacings->{Offset[0.9],Offset[0.6]}]]
 
 
 CreateSudoku[dim_,nEl_]:=Module[
 {fullBoard, sudokuPuzzle},
-{fullBoard, sudokuPuzzle} = ResourceFunction["GenerateSudokuPuzzle"][3, 0.4];
+{fullBoard, sudokuPuzzle} = ResourceFunction["GenerateSudokuPuzzle"][dim, nEl];
 (*ResourceFunction["DisplaySudokuPuzzle"][#] & /@ {fullBoard, 
   sudokuPuzzle}*/*);
 Return[<|"fullBoard" -> fullBoard, "sudokuPuzzle" -> sudokuPuzzle|>]
@@ -46,6 +44,7 @@ Return[<|"fullBoard" -> fullBoard, "sudokuPuzzle" -> sudokuPuzzle|>]
 
 convert[x_] := UnitConvert[Quantity[x, "Seconds"], MixedUnit[{"Hours", "Minutes", "Seconds"}]];
 avviaTimer[] := Dynamic[Refresh[timer = timer + 1; convert[timer], TrackedSymbols :> {}, UpdateInterval -> 1]];
+loc2[{x_,y_}] := {Floor[9(1-y)]+1, Floor[9x]+1}
 
 
 SudokuGame[] := DynamicModule[
@@ -67,7 +66,7 @@ SudokuGame[] := DynamicModule[
 
 
 Manipulate[{solution, ControlType -> None},
- {{puzzle, (solution = randFill[]; createPuzzle[solution])}, ControlType -> None},
+ {{puzzle, (solution = CreateSudoku[3,0.5]; createPuzzle[solution])}, ControlType -> None},
  {{cursor, 0}, ControlType -> None},
  Row[{Column[{Grid[Transpose[{{"Aiuto", "Mostra soluzione"},
  {aiutoCheckbox, mostraSoluzioneCheckbox}}]],
