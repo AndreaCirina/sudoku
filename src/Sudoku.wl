@@ -13,12 +13,12 @@
 (* :Discussion: \\*)
 
 
-BeginPackage["Sudoku`"]
+BeginPackage["Sudoku`"];
 
-SudokuGame::usage="Gioco del sudoku"
-ShowSudoku::usage="mostra"
-CreateSudoku::usage=" "
-Begin["`Private`"]
+SudokuGame::usage="Gioco del sudoku";
+ShowSudoku::usage="mostra";
+CreateSudoku::usage=" ";
+Begin["`Private`"];
 
 
 (* ::InheritFromParent:: *)
@@ -32,8 +32,6 @@ Grid[board,ItemSize->Full,Frame->If[Equal[cursor,{0,0}],All,{All,All,cursor->{Bl
 CreateSudoku[dim_,nEl_]:=Module[
 {fullBoard, sudokuPuzzle},
 {fullBoard, sudokuPuzzle} = ResourceFunction["GenerateSudokuPuzzle"][dim, nEl];
-(*ResourceFunction["DisplaySudokuPuzzle"][#] & /@ {fullBoard, 
-  sudokuPuzzle}*/*);
 Return[<|"fullBoard" -> fullBoard, "sudokuPuzzle" -> sudokuPuzzle|>]
 ]
 
@@ -49,12 +47,19 @@ generaNuovoSeed[]:=RandomInteger[{1,1000}];
 loc2[{x_,y_}] := {Floor[9(1-y)]+1, Floor[9x]+1};
 
 
+
 SudokuGame[] := DynamicModule[
 {
 (*Sudoku*)
 	numSudoku = RandomInteger[],
 	caricaSudoku = 0,
 	caricaSudokuInput = InputField[Dynamic[caricaSudoku], FieldSize->Small],
+	sudoku = CreateSudoku[3, 0.5],
+	fullBoard,
+	puzzle,
+	cursor = {0,0},
+	inputValue,
+	
 (* Timer *)
 	timer = 0, 
 (* Difficolt\[AGrave] *)
@@ -71,11 +76,21 @@ SudokuGame[] := DynamicModule[
 	mostraSoluzione = False,
 	mostraSoluzioneCheckbox = Checkbox[Dynamic[mostraSoluzione]],
 (* Manipulate *)
-	dimensioneManipulate = {larghezza = 650, altezza = 100}
+	dimensioneManipulate = {larghezza = 650, altezza = 400}
  },
 
+fullBoard = sudoku[["fullBoard"]];
+puzzle = sudoku[["sudokuPuzzle"]];
 
-Manipulate[{solution, ControlType -> None},
+Manipulate[EventHandler[
+ Dynamic[ShowSudoku[puzzle, 22, 
+   cursor]], {"MouseClicked" :> (cursor = 
+     loc2[MousePosition["EventHandlerScaled"]]), 
+  "KeyDown" :> (inputValue = CurrentValue["EventKey"]; 
+    If[cursor[[1]] != 0 && DigitQ[inputValue] && 
+      Between[ToExpression[inputValue], {1, 9}], 
+     puzzle[[cursor[[1]]]][[cursor[[2]]]] = inputValue])
+  }],
  (*{{puzzle, (solution = CreateSudoku[3,0.5]; createPuzzle[solution])}, ControlType -> None},
  {{cursor, 0}, ControlType -> None},*)
 Control[
@@ -131,5 +146,5 @@ Row[{
  ControlPlacement -> {Top, Top, Bottom}]]
 
 
-End[]
-EndPackage[]
+End[];
+EndPackage[];
