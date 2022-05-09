@@ -29,8 +29,10 @@ ShowSudoku[board_, dim_, cursor_:{0,0}]:= Module[{},
 Grid[board,ItemSize->Full,Frame->If[Equal[cursor,{0,0}],All,{All,All,cursor->{Blue}}],BaseStyle->dim,Spacings->{Offset[0.9],Offset[0.6]}]]
 
 
-CreateSudoku[dim_,nEl_]:=Module[
-{fullBoard, sudokuPuzzle},
+CreateSudoku[dim_,diffic_]:=
+Module[
+{fullBoard, sudokuPuzzle, nEl},
+nEl = Switch[diffic, "Tutorial", 0.9, "Facile", 0.7, "Medio", 0.5, "Difficile", 0.2];
 {fullBoard, sudokuPuzzle} = ResourceFunction["GenerateSudokuPuzzle"][dim, nEl];
 Return[<|"fullBoard" -> fullBoard, "sudokuPuzzle" -> sudokuPuzzle|>]
 ]
@@ -51,11 +53,17 @@ loc2[{x_,y_}] := {Floor[9(1-y)]+1, Floor[9x]+1};
 
 SudokuGame[] := DynamicModule[
 {
+(* Difficolt\[AGrave] *)
+	difficolta = "Facile",
+	difficoltaInCorso = "Medio",
+	popupDifficolta = PopupMenu[Dynamic[difficolta], {"Tutorial", "Facile", "Medio", "Difficile"}, FieldSize -> Small],
+	difficoltaCarica = "Facile",
+	popupDifficoltaCarica = PopupMenu[Dynamic[difficoltaCarica], {"Tutorial", "Facile", "Medio", "Difficile"}, FieldSize -> Small],
 (*Sudoku*)
 	numSudoku = RandomInteger[],
 	caricaSudoku = 0,
 	caricaSudokuInput = InputField[Dynamic[caricaSudoku], FieldSize->Small],
-	sudoku = CreateSudoku[3, 0.9],
+	sudoku,
 	fullBoard,
 	puzzle,
 	cursor = {0,0},
@@ -63,12 +71,7 @@ SudokuGame[] := DynamicModule[
 	
 (* Timer *)
 	timer = 0, 
-(* Difficolt\[AGrave] *)
-	difficolta = "Tutorial",
-	difficoltaInCorso = "Tutorial",
-	popupDifficolta = PopupMenu[Dynamic[difficolta], {"Tutorial", "Facile", "Medio", "Difficile"}, FieldSize -> Small],
-	difficoltaCarica = "Tutorial",
-	popupDifficoltaCarica = PopupMenu[Dynamic[difficoltaCarica], {"Tutorial", "Facile", "Medio", "Difficile"}, FieldSize -> Small],
+
 	
 (* Aiuto *)
 	aiuto = False,
@@ -79,9 +82,11 @@ SudokuGame[] := DynamicModule[
 (* Manipulate *)
 	dimensioneManipulate = {larghezza = 650, altezza = 400}
  },
-
+ 
+sudoku = CreateSudoku[3, difficoltaInCorso];
 fullBoard = sudoku[["fullBoard"]];
 puzzle = sudoku[["sudokuPuzzle"]];
+
 
 Manipulate[Grid[{
 {
@@ -100,7 +105,7 @@ EventHandler[
   If[mostraSoluzione,Dynamic[ShowSudoku[fullBoard, 15, cursor]],""]
   }
   }],
- (*{{puzzle, (solution = CreateSudoku[3,0.5]; createPuzzle[solution])}, ControlType -> None},
+ (*{{puzzle, (solution = CreateSudoku[3,difficoltaInCorso]; createPuzzle[solution]))}, ControlType -> None},
  {{cursor, 0}, ControlType -> None},*)
 Control[
 Row[{Spacer[170],
@@ -134,7 +139,11 @@ Row[{
          aiuto = False;
          mostraSoluzione = False;
          difficoltaInCorso = difficolta;
-         numSudoku = generaNuovoSeed[])&]}]]
+         numSudoku = generaNuovoSeed[];
+         sudoku = CreateSudoku[3, difficoltaInCorso];
+         fullBoard = sudoku[["fullBoard"]];
+         puzzle = sudoku[["sudokuPuzzle"]];
+         )&]}]]
      }],
      Spacer[{50,0}],
      Column[{
@@ -148,7 +157,6 @@ Row[{
          aiuto = False;
          mostraSoluzione = False;
          difficoltaInCorso = getDifficoltaCarica[Last[IntegerDigits[ToExpression[Mod[caricaSudoku, 4]]]]];
-         Print[difficoltaInCorso];
          numSudoku = caricaSudoku)&]}]]
      }]}]],
  SaveDefinitions -> True, 
