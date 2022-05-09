@@ -43,6 +43,7 @@ titleMainStyle[s_]:= Style[s, FontSize->16];
 elemStyle[s_]:= Style[s, FontSize->14, Bold];
 mainStyle[s_]:= Style[s, FontSize->14];
 generaNuovoSeed[]:=RandomInteger[{1,1000}];
+getDifficoltaCarica[seed_] := Switch[seed, 0, "Tutorial", 1, "Facile", 2, "Medio", _, "Difficile"];
 
 loc2[{x_,y_}] := {Floor[9(1-y)]+1, Floor[9x]+1};
 
@@ -54,7 +55,7 @@ SudokuGame[] := DynamicModule[
 	numSudoku = RandomInteger[],
 	caricaSudoku = 0,
 	caricaSudokuInput = InputField[Dynamic[caricaSudoku], FieldSize->Small],
-	sudoku = CreateSudoku[3, 0.5],
+	sudoku = CreateSudoku[3, 0.9],
 	fullBoard,
 	puzzle,
 	cursor = {0,0},
@@ -82,14 +83,22 @@ SudokuGame[] := DynamicModule[
 fullBoard = sudoku[["fullBoard"]];
 puzzle = sudoku[["sudokuPuzzle"]];
 
-Manipulate[EventHandler[
+Manipulate[Grid[{
+{
+Column[{
+EventHandler[
  Dynamic[ShowSudoku[puzzle, 22, 
-   cursor]], {"MouseClicked" :> (cursor = 
+   cursor]], {"MouseClicked":> (cursor = 
      loc2[MousePosition["EventHandlerScaled"]]), 
-  "KeyDown" :> (inputValue = CurrentValue["EventKey"]; 
+  "KeyDown":>(inputValue = CurrentValue["EventKey"]; 
     If[cursor[[1]] != 0 && DigitQ[inputValue] && 
       Between[ToExpression[inputValue], {1, 9}], 
      puzzle[[cursor[[1]]]][[cursor[[2]]]] = inputValue])
+  }]
+  }],
+  "\t",
+  If[mostraSoluzione,Dynamic[ShowSudoku[fullBoard, 15, cursor]],""]
+  }
   }],
  (*{{puzzle, (solution = CreateSudoku[3,0.5]; createPuzzle[solution])}, ControlType -> None},
  {{cursor, 0}, ControlType -> None},*)
@@ -133,12 +142,13 @@ Row[{
      elemStyle["Carica Sudoku:"],
      Panel[
      Column[{
-         Grid[Transpose[{{mainStyle["Numero sudoku:"], mainStyle["Difficolt\[AGrave]: "]}, {caricaSudokuInput, popupDifficoltaCarica}}]],
+         Grid[Transpose[{{mainStyle["Numero sudoku:"]}, {caricaSudokuInput}}]],
          Button["Carica Sudoku", (
          timer = -1;
          aiuto = False;
          mostraSoluzione = False;
-         difficoltaInCorso = difficoltaCarica;
+         difficoltaInCorso = getDifficoltaCarica[Last[IntegerDigits[ToExpression[Mod[caricaSudoku, 4]]]]];
+         Print[difficoltaInCorso];
          numSudoku = caricaSudoku)&]}]]
      }]}]],
  SaveDefinitions -> True, 
