@@ -157,7 +157,10 @@ Row[{
          aiuto = False;
          mostraSoluzione = False;
          difficoltaInCorso = getDifficoltaCarica[Last[IntegerDigits[ToExpression[Mod[caricaSudoku, 4]]]]];
-         numSudoku = caricaSudoku)&]}]]
+         numSudoku = caricaSudoku;
+         sudoku = CreateSudoku[3, difficoltaInCorso];
+         fullBoard = sudoku[["fullBoard"]];
+         puzzle = sudoku[["sudokuPuzzle"]];)&]}]]
      }]}]],
  SaveDefinitions -> True, 
  ContentSize -> dimensioneManipulate,
