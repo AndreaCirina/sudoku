@@ -25,8 +25,28 @@ Begin["`Private`"];
 (*"Crea sudoku 2*)
 
 
-ShowSudoku[board_, dim_, cursor_:{0,0}]:= Module[{},
-Grid[board,ItemSize->Full,Frame->If[Equal[cursor,{0,0}],All,{All,All,cursor->{Blue}}],BaseStyle->dim,Spacings->{Offset[0.9],Offset[0.6]}]]
+row[r_, index_ ]:=Module[{norm,dupl, coord, aux},
+norm  = Normal[r];
+dupl=Cases[Tally[Cases[norm, _Integer]], {x_,y_}/;y >1];
+coord = If[Length[dupl]>0, Flatten[Map[Position[norm,First[#]]&, dupl]], Nothing];
+Map[{index,#}&,coord]];
+
+checkErrors[puzzle_]:=Module[{aux},
+	aux = Flatten[Table[row[puzzle[[x]],x],{x,1,9}], 1];
+	Map[#-> Darker[Red]&,aux]
+]
+
+ShowSudoku[board_, dim_, cursor_:{0,0}]:= Module[{background, err, un},
+background=Flatten[Table[{i,j}->If[EvenQ[Plus@@Floor[{i-1,j-1}/3]],Darker[White],White],{i,9},{j,9}]];
+err = checkErrors[board];
+un = Join[background,err];
+Grid[board,
+ItemSize->Full,
+Frame->If[Equal[cursor,{0,0}],All,{All,All,cursor->{Blue}}],
+BaseStyle->dim,
+Spacings->{Offset[0.9],Offset[0.6]},
+Background -> {Automatic, Automatic,
+  un}]]
 
 
 CreateSudoku[dim_,diffic_]:=
@@ -98,7 +118,7 @@ EventHandler[
   "KeyDown":>(inputValue = CurrentValue["EventKey"]; 
     If[cursor[[1]] != 0 && DigitQ[inputValue] && 
       Between[ToExpression[inputValue], {1, 9}], 
-     puzzle[[cursor[[1]]]][[cursor[[2]]]] = inputValue])
+     puzzle[[cursor[[1]]]][[cursor[[2]]]] = ToExpression[inputValue]])
   }]
   }],
   "\t",
