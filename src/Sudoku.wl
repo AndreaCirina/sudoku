@@ -67,7 +67,10 @@ mainStyle[s_]:= Style[s, FontSize->14];
 generaNuovoSeed[]:=RandomInteger[{1,1000}];
 getDifficoltaCarica[seed_] := Switch[seed, 0, "Tutorial", 1, "Facile", 2, "Medio", _, "Difficile"];
 
-loc2[{x_,y_}] := {Floor[9(1-y)]+1, Floor[9x]+1};
+loc2[{x_,y_}, startPosition_] := Module[{coord},
+coord={Floor[9(1-y)]+1, Floor[9x]+1};
+If[!MemberQ[startPosition, coord], coord,{0,0}]
+];
 
 
 
@@ -86,6 +89,7 @@ SudokuGame[] := DynamicModule[
 	sudoku,
 	fullBoard,
 	puzzle,
+	startPosition,
 	cursor = {0,0},
 	inputValue,
 	
@@ -106,7 +110,7 @@ SudokuGame[] := DynamicModule[
 sudoku = CreateSudoku[3, difficoltaInCorso];
 fullBoard = sudoku[["fullBoard"]];
 puzzle = sudoku[["sudokuPuzzle"]];
-
+startPosition = Position[Normal[puzzle], _Integer]; 
 
 Manipulate[Grid[{
 {
@@ -114,7 +118,7 @@ Column[{
 EventHandler[
  Dynamic[ShowSudoku[puzzle, 22, 
    cursor]], {"MouseClicked":> (cursor = 
-     loc2[MousePosition["EventHandlerScaled"]]), 
+     loc2[MousePosition["EventHandlerScaled"], startPosition]), 
   "KeyDown":>(inputValue = CurrentValue["EventKey"]; 
     If[cursor[[1]] != 0 && DigitQ[inputValue] && 
       Between[ToExpression[inputValue], {1, 9}], 

@@ -10,27 +10,32 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     56118,       1211]
-NotebookOptionsPosition[     55151,       1187]
-NotebookOutlinePosition[     55652,       1206]
-CellTagsIndexPosition[     55609,       1203]
+NotebookDataLength[     65519,       1477]
+NotebookOptionsPosition[     63409,       1432]
+NotebookOutlinePosition[     63938,       1452]
+CellTagsIndexPosition[     63895,       1449]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.8611668368562527`*^9, 3.861166845210455*^9}, {
+  3.86116689025853*^9, 3.861166892499959*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"3fc6b9ab-cd71-4295-be44-8919554c9149"],
+
 Cell[BoxData[
  RowBox[{
   RowBox[{"AppendTo", "[", 
    RowBox[{"$Path", ",", " ", 
     RowBox[{"NotebookDirectory", "[", "]"}]}], "]"}], ";"}]], "Input",
  CellChangeTimes->{3.860500368636446*^9},
- CellLabel->"In[23]:=",ExpressionUUID->"9a39f568-919f-4adb-8af6-e8e71e19f064"],
+ CellLabel->"In[2]:=",ExpressionUUID->"9a39f568-919f-4adb-8af6-e8e71e19f064"],
 
 Cell[BoxData[
  RowBox[{"<<", " ", "Sudoku`"}]], "Input",
  CellChangeTimes->{{3.8605003335934033`*^9, 3.860500333749993*^9}, {
   3.860500366188586*^9, 3.8605003750664425`*^9}},
- CellLabel->"In[24]:=",ExpressionUUID->"f74477cc-5091-4301-8864-0f395ffe0271"],
+ CellLabel->"In[3]:=",ExpressionUUID->"f74477cc-5091-4301-8864-0f395ffe0271"],
 
 Cell[CellGroupData[{
 
@@ -38,7 +43,7 @@ Cell[BoxData[
  RowBox[{"?", "SudokuGame"}]], "Input",
  CellChangeTimes->{{3.8605003805693626`*^9, 3.860500384786579*^9}, {
   3.8607488923670864`*^9, 3.8607488947851815`*^9}},
- CellLabel->"In[25]:=",ExpressionUUID->"423ffae2-6041-4243-a41d-4be3275970a1"],
+ CellLabel->"In[4]:=",ExpressionUUID->"423ffae2-6041-4243-a41d-4be3275970a1"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -136,6 +141,7 @@ Cell[BoxData[
                     RowBox[{"FieldSize", "\[Rule]", "Small"}]}], "]"}]}], ",",
                      "Sudoku`Private`sudoku", ",", "Sudoku`Private`fullBoard",
                      ",", "Sudoku`Private`puzzle", ",", 
+                    "Sudoku`Private`startPosition", ",", 
                     RowBox[{"Sudoku`Private`cursor", "=", 
                     RowBox[{"{", 
                     RowBox[{"0", ",", "0"}], "}"}]}], ",", 
@@ -172,6 +178,11 @@ Cell[BoxData[
                     
                     RowBox[{"Sudoku`Private`sudoku", "\[LeftDoubleBracket]", 
                     "\"sudokuPuzzle\"", "\[RightDoubleBracket]"}]}], ";", 
+                    RowBox[{"Sudoku`Private`startPosition", "=", 
+                    RowBox[{"Position", "[", 
+                    RowBox[{
+                    RowBox[{"Normal", "[", "Sudoku`Private`puzzle", "]"}], 
+                    ",", "_Integer"}], "]"}]}], ";", 
                     RowBox[{"Manipulate", "[", 
                     RowBox[{
                     RowBox[{"Grid", "[", 
@@ -193,9 +204,11 @@ Cell[BoxData[
                     RowBox[{"(", 
                     RowBox[{"Sudoku`Private`cursor", "=", 
                     RowBox[{"Sudoku`Private`loc2", "[", 
+                    RowBox[{
                     
                     RowBox[{"MousePosition", "[", "\"EventHandlerScaled\"", 
-                    "]"}], "]"}]}], ")"}]}], ",", 
+                    "]"}], ",", "Sudoku`Private`startPosition"}], "]"}]}], 
+                    ")"}]}], ",", 
                     RowBox[{"\"KeyDown\"", "\[RuleDelayed]", 
                     RowBox[{"(", 
                     RowBox[{
@@ -228,8 +241,10 @@ Cell[BoxData[
                     
                     RowBox[{"Sudoku`Private`cursor", "\[LeftDoubleBracket]", 
                     "2", "\[RightDoubleBracket]"}], "\[RightDoubleBracket]"}],
-                     "=", "Sudoku`Private`inputValue"}]}], "]"}]}], ")"}]}]}],
-                     "}"}]}], "]"}], "}"}], "]"}], ",", "\"\\t\"", ",", 
+                     "=", 
+                    RowBox[{"ToExpression", "[", "Sudoku`Private`inputValue", 
+                    "]"}]}]}], "]"}]}], ")"}]}]}], "}"}]}], "]"}], "}"}], 
+                    "]"}], ",", "\"\\t\"", ",", 
                     RowBox[{"If", "[", 
                     RowBox[{"Sudoku`Private`mostraSoluzione", ",", 
                     RowBox[{"Dynamic", "[", 
@@ -251,7 +266,6 @@ Cell[BoxData[
                     RowBox[{"Dynamic", "[", 
                     "Sudoku`Private`difficoltaInCorso", "]"}], "]"}], ",", 
                     RowBox[{"Spacer", "[", "20", "]"}], ",", 
-                    
                     RowBox[{"Sudoku`Private`titleMainStyle", "[", 
                     "\"Numero Sudoku:  \"", "]"}], ",", 
                     RowBox[{"Sudoku`Private`titleElemStyle", "[", 
@@ -384,7 +398,6 @@ Cell[BoxData[
                     RowBox[{"{", 
                     RowBox[{
                     RowBox[{"{", 
-                    
                     RowBox[{"Sudoku`Private`mainStyle", "[", 
                     "\"Numero sudoku:\"", "]"}], "}"}], ",", 
                     RowBox[{"{", "Sudoku`Private`caricaSudokuInput", "}"}]}], 
@@ -574,7 +587,6 @@ Cell[BoxData[
               System`InformationDump`mouseOver$$]],
              Alignment->Left,
              Appearance->{"Default" -> None},
-             
              ButtonFunction:>FEPrivate`Set[
               System`InformationDump`open$$, True],
              Evaluator->Automatic,
@@ -631,10 +643,10 @@ Cell[BoxData[
           InputField[
             Dynamic[Sudoku`Private`caricaSudoku], FieldSize -> Small], 
           Sudoku`Private`sudoku, Sudoku`Private`fullBoard, 
-          Sudoku`Private`puzzle, Sudoku`Private`cursor = {0, 0}, 
-          Sudoku`Private`inputValue, Sudoku`Private`timer = 0, 
-          Sudoku`Private`aiuto = False, Sudoku`Private`aiutoCheckbox = 
-          Checkbox[
+          Sudoku`Private`puzzle, Sudoku`Private`startPosition, 
+          Sudoku`Private`cursor = {0, 0}, Sudoku`Private`inputValue, 
+          Sudoku`Private`timer = 0, Sudoku`Private`aiuto = False, 
+          Sudoku`Private`aiutoCheckbox = Checkbox[
             Dynamic[Sudoku`Private`aiuto]], Sudoku`Private`mostraSoluzione = 
           False, Sudoku`Private`mostraSoluzioneCheckbox = Checkbox[
             Dynamic[Sudoku`Private`mostraSoluzione]], 
@@ -644,7 +656,9 @@ Cell[BoxData[
           Sudoku`CreateSudoku[3, Sudoku`Private`difficoltaInCorso]; 
          Sudoku`Private`fullBoard = Part[Sudoku`Private`sudoku, "fullBoard"]; 
          Sudoku`Private`puzzle = Part[Sudoku`Private`sudoku, "sudokuPuzzle"]; 
-         Manipulate[
+         Sudoku`Private`startPosition = Position[
+            Normal[Sudoku`Private`puzzle], 
+            Blank[Integer]]; Manipulate[
            Grid[{{
               Column[{
                 EventHandler[
@@ -653,7 +667,8 @@ Cell[BoxData[
                   Sudoku`Private`puzzle, 22, Sudoku`Private`cursor]], {
                  "MouseClicked" :> (Sudoku`Private`cursor = 
                    Sudoku`Private`loc2[
-                    MousePosition["EventHandlerScaled"]]), 
+                    MousePosition["EventHandlerScaled"], 
+                    Sudoku`Private`startPosition]), 
                   "KeyDown" :> (
                    Sudoku`Private`inputValue = CurrentValue["EventKey"]; If[
                     And[Part[Sudoku`Private`cursor, 1] != 0, 
@@ -663,7 +678,7 @@ Cell[BoxData[
                     Part[Sudoku`Private`puzzle, 
                     Part[Sudoku`Private`cursor, 1]], 
                     Part[Sudoku`Private`cursor, 2]] = 
-                    Sudoku`Private`inputValue])}]}], "\t", 
+                    ToExpression[Sudoku`Private`inputValue]])}]}], "\t", 
               If[Sudoku`Private`mostraSoluzione, 
                Dynamic[
                 Sudoku`ShowSudoku[
@@ -779,16 +794,19 @@ Cell[BoxData[
    3.861075772508885*^9, 3.8610762127361403`*^9, 3.861076248194137*^9, {
    3.86107628514662*^9, 3.861076326029964*^9}, 3.861076414029303*^9, 
    3.861076482328784*^9, 3.861076564863647*^9, 3.861076745935114*^9, {
-   3.861077586919086*^9, 3.8610776359442244`*^9}, 3.861165996258467*^9},
- CellLabel->"Out[25]=",ExpressionUUID->"a548345a-e133-487c-b35e-3eb204db91bb"]
+   3.861077586919086*^9, 3.8610776359442244`*^9}, 3.861165996258467*^9, 
+   3.8611677883394794`*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"a9688c5a-245d-4799-aa58-02139d263135"]
 }, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"SudokuGame", "[", "]"}]], "Input",
  CellChangeTimes->{{3.8610692491032915`*^9, 3.861069254593988*^9}, {
   3.8610704491045384`*^9, 3.8610704509888315`*^9}, {3.86107053567478*^9, 
   3.8610705369364696`*^9}},
- CellLabel->"In[49]:=",ExpressionUUID->"129225ac-57d0-4eb3-ade8-5a1611fdb436"],
+ CellLabel->"In[5]:=",ExpressionUUID->"129225ac-57d0-4eb3-ade8-5a1611fdb436"],
 
 Cell[BoxData[
  DynamicModuleBox[{Sudoku`Private`difficolta$$ = "Facile", 
@@ -813,19 +831,19 @@ Cell[BoxData[
        7}, {8}, {9}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {1}, {2}, {
        3}, {4}, {5}, {6}, {7}, {8}, {9}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {
        8}, {9}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {1}, {2}, {3}, {
-       4}, {5}, {6}, {7}, {8}, {9}}}, {9, 1, 8, 5, 4, 3, 6, 7, 2, 3, 7, 6, 2, 
-      1, 8, 9, 4, 5, 4, 5, 2, 7, 6, 9, 8, 3, 1, 8, 4, 7, 3, 2, 5, 1, 9, 6, 6, 
-      2, 5, 1, 9, 4, 3, 8, 7, 1, 3, 9, 6, 8, 7, 5, 2, 4, 5, 9, 4, 8, 7, 1, 2, 
-      6, 3, 7, 6, 3, 9, 5, 2, 4, 1, 8, 2, 8, 1, 4, 3, 6, 7, 5, 9}}], 
+       4}, {5}, {6}, {7}, {8}, {9}}}, {3, 6, 8, 4, 7, 1, 5, 2, 9, 5, 1, 9, 8, 
+      2, 6, 3, 7, 4, 2, 7, 4, 9, 3, 5, 1, 6, 8, 7, 4, 3, 5, 6, 9, 2, 8, 1, 8, 
+      9, 1, 2, 4, 3, 7, 5, 6, 6, 5, 2, 7, 1, 8, 9, 4, 3, 4, 3, 6, 1, 5, 7, 8, 
+      9, 2, 1, 8, 5, 6, 9, 2, 4, 3, 7, 9, 2, 7, 3, 8, 4, 6, 1, 5}}], 
    "sudokuPuzzle" -> 
    SparseArray[
     Automatic, {9, 9}, Blank[], {
-     1, {{0, 5, 8, 11, 16, 21, 26, 31, 37, 41}, {{6}, {5}, {3}, {7}, {2}, {
-       9}, {3}, {1}, {7}, {8}, {9}, {6}, {7}, {5}, {9}, {4}, {5}, {7}, {1}, {
-       9}, {2}, {1}, {7}, {5}, {8}, {4}, {7}, {6}, {5}, {4}, {9}, {8}, {7}, {
-       3}, {1}, {9}, {2}, {2}, {5}, {7}, {4}}}, {3, 4, 8, 6, 1, 5, 6, 3, 8, 3,
-       1, 5, 1, 2, 6, 3, 9, 3, 6, 7, 2, 1, 5, 8, 2, 6, 2, 1, 7, 8, 3, 1, 4, 3,
-       7, 8, 6, 8, 3, 7, 4}}]|>, Sudoku`Private`fullBoard$$ = SparseArray[
+     1, {{0, 4, 8, 11, 15, 19, 25, 30, 38, 41}, {{7}, {9}, {3}, {5}, {6}, {
+       4}, {1}, {5}, {5}, {8}, {6}, {5}, {4}, {3}, {2}, {2}, {8}, {1}, {4}, {
+       3}, {7}, {1}, {4}, {8}, {9}, {7}, {8}, {2}, {5}, {3}, {7}, {3}, {6}, {
+       2}, {9}, {5}, {1}, {8}, {8}, {4}, {5}}}, {5, 9, 8, 7, 6, 8, 5, 2, 3, 6,
+       5, 6, 5, 3, 4, 9, 5, 8, 2, 2, 9, 6, 7, 4, 3, 8, 9, 3, 5, 6, 4, 5, 2, 8,
+       7, 9, 1, 3, 1, 3, 8}}]|>, Sudoku`Private`fullBoard$$ = SparseArray[
   Automatic, {9, 9}, 0, {
    1, {{0, 9, 18, 27, 36, 45, 54, 63, 72, 81}, {{1}, {2}, {3}, {4}, {5}, {
      6}, {7}, {8}, {9}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {1}, {
@@ -833,23 +851,26 @@ Cell[BoxData[
      7}, {8}, {9}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {1}, {2}, {
      3}, {4}, {5}, {6}, {7}, {8}, {9}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {
      8}, {9}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {1}, {2}, {3}, {
-     4}, {5}, {6}, {7}, {8}, {9}}}, {9, 1, 8, 5, 4, 3, 6, 7, 2, 3, 7, 6, 2, 1,
-     8, 9, 4, 5, 4, 5, 2, 7, 6, 9, 8, 3, 1, 8, 4, 7, 3, 2, 5, 1, 9, 6, 6, 2, 
-    5, 1, 9, 4, 3, 8, 7, 1, 3, 9, 6, 8, 7, 5, 2, 4, 5, 9, 4, 8, 7, 1, 2, 6, 3,
-     7, 6, 3, 9, 5, 2, 4, 1, 8, 2, 8, 1, 4, 3, 6, 7, 5, 9}}], 
+     4}, {5}, {6}, {7}, {8}, {9}}}, {3, 6, 8, 4, 7, 1, 5, 2, 9, 5, 1, 9, 8, 2,
+     6, 3, 7, 4, 2, 7, 4, 9, 3, 5, 1, 6, 8, 7, 4, 3, 5, 6, 9, 2, 8, 1, 8, 9, 
+    1, 2, 4, 3, 7, 5, 6, 6, 5, 2, 7, 1, 8, 9, 4, 3, 4, 3, 6, 1, 5, 7, 8, 9, 2,
+     1, 8, 5, 6, 9, 2, 4, 3, 7, 9, 2, 7, 3, 8, 4, 6, 1, 5}}], 
   Sudoku`Private`puzzle$$ = SparseArray[
   Automatic, {9, 9}, Blank[], {
-   1, {{0, 6, 9, 13, 20, 25, 30, 39, 45, 49}, {{6}, {5}, {3}, {7}, {2}, {1}, {
-     9}, {3}, {1}, {7}, {8}, {9}, {1}, {6}, {7}, {5}, {9}, {4}, {1}, {2}, {
-     5}, {7}, {1}, {9}, {2}, {1}, {7}, {5}, {8}, {4}, {7}, {6}, {5}, {4}, {
-     9}, {1}, {2}, {3}, {8}, {8}, {7}, {3}, {1}, {9}, {2}, {2}, {5}, {7}, {
-     4}}}, {3, 4, 8, 6, 1, 4, 5, 6, 3, 8, 3, 1, 8, 5, 1, 2, 6, 3, 4, 8, 9, 3, 
-    6, 7, 2, 1, 5, 8, 2, 6, 2, 1, 7, 8, 3, 4, 5, 9, 4, 1, 4, 3, 7, 8, 6, 8, 3,
-     7, 4}}], Sudoku`Private`cursor$$ = {7, 8}, Sudoku`Private`inputValue$$ = 
-  "4", Sudoku`Private`timer$$ = 618, Sudoku`Private`aiuto$$ = False, 
+   1, {{0, 5, 9, 12, 16, 20, 26, 31, 39, 42}, {{7}, {9}, {3}, {5}, {1}, {6}, {
+     4}, {1}, {5}, {5}, {8}, {6}, {5}, {4}, {3}, {2}, {2}, {8}, {1}, {4}, {
+     3}, {7}, {1}, {4}, {8}, {9}, {7}, {8}, {2}, {5}, {3}, {7}, {3}, {6}, {
+     2}, {9}, {5}, {1}, {8}, {8}, {4}, {5}}}, {5, 9, 8, 7, 3, 6, 8, 5, 2, 3, 
+    6, 5, 6, 5, 3, 4, 9, 5, 8, 2, 2, 9, 6, 7, 4, 3, 8, 9, 3, 5, 6, 4, 5, 2, 8,
+     7, 9, 1, 3, 1, 3, 8}}], Sudoku`Private`startPosition$$ = CompressedData["
+1:eJxdjssNgEAIRPfHCmV4tB1LsADt/+aaPJKJh8kLMAzs13PerZRyLH2sSx0a
+3GCI5+OABie7BrN28Q56Q2RyyyQzZ05WlczJfPLfFF/Qa7BDgylHFTaYP+tt
+/+04d4I/An8wewFn3gOG
+  "], Sudoku`Private`cursor$$ = {1, 1}, Sudoku`Private`inputValue$$ = "3", 
+  Sudoku`Private`timer$$ = 34, Sudoku`Private`aiuto$$ = False, 
   Sudoku`Private`aiutoCheckbox$$ = Checkbox[
-   Dynamic[Sudoku`Private`aiuto$$]], Sudoku`Private`mostraSoluzione$$ = True, 
-  Sudoku`Private`mostraSoluzioneCheckbox$$ = Checkbox[
+   Dynamic[Sudoku`Private`aiuto$$]], Sudoku`Private`mostraSoluzione$$ = False,
+   Sudoku`Private`mostraSoluzioneCheckbox$$ = Checkbox[
    Dynamic[Sudoku`Private`mostraSoluzione$$]], 
   Sudoku`Private`dimensioneManipulate$$ = {650, 400}}, 
   TagBox[
@@ -948,7 +969,7 @@ Cell[BoxData[
                 Sudoku`Private`puzzle$$ = 
                  Part[Sudoku`Private`sudoku$$, "sudokuPuzzle"]; 
                 Null)& ]}]]}]}]], Manipulate`Dump`ThisIsNotAControl}}, 
-     Typeset`size$$ = {443., {121.70722647840157`, 126.29277352159843`}}, 
+     Typeset`size$$ = {278., {121.70722647840157`, 126.29277352159843`}}, 
      Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
      False}, 
      DynamicBox[Manipulate`ManipulateBoxes[
@@ -964,7 +985,8 @@ Cell[BoxData[
                Sudoku`ShowSudoku[
                Sudoku`Private`puzzle$$, 22, Sudoku`Private`cursor$$]], {
               "MouseClicked" :> (Sudoku`Private`cursor$$ = Sudoku`Private`loc2[
-                  MousePosition["EventHandlerScaled"]]), 
+                  MousePosition["EventHandlerScaled"], 
+                  Sudoku`Private`startPosition$$]), 
                "KeyDown" :> (
                 Sudoku`Private`inputValue$$ = CurrentValue["EventKey"]; If[
                   And[Part[Sudoku`Private`cursor$$, 1] != 0, 
@@ -1072,7 +1094,7 @@ Cell[BoxData[
        "Options" :> {
         ContentSize -> {650, 400}, ControlPlacement -> {Top, Top, Bottom}}, 
        "DefaultOptions" :> {}],
-      ImageSizeCache->{539., {256.7072264784016, 261.2927735215984}},
+      ImageSizeCache->{537., {256.7072264784016, 261.2927735215984}},
       SingleEvaluation->True],
      Deinitialization:>None,
      DynamicModuleValues:>{},
@@ -1141,7 +1163,20 @@ Cell[BoxData[
            Pattern[Sudoku`Private`y, 
             Blank[]]}] := {
          Floor[9 (1 - Sudoku`Private`y)] + 1, Floor[9 Sudoku`Private`x] + 1}, 
-        Sudoku`Private`convert[
+        Sudoku`Private`loc2[{
+           Pattern[Sudoku`Private`x, 
+            Blank[]], 
+           Pattern[Sudoku`Private`y, 
+            Blank[]]}, 
+          Pattern[Sudoku`Private`startPosition, 
+           Blank[]]] := 
+        Module[{Sudoku`Private`coord}, 
+          Sudoku`Private`coord = {
+            Floor[9 (1 - Sudoku`Private`y)] + 1, Floor[9 Sudoku`Private`x] + 
+             1}; If[
+            Not[
+             MemberQ[Sudoku`Private`startPosition, Sudoku`Private`coord]], 
+            Sudoku`Private`coord, {0, 0}]], Sudoku`Private`convert[
           Pattern[Sudoku`Private`x, 
            Blank[]]] := Sudoku`Private`elemStyle[
           UnitConvert[
@@ -1180,11 +1215,222 @@ Cell[BoxData[
     Deployed->True,
     StripOnInput->False],
    Manipulate`InterpretManipulate[1]],
-  DynamicModuleValues:>{}]], "Input",
- CellChangeTimes->{{3.8611662433901815`*^9, 
-  3.8611662447695627`*^9}},ExpressionUUID->"0d37ae99-52ec-4c35-b524-\
-142507697212"]
+  DynamicModuleValues:>{}]], "Output",
+ CellChangeTimes->{3.8611677948528595`*^9},
+ CellLabel->"Out[5]=",ExpressionUUID->"025563f4-f981-4a17-a7a1-fc7ca54a28f2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"val", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"1", ",", "2"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "3"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"3", ",", "4"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"5", ",", "8"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"7", ",", "9"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"8", ",", "6"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"7", ",", "5"}], "}"}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.86116734227975*^9, 3.86116739051966*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"6dc8cf90-3dc7-4990-ab73-10708325f024"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"7", ",", "9"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"8", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"7", ",", "5"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.861167391006153*^9, 3.8611677955850387`*^9},
+ CellLabel->"Out[7]=",ExpressionUUID->"c6cf5e3c-d578-43b9-8400-d5697b55181a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MemberQ", "[", 
+  RowBox[{"val", ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1"}], "}"}]}], " ", "]"}]], "Input",
+ CellChangeTimes->{{3.8611674156944304`*^9, 3.8611674581420436`*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"eea50290-b289-4c45-b090-bd122e121ead"],
+
+Cell[BoxData["False"], "Output",
+ CellChangeTimes->{{3.8611674552572155`*^9, 3.8611674587225323`*^9}, 
+   3.8611677956162558`*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"4ee6ac55-b446-4a32-a747-43fbab7c9fad"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"fullBoard", ",", " ", "sudokuPuzzle"}], "}"}], " ", "=", " ", 
+   RowBox[{
+    RowBox[{"ResourceFunction", "[", "\"\<GenerateSudokuPuzzle\>\"", "]"}], 
+    "[", 
+    RowBox[{"3", ",", " ", "0.5"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.861167605387107*^9, 3.8611676094779015`*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"d859a889-d1ab-41ca-9153-3a5bbd129202"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Normal", "[", "sudokuPuzzle", "]"}], " ", "//", 
+  "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.861167622289059*^9, 3.8611676449252024`*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"0e2d2a28-9b55-4e7c-bf28-f8b1694290c5"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"8", "3", "2", "5", "4", "9", "1", "_", "_"},
+     {"_", "4", "_", "1", "3", "6", "_", "_", "_"},
+     {"_", "9", "6", "8", "7", "2", "_", "_", "_"},
+     {"_", "_", "_", "_", "1", "_", "_", "_", "2"},
+     {"_", "_", "1", "_", "2", "5", "8", "3", "_"},
+     {"2", "_", "_", "9", "_", "_", "6", "1", "_"},
+     {"_", "6", "_", "7", "_", "_", "_", "_", "_"},
+     {"4", "_", "_", "3", "5", "_", "9", "7", "6"},
+     {"_", "_", "9", "2", "6", "_", "5", "8", "3"}
+    },
+    GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.8611676454584756`*^9, 3.861167796886284*^9},
+ CellLabel->
+  "Out[10]//MatrixForm=",ExpressionUUID->"68d3d8e9-1aec-4d5f-be52-\
+0a89da3024b5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Position", "[", 
+   RowBox[{
+    RowBox[{"Normal", "[", "sudokuPuzzle", "]"}], ",", " ", "_Integer"}], 
+   "]"}], " "}]], "Input",
+ CellChangeTimes->{{3.8611676481540985`*^9, 3.8611676693325925`*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"c499f97a-3778-481b-9c90-fd2c7b1173bb"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "9"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"7", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"7", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"8", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"8", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"8", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"8", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"8", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"8", ",", "9"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"9", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"9", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"9", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"9", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"9", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"9", ",", "9"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.861167669944724*^9, 3.8611677969175477`*^9},
+ CellLabel->"Out[11]=",ExpressionUUID->"e86bc85e-2fe5-46e4-8507-fc34aa333776"]
+}, Open  ]]
 },
+WindowSize->{1152., 579.6},
 WindowMargins->{{
   Automatic, -5.399999999999864}, {-5.399999999999977, Automatic}},
 DockedCells->{},
@@ -1205,14 +1451,34 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 274, 6, 22, "Input",ExpressionUUID->"9a39f568-919f-4adb-8af6-e8e71e19f064"],
-Cell[835, 28, 254, 4, 22, "Input",ExpressionUUID->"f74477cc-5091-4301-8864-0f395ffe0271"],
+Cell[558, 20, 220, 3, 22, "Input",ExpressionUUID->"3fc6b9ab-cd71-4295-be44-8919554c9149"],
+Cell[781, 25, 273, 6, 22, "Input",ExpressionUUID->"9a39f568-919f-4adb-8af6-e8e71e19f064"],
+Cell[1057, 33, 253, 4, 22, "Input",ExpressionUUID->"f74477cc-5091-4301-8864-0f395ffe0271"],
 Cell[CellGroupData[{
-Cell[1114, 36, 253, 4, 22, "Input",ExpressionUUID->"423ffae2-6041-4243-a41d-4be3275970a1"],
-Cell[1370, 42, 34692, 740, 76, "Output",ExpressionUUID->"a548345a-e133-487c-b35e-3eb204db91bb"]
+Cell[1335, 41, 252, 4, 22, "Input",ExpressionUUID->"423ffae2-6041-4243-a41d-4be3275970a1"],
+Cell[1590, 47, 35368, 751, 76, "Output",ExpressionUUID->"a9688c5a-245d-4799-aa58-02139d263135"]
 }, Open  ]],
-Cell[36077, 785, 308, 5, 22, "Input",ExpressionUUID->"129225ac-57d0-4eb3-ade8-5a1611fdb436"],
-Cell[36388, 792, 18759, 393, 530, InheritFromParent,ExpressionUUID->"0d37ae99-52ec-4c35-b524-142507697212"]
+Cell[CellGroupData[{
+Cell[36995, 803, 307, 5, 22, "Input",ExpressionUUID->"129225ac-57d0-4eb3-ade8-5a1611fdb436"],
+Cell[37305, 810, 19472, 409, 533, "Output",ExpressionUUID->"025563f4-f981-4a17-a7a1-fc7ca54a28f2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[56814, 1224, 647, 19, 22, "Input",ExpressionUUID->"6dc8cf90-3dc7-4990-ab73-10708325f024"],
+Cell[57464, 1245, 610, 18, 25, "Output",ExpressionUUID->"c6cf5e3c-d578-43b9-8400-d5697b55181a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[58111, 1268, 287, 6, 22, "Input",ExpressionUUID->"eea50290-b289-4c45-b090-bd122e121ead"],
+Cell[58401, 1276, 208, 3, 25, "Output",ExpressionUUID->"4ee6ac55-b446-4a32-a747-43fbab7c9fad"]
+}, Open  ]],
+Cell[58624, 1282, 434, 10, 22, "Input",ExpressionUUID->"d859a889-d1ab-41ca-9153-3a5bbd129202"],
+Cell[CellGroupData[{
+Cell[59083, 1296, 258, 5, 22, "Input",ExpressionUUID->"0e2d2a28-9b55-4e7c-bf28-f8b1694290c5"],
+Cell[59344, 1303, 1078, 26, 148, "Output",ExpressionUUID->"68d3d8e9-1aec-4d5f-be52-0a89da3024b5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[60459, 1334, 314, 7, 23, "Input",ExpressionUUID->"c499f97a-3778-481b-9c90-fd2c7b1173bb"],
+Cell[60776, 1343, 2617, 86, 41, "Output",ExpressionUUID->"e86bc85e-2fe5-46e4-8507-fc34aa333776"]
+}, Open  ]]
 }
 ]
 *)
