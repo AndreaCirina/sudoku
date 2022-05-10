@@ -25,30 +25,40 @@ Begin["`Private`"];
 (*"Crea sudoku 2*)
 
 
-row[r_, index_ ]:= Module[
- {norm,dupl, coord, aux},
- norm  = Normal[r];
- dupl=Cases[Tally[Cases[norm, _Integer]], {x_,y_}/;y >1];
- coord = If[Length[dupl]>0, Flatten[Map[Position[norm,First[#]]&, dupl]], Nothing];
- Map[{index,#}&,coord]];
+calcErrors[struct_, lFlat_, listPar_]:=Module[{norm,auxNorm,cnt, dupl, coord, aux},
+norm  = Normal[struct];
+auxNorm = If[Length[listPar]==1, Flatten[norm], norm];
+cnt = Tally[Cases[auxNorm, _Integer]];
+dupl = Cases[cnt, {x_,y_}/;y>1];
+coord = If[Length[dupl]>0, Flatten[Map[Position[norm,First[#]]&, dupl], lFlat], Nothing];
+Switch[Length[listPar], 
+ 1,Map[{First[#]+listPar[[1,1]]-1,#[[2]]+listPar[[1,2]]-1}&,coord],
+ 2,If[listPar[[2]],Map[{listPar[[1]],#}&,coord], Map[{#,listPar[[1]]}&,coord]]]
+ ];
 
-checkErrors[puzzle_]:= Module[
- {aux},
- aux = Flatten[Table[row[puzzle[[x]],x],{x,1,9}], 1];
- Map[#-> Darker[Red]&,aux]
+checkErrors[puzzle_, startPosition_]:=Module[{auxRow, auxColumn, auxSquare, union, final},
+	auxRow = Flatten[Table[calcErrors[puzzle[[x]],2,{x, True}],{x,1,9}], 1];
+	auxColumn =Flatten[Table[calcErrors[puzzle[[All,x]],2,{x,False}],{x,1,9}], 1];
+	auxSquare = Flatten[Table[calcErrors[puzzle[[x;;x+2,y;;y+2]],1, {{x,y}}],{x,1,7,3},{y,1,7,3}],2];
+	union = Union[auxRow,auxColumn,auxSquare];
+	final = DeleteCases[union, {x_,y_}/;MemberQ[startPosition,{x,y}]];
+	Map[#-> LightRed&, final]
 ]
 
 (* Metodo per visualizzare il sudoku. *)
-ShowSudoku[board_, dim_, cursor_:{0,0}]:= Module[{background, err, un},
+ShowSudoku[board_, dim_, cursor_:{0,0}, startPosition_:{}]:= Module[{background, err, un, numberColor},
 background=Flatten[Table[{i,j}->If[EvenQ[Plus@@Floor[{i-1,j-1}/3]],Darker[White],White],{i,9},{j,9}]];
-err = checkErrors[board];
+numberColor = Flatten[Table[If[MemberQ[startPosition, {x,y}], {x,y} -> {Black},{x,y} -> {Blue} ], {x, 1,9},{y, 1,9}]];
+err = checkErrors[board, startPosition];
 un = Join[background,err];
 Grid[board,
 ItemSize->Full,
+ItemStyle->{Automatic, Automatic, numberColor},
 Frame->If[Equal[cursor,{0,0}],All,{All,All,cursor->{Blue}}],
 BaseStyle->dim,
 Spacings->{Offset[0.9],Offset[0.6]},
-Background -> {Automatic, Automatic, un}]]
+Background -> {Automatic, Automatic,
+  un}]]
 
 
 (*Metodo per creare il sudoku. Prende come parametro la dimensione del sudoku ed il seed. *)
@@ -146,8 +156,8 @@ Manipulate[
   (*Griglia sudoku*)
   Column[{
   EventHandler[
-   Dynamic[ShowSudoku[puzzle, grandezzaGrigliaSudoku, cursor]],
-   {"MouseClicked":> (cursor = loc2[MousePosition["EventHandlerScaled"]])}
+   Dynamic[ShowSudoku[puzzle, grandezzaGrigliaSudoku, cursor,startPosition]],
+   {"MouseClicked":> (cursor = loc2[MousePosition["EventHandlerScaled"], startPosition])}
    ],
    "  ",
    (*Griglia numeri da selezionare*)
