@@ -107,7 +107,7 @@ SudokuGame[] := DynamicModule[
 	mostraSoluzione = False,
 	mostraSoluzioneCheckbox = Checkbox[Dynamic[mostraSoluzione]],
 (* Manipulate *)
-	dimensioneManipulate = {larghezza = 650, altezza = 400}
+	dimensioneManipulate = {larghezza = 700, altezza = 500}
  },
  
  numSudoku = generaNuovoSeed[difficolta];
@@ -116,22 +116,30 @@ SudokuGame[] := DynamicModule[
  puzzle = sudoku[["sudokuPuzzle"]];
  startPosition = sudoku[["startPosition"]]; 
 
-Manipulate[Grid[{
-{
-Column[{
-EventHandler[
- Dynamic[ShowSudoku[puzzle, 22, cursor]], 
- {"MouseClicked":> (cursor = loc2[MousePosition["EventHandlerScaled"], startPosition]), 
-  "KeyDown":>(inputValue = CurrentValue["EventKey"]; 
-    If[cursor[[1]] != 0 && DigitQ[inputValue] && 
-      Between[ToExpression[inputValue], {1, 9}], 
-     puzzle[[cursor[[1]]]][[cursor[[2]]]] = ToExpression[inputValue]])
-  }]
-  }],
-  "\t",
-  If[mostraSoluzione,Dynamic[ShowSudoku[fullBoard, 15, cursor]],""]
-  }
-  }],
+Manipulate[
+	Grid[{
+		{
+		Column[{
+			EventHandler[
+				Dynamic[ShowSudoku[puzzle, 22, cursor]], 
+				{"MouseClicked":> (cursor = loc2[MousePosition["EventHandlerScaled"]])}
+			],"  ",
+			Column[{
+				Style["Seleziona il valore che vuoi inserire:","Label", 15],
+				EventHandler[
+					Grid[
+					{{" ",1,2,3,4,5,6,7,8,9}},Frame -> All, BaseStyle->Large],
+					"MouseClicked" :> Module[
+						{num = Floor[10First@MousePosition["EventHandlerScaled"]]},
+					     If[num == 0,, puzzle[[cursor[[1]]]][[cursor[[2]]]] = num]
+					     ]
+				]
+			}],
+		}],
+		"\t",
+		If[mostraSoluzione,Dynamic[ShowSudoku[fullBoard, 15, cursor]],""]
+		}
+	}],
  (*{{puzzle, (solution = CreateSudoku[3,difficoltaInCorso]; createPuzzle[solution]))}, ControlType -> None},
  {{cursor, 0}, ControlType -> None},*)
 Control[
