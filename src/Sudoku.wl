@@ -131,7 +131,7 @@ SudokuGame[] := DynamicModule[
  startPosition,  (*Posizioni non modificabili nel sudoku. *)
  cursor = {0,0}, (*Cursore che ci dar\[AGrave] la posizione del mouse all'interno del nostro sudoku. *)
  inputValue,     (**) 
- grigliaSelezionaNumeri = {{" ",1,2,3,4,5,6,7,8,9}}, 
+ grigliaSelezionaNumeri = {{"C",1,2,3,4,5,6,7,8,9}}, 
 (* Timer *)
  timer = 0, 
 (* Aiuto *)
@@ -170,7 +170,7 @@ Manipulate[
       BaseStyle->Large],
       "MouseClicked" :> Module[
 	  {num = Floor[10First@MousePosition["EventHandlerScaled"]]},
-	  If[num == 0,, puzzle[[cursor[[1]]]][[cursor[[2]]]] = num]]]}]}
+	  If[num == 0,puzzle[[cursor[[1]]]][[cursor[[2]]]] = _, puzzle[[cursor[[1]]]][[cursor[[2]]]] = num]]]}]}
 	],
 	"\t",
 	(*Griglia soluzione. *)
