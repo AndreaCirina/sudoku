@@ -36,28 +36,43 @@ Switch[Length[listPar],
  2,If[listPar[[2]],Map[{listPar[[1]],#}&,coord], Map[{#,listPar[[1]]}&,coord]]]
  ];
 
-checkErrors[puzzle_, startPosition_]:=Module[{auxRow, auxColumn, auxSquare, union, final},
-	auxRow = Flatten[Table[calcErrors[puzzle[[x]],2,{x, True}],{x,1,9}], 1];
-	auxColumn =Flatten[Table[calcErrors[puzzle[[All,x]],2,{x,False}],{x,1,9}], 1];
-	auxSquare = Flatten[Table[calcErrors[puzzle[[x;;x+2,y;;y+2]],1, {{x,y}}],{x,1,7,3},{y,1,7,3}],2];
+checkErrors[puzzle_, startPosition_, maxInd_]:=Module[{auxRow, auxColumn, maxSq, incr, auxSquare, union, final},
+	auxRow = Flatten[Table[calcErrors[puzzle[[x]],2,{x, True}],{x,1,maxInd}], 1];
+	auxColumn =Flatten[Table[calcErrors[puzzle[[All,x]],2,{x,False}],{x,1,maxInd}], 1];
+	Print[auxRow];
+	Print[auxColumn];
+	maxSq = If[maxInd==9, 7, 3];
+	incr = If[maxInd==9, 3, 2];
+	
+	auxSquare = Flatten[Table[calcErrors[puzzle[[x;;x+(incr-1),y;;y+(incr-1)]],1, {{x,y}}],{x,1,maxSq,incr},{y,1,maxSq,incr}],2];
+	Print[auxSquare];
 	union = Union[auxRow,auxColumn,auxSquare];
 	final = DeleteCases[union, {x_,y_}/;MemberQ[startPosition,{x,y}]];
 	Map[#-> LightRed&, final]
 ]
 
 (* Metodo per visualizzare il sudoku. *)
-ShowSudoku[board_, dim_, cursor_:{0,0}, startPosition_:{}]:= Module[{background, err, un, numberColor},
-background=Flatten[Table[{i,j}->If[EvenQ[Plus@@Floor[{i-1,j-1}/3]],Darker[White],White],{i,9},{j,9}]];
-numberColor = Flatten[Table[If[MemberQ[startPosition, {x,y}], {x,y} -> {Black},{x,y} -> {Blue} ], {x, 1,9},{y, 1,9}]];
-err = checkErrors[board, startPosition];
-un = Join[background,err];
+ShowSudoku[board_, dim_, dimQ_, cursor_:{0,0},startPosition_:{}, aiuti_:False]:= Module[{background, err, un, numberColor, maxIndex},
+
+maxIndex= If[dimQ == 2, 4, 9];
+background= If[dimQ==3, Flatten[Table[{i,j}->If[EvenQ[Plus@@Floor[{i-1,j-1}/3]],Darker[White],White],{i,maxIndex},{j,maxIndex}]], {}];
+dimQ;
+numberColor = If[startPosition != {},
+Flatten[Table[If[MemberQ[startPosition, {x,y}], {x,y} -> {Black},{x,y} -> {Blue} ], {x, 1,maxIndex},{y, 1,maxIndex}]],
+Black];
+un = If[aiuti, 
+		err = checkErrors[board, startPosition, maxIndex];
+		Join[background,err],
+	background
+	];
 Grid[board,
 ItemSize->Full,
 ItemStyle->{Automatic, Automatic, numberColor},
-Frame->If[Equal[cursor,{0,0}],All,{All,All,cursor->{Blue, Thickness->1.5}}],
+Frame->If[Equal[cursor,{0,0}],All,{All,All,cursor->{Blue}}],
 BaseStyle->dim,
-Spacings->{Offset[1.2],Offset[0.9]},
-Background -> {Automatic, Automatic, un}]]
+Spacings->{Offset[0.9],Offset[0.6]},
+Background -> {Automatic, Automatic,
+  un}]]
 
 
 (*Metodo per creare il sudoku. Prende come parametro la dimensione del sudoku ed il seed. *)
@@ -66,7 +81,7 @@ CreateSudoku[dim_, seed_]:= Module[
   SeedRandom[seed];                                                         (*Setta il seed per generare sempre lo stesso sudoku. *)
   difficolta = getDifficoltaCarica[seed];                                   (*Prendiamo la difficolt\[AGrave] del sudoku in base al seed. *)
   (*A seconda della difficolta verra settata la variabile della percentuale delle caselle che saranno piene. *)
-  percentualeDifficolta = Switch[difficolta, "Tutorial", 0.98, "Facile", 0.7, "Medio", 0.5, "Difficile", 0.2];
+  percentualeDifficolta = Switch[difficolta, "Tutorial", 0.50, "Facile", 0.7, "Medio", 0.5, "Difficile", 0.2];
   (*Generiamo il sudoku completo (soluzione) ed il sudoku da completare grazie alla funzione pre-esistente. *)
   {sudokuCompleto, sudokuDaCompletare} = ResourceFunction["GenerateSudokuPuzzle"][dim, percentualeDifficolta];
   posizioniIniziali = Position[Normal[sudokuDaCompletare], _Integer]; (*Salviamo le posizioni occupate dai numeri fissi nel sudoku da completare. *)
@@ -100,8 +115,8 @@ stampaVittoria[time_] :=
  Row[{Column[{
  vittoriaStyle["\n\n\n\n\t        Complimenti! Hai vinto!"], elemStyle[StringJoin["\n\n\n\t\t\t\t\t         Tempo trascorso:\n\t\t\t\t\t", ToString[convert[time]]]]}]}];
 (*Stampa la griglia del sudoku nella manipulate. *)
-stampaSudokuManipulate[puzzle_, grandezzaGrigliaSudoku_, cursor_, startPosition_] :=
- Dynamic[ShowSudoku[puzzle, grandezzaGrigliaSudoku, cursor, startPosition]];
+stampaSudokuManipulate[puzzle_, grandezzaGrigliaSudoku_, dimQuadratoSudoku_, cursor_, startPosition_, aiuto_] :=
+ Dynamic[ShowSudoku[puzzle, grandezzaGrigliaSudoku,dimQuadratoSudoku, cursor, startPosition, aiuto]];
 (*Stampa la griglia per sscrivere i numeri nel sudoku nell amanipulate. *) 
 stampaGrigliaSelezioneNumeri[grigliaSelezionaNumeri_]:=
  Grid[
@@ -113,9 +128,9 @@ stampaGrigliaSelezioneNumeri[grigliaSelezionaNumeri_]:=
 checkVittoria[fullBoard_, puzzle_]:= Normal[fullBoard] === Normal[puzzle];
 
 
-loc2[{x_,y_}, startPosition_] := Module[
+loc2[{x_,y_}, startPosition_, dimQ_] := Module[
  {coord},
- coord={Floor[9(1-y)]+1, Floor[9x]+1};
+ coord={Floor[dimQ(1-y)]+1, Floor[dimQ x]+1};
  If[!MemberQ[startPosition, coord], coord,{0,0}]
 ];
 
@@ -128,6 +143,9 @@ generaNuovoSeed[difficolta_]:= Module[
  (*Aggiungiamo "il resto" a seconda della difficolt\[AGrave] scelta. *)
  Switch[difficolta, "Tutorial", seedDiBase, "Facile", seedDiBase + 1, "Medio", seedDiBase + 2, _, seedDiBase + 3] 
 ]
+
+
+getDimSudoku[diff_]:= If[diff == "Tutorial", 2, 3]
 
 
 SudokuGame[] := DynamicModule[
@@ -160,13 +178,15 @@ SudokuGame[] := DynamicModule[
  mostraSoluzione = False,                                  (*Valore della checkbox di mostra soluzione. *)
  mostraSoluzioneCheckbox = creaCheckBox[mostraSoluzione],  (*Checkbox di mostra soluzione. *)
 (* Manipulate *)
- dimensioneManipulate = {larghezza = 700, altezza = 480}   (*Dimensione dell'intera manipulate. *)
+ dimensioneManipulate = {larghezza = 700, altezza = 480},   (*Dimensione dell'intera manipulate. *)
+ dimQuadratoSudoku
 },
 
  (*Generazione del seed del sudoku iniziale. Sar\[AGrave] la variabile che conterr\[AGrave] il seed ogni volta. *)
  numSudoku = generaNuovoSeed[difficoltaInCorso];            
  (*Conterr\[AGrave] di volta in volta le 3 variabili che vediamo sotto. *)
- sudoku = CreateSudoku[3, numSudoku];
+ dimQuadratoSudoku = getDimSudoku[difficoltaInCorso];
+ sudoku = CreateSudoku[dimQuadratoSudoku, numSudoku];
  fullBoard = sudoku[["fullBoard"]];              (*Griglia completa del Sudoku. *)
  puzzle = sudoku[["sudokuPuzzle"]];              (*Griglia da completare del Sudoku. *)
  startPosition = sudoku[["startPosition"]];      (*Posizioni fisse del Sudoku. *)
@@ -178,8 +198,8 @@ Manipulate[
   Column[{
   If[checkVittoria[fullBoard, puzzle], refreshTimer = False; stampaVittoria[timer],
   EventHandler[
-   stampaSudokuManipulate[puzzle, grandezzaGrigliaSudoku, cursor, startPosition],
-   {"MouseClicked":> (cursor = loc2[MousePosition["EventHandlerScaled"], startPosition])}
+   stampaSudokuManipulate[puzzle, grandezzaGrigliaSudoku, dimQuadratoSudoku, cursor, startPosition,aiuto],
+   {"MouseClicked":> (cursor = loc2[MousePosition["EventHandlerScaled"], startPosition, dimQuadratoSudoku^2])}
   ]],
   (* Griglia numeri da selezionare, appare solo quando c'\[EGrave] una cella selezionata per evitare errori e quando l'utente
   non ha ancora vinto. *)
@@ -196,7 +216,7 @@ Manipulate[
    }],
    "\t",
 	(*Griglia soluzione. *)
-	If[mostraSoluzione, Dynamic[ShowSudoku[fullBoard, 15, cursor]], ""]
+	If[mostraSoluzione, Dynamic[ShowSudoku[fullBoard, 15, dimQuadratoSudoku, cursor]], ""]
   }}],
  (*Intestazione manipulate con scritta della difficolt\[AGrave] e del seed. *)
  Control[
@@ -219,7 +239,7 @@ Manipulate[
      timer = -1;                                 (*Resetta timer. *)
      aiuto = False;                              (*Resetta aiuto. *)
      mostraSoluzione = False;                    (*Resetta Checkbox mostra soluzione. *)
-     sudoku = CreateSudoku[3, numSudoku];        (*Creiamo lo stesso sudoku che avevamo all'inizio. *)
+     sudoku = CreateSudoku[dimQuadratoSudoku, numSudoku];        (*Creiamo lo stesso sudoku che avevamo all'inizio. *)
      fullBoard = sudoku[["fullBoard"]];            (*Resettiamo la griglia piena. FORSE POSSIAMO EVITARLO*)
      puzzle = sudoku[["sudokuPuzzle"]];            (*Resettiamo la griglia da riempire. *)
      startPosition = sudoku[["startPosition"]];)&] (*Resettiamo le posizioni fisse. FORSE POSSIAMO EVITARLO*)
@@ -246,7 +266,8 @@ Manipulate[
       difficoltaInCorso = difficolta;                    (*Settiamo la nuova difficolt\[AGrave] come quella selezionata nella dropdown. *)
       cursor = {0,0};                                    (*Resettiamo il cursore. *)
       numSudoku = generaNuovoSeed[difficoltaInCorso];    (*Generiamo il nuovo seed con la difficolt\[AGrave] scelta. *)
-      sudoku = CreateSudoku[3, numSudoku];               (*Generiamo il sudoku con il seed appena generato. *)
+      dimQuadratoSudoku = getDimSudoku[difficoltaInCorso];
+      sudoku = CreateSudoku[dimQuadratoSudoku, numSudoku];
       fullBoard = sudoku[["fullBoard"]];                   (*Prendiamo le nuove griglie. *)
       puzzle = sudoku[["sudokuPuzzle"]];
       startPosition = sudoku[["startPosition"]]; )&]}]]    (*Settiamo le nuove posizioni fisse. *)
@@ -265,8 +286,9 @@ Manipulate[
         refreshTimer = True;                                (*Ricomincio a contare il tempo*)
         mostraSoluzione = False;                            (*Resetta Checkbox mostra soluzione. *)
         numSudoku = caricaSudoku;                           (*Il seed del nuovo sudoku sar\[AGrave] quello scritto nell'InputField. *)
-        sudoku = CreateSudoku[3, numSudoku];                (*Creiamo il sudoku con tale seed. *)
         difficoltaInCorso = getDifficoltaCarica[numSudoku]; (*Ricaviamoci la difficolt\[AGrave] del sudoku che andremo a risolvere per scriverla in alto. *)
+        dimQuadratoSudoku = getDimSudoku[difficoltaInCorso];
+        sudoku = CreateSudoku[dimQuadratoSudoku, numSudoku]; (*Creiamo il sudoku con tale seed. *)
         fullBoard = sudoku[["fullBoard"]];                    (*Prendiamoci le griglie corrette. *)
         puzzle = sudoku[["sudokuPuzzle"]];
         startPosition = sudoku[["startPosition"]]; )&]}]]     (*Settiamo le nuove posizioni fisse. *)
