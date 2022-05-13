@@ -67,7 +67,7 @@ CreateSudoku[dim_, seed_]:= Module[
   SeedRandom[seed];                                                         (*Setta il seed per generare sempre lo stesso sudoku. *)
   difficolta = getDifficoltaCarica[seed];                                   (*Prendiamo la difficolt\[AGrave] del sudoku in base al seed. *)
   (*A seconda della difficolta verra settata la variabile della percentuale delle caselle che saranno piene. *)
-  percentualeDifficolta = Switch[difficolta, "Tutorial", 0.9, "Facile", 0.7, "Medio", 0.5, "Difficile", 0.2];
+  percentualeDifficolta = Switch[difficolta, "Tutorial", 0.98, "Facile", 0.7, "Medio", 0.5, "Difficile", 0.2];
   (*Generiamo il sudoku completo (soluzione) ed il sudoku da completare grazie alla funzione pre-esistente. *)
   {sudokuCompleto, sudokuDaCompletare} = ResourceFunction["GenerateSudokuPuzzle"][dim, percentualeDifficolta];
   posizioniIniziali = Position[Normal[sudokuDaCompletare], _Integer]; (*Salviamo le posizioni occupate dai numeri fissi nel sudoku da completare. *)
@@ -76,9 +76,6 @@ CreateSudoku[dim_, seed_]:= Module[
 ]
 
 
-(*Funzione che permette di far partire il timer del men\[UGrave]. Verr\[AGrave] sommato al timer ogni secondo il valore 1 e grazie alla funzione "convert" convertiamo i 
-secondi in ore,minuti e secondi. *)
-avviaTimer[] := Dynamic[Refresh[timer = timer + 1; convert[timer], TrackedSymbols :> {}, UpdateInterval -> 1]];
 (*Funzioni per lo stile delle label nel men\[UGrave]. *)
 titleElemStyle[s_]:= Style[s, FontSize->16, Bold];
 titleMainStyle[s_]:= Style[s, FontSize->16];
@@ -90,6 +87,9 @@ creaPopup[var_]:=PopupMenu[Dynamic[var], {"Tutorial", "Facile", "Medio", "Diffic
 creaCheckBox[var_]:= Checkbox[Dynamic[var]];
 (*Funzione che converte i secondi in ore, minuti e secondi. *)
 convert[x_] := elemStyle[UnitConvert[Quantity[x, "Seconds"], MixedUnit[{"Hours", "Minutes", "Seconds"}]]];
+(*Funzione che permette di far partire il timer del men\[UGrave]. Verr\[AGrave] sommato al timer ogni secondo il valore 1 e grazie alla funzione "convert" convertiamo i 
+secondi in ore,minuti e secondi. *)
+avviaTimer[] := Dynamic[Refresh[If[refreshTimer, timer = timer + 1, timer]; convert[timer], TrackedSymbols :> {}, UpdateInterval -> 1]];
 (*Funzione che dato un seed ci fa sapere la difficolt\[AGrave] del sudoku dato il suo seed. Questo \[EGrave] possibile perch\[EGrave] abbiamo fatto in modo che dato il modulo
 in base 4 del seed, se da resto 0 significa che \[EGrave] un tutorial, 1 \[EGrave] difficolt\[AGrave] facile e cos\[IGrave] via.  *)
 getDifficoltaCarica[seed_] := Switch[Mod[seed, 4], 0, "Tutorial", 1, "Facile", 2, "Medio", _, "Difficile"];
@@ -134,6 +134,7 @@ SudokuGame[] := DynamicModule[
  grigliaSelezionaNumeri = {{"C",1,2,3,4,5,6,7,8,9}}, 
 (* Timer *)
  timer = 0, 
+ refreshTimer = True,
 (* Aiuto *)
  aiuto = False,
  aiutoCheckbox = creaCheckBox[aiuto],
@@ -155,12 +156,14 @@ Manipulate[
  Grid[{{
   (*Griglia sudoku*)
   Column[{
+  If[Normal[fullBoard] === Normal[puzzle], refreshTimer = False; Row[{mainStyle["Complimenti! Hai vinto! Tempo trascorso:  "], convert[timer]}],
   EventHandler[
    Dynamic[ShowSudoku[puzzle, grandezzaGrigliaSudoku, cursor,startPosition]],
    {"MouseClicked":> (cursor = loc2[MousePosition["EventHandlerScaled"], startPosition])}
-   ],
+   ]],
    "  ",
    (*Griglia numeri da selezionare*)
+   If[Normal[fullBoard] === Normal[puzzle], "",
    Column[{
     Style["Seleziona il valore che vuoi inserire:","Label", 15],
     EventHandler[
@@ -170,7 +173,7 @@ Manipulate[
       BaseStyle->Large],
       "MouseClicked" :> Module[
 	  {num = Floor[10First@MousePosition["EventHandlerScaled"]]},
-	  If[num == 0,puzzle[[cursor[[1]]]][[cursor[[2]]]] = _, puzzle[[cursor[[1]]]][[cursor[[2]]]] = num]]]}]}
+	  If[num == 0,puzzle[[cursor[[1]]]][[cursor[[2]]]] = _, puzzle[[cursor[[1]]]][[cursor[[2]]]] = num]]]}]]}
 	],
 	"\t",
 	(*Griglia soluzione. *)
@@ -221,6 +224,7 @@ Manipulate[
      Button["Nuovo Sudoku", (
       timer = -1;                                        (*Resetta timer. *)
       aiuto = False;                                     (*Resetta aiuto. *)
+      refreshTimer = True;                               (*Ricomincio a contare il tempo*)
       mostraSoluzione = False;                           (*Resetta Checkbox mostra soluzione. *)
       difficoltaInCorso = difficolta;                    (*Settiamo la nuova difficolt\[AGrave] come quella selezionata nella dropdown. *)
       cursor = {0,0};                                    (*Resettiamo il cursore. *)
@@ -241,6 +245,7 @@ Manipulate[
         Button["Carica Sudoku", (
         timer = -1;                                         (*Resetta timer. *)
         aiuto = False;                                      (*Resetta aiuto. *)
+        refreshTimer = True;                                (*Ricomincio a contare il tempo*)
         mostraSoluzione = False;                            (*Resetta Checkbox mostra soluzione. *)
         numSudoku = caricaSudoku;                           (*Il seed del nuovo sudoku sar\[AGrave] quello scritto nell'InputField. *)
         sudoku = CreateSudoku[3, numSudoku];                (*Creiamo il sudoku con tale seed. *)
