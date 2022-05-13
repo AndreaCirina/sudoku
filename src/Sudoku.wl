@@ -54,11 +54,10 @@ un = Join[background,err];
 Grid[board,
 ItemSize->Full,
 ItemStyle->{Automatic, Automatic, numberColor},
-Frame->If[Equal[cursor,{0,0}],All,{All,All,cursor->{Blue}}],
+Frame->If[Equal[cursor,{0,0}],All,{All,All,cursor->{Blue, Thickness->1.5}}],
 BaseStyle->dim,
-Spacings->{Offset[0.9],Offset[0.6]},
-Background -> {Automatic, Automatic,
-  un}]]
+Spacings->{Offset[1.2],Offset[0.9]},
+Background -> {Automatic, Automatic, un}]]
 
 
 (*Metodo per creare il sudoku. Prende come parametro la dimensione del sudoku ed il seed. *)
@@ -79,8 +78,9 @@ CreateSudoku[dim_, seed_]:= Module[
 (*Funzioni per lo stile delle label nel men\[UGrave]. *)
 titleElemStyle[s_]:= Style[s, FontSize->16, Bold];
 titleMainStyle[s_]:= Style[s, FontSize->16];
-elemStyle[s_]:= Style[s, FontSize->14, Bold];
+elemStyle[s_]:= Style[s, FontSize->14, Bold, FontFamily->"Arial"];
 mainStyle[s_]:= Style[s, FontSize->14];
+vittoriaStyle[s_] := Style[s, FontSize->30, Bold, RGBColor[0,0.64,0.36], FontFamily->"Arial", TextAlignment->Center];
 (*Funzione per creare un PopupMenu di base data la variabile dinamica da collegare ad esso. *)
 creaPopup[var_]:=PopupMenu[Dynamic[var], {"Tutorial", "Facile", "Medio", "Difficile"}, FieldSize -> Small];
 (*Funzione per creare una CheckBox di base data la variabile dinamica da collegare ad essa. *)
@@ -93,6 +93,24 @@ avviaTimer[] := Dynamic[Refresh[If[refreshTimer, timer = timer + 1, timer]; conv
 (*Funzione che dato un seed ci fa sapere la difficolt\[AGrave] del sudoku dato il suo seed. Questo \[EGrave] possibile perch\[EGrave] abbiamo fatto in modo che dato il modulo
 in base 4 del seed, se da resto 0 significa che \[EGrave] un tutorial, 1 \[EGrave] difficolt\[AGrave] facile e cos\[IGrave] via.  *)
 getDifficoltaCarica[seed_] := Switch[Mod[seed, 4], 0, "Tutorial", 1, "Facile", 2, "Medio", _, "Difficile"];
+(*Stampa del timer nella manipulate. *)
+stampaTimerManipulate[] := Column[{Row[{mainStyle["Tempo:  "], avviaTimer[]}]}];
+(*Stampa messaggio di vittoria. *)
+stampaVittoria[time_] := 
+ Row[{Column[{
+ vittoriaStyle["\n\n\n\n\t        Complimenti! Hai vinto!"], elemStyle[StringJoin["\n\n\n\t\t\t\t\t         Tempo trascorso:\n\t\t\t\t\t", ToString[convert[time]]]]}]}];
+(*Stampa la griglia del sudoku nella manipulate. *)
+stampaSudokuManipulate[puzzle_, grandezzaGrigliaSudoku_, cursor_, startPosition_] :=
+ Dynamic[ShowSudoku[puzzle, grandezzaGrigliaSudoku, cursor, startPosition]];
+(*Stampa la griglia per sscrivere i numeri nel sudoku nell amanipulate. *) 
+stampaGrigliaSelezioneNumeri[grigliaSelezionaNumeri_]:=
+ Grid[
+  grigliaSelezionaNumeri,
+  Frame -> All,
+  Background->RGBColor[0.5,0.74,0.5,0.4],
+  BaseStyle->Large];
+(*Restituisce True se il sudoku \[EGrave] stato completato correttamente, False altrimenti. *)
+checkVittoria[fullBoard_, puzzle_]:= Normal[fullBoard] === Normal[puzzle];
 
 
 loc2[{x_,y_}, startPosition_] := Module[
@@ -131,51 +149,52 @@ SudokuGame[] := DynamicModule[
  startPosition,  (*Posizioni non modificabili nel sudoku. *)
  cursor = {0,0}, (*Cursore che ci dar\[AGrave] la posizione del mouse all'interno del nostro sudoku. *)
  inputValue,     (**) 
- grigliaSelezionaNumeri = {{"C",1,2,3,4,5,6,7,8,9}}, 
+ grigliaSelezionaNumeri = {{"C",1,2,3,4,5,6,7,8,9}},       (*Griglia di selezione dei numeri. *)
 (* Timer *)
- timer = 0, 
- refreshTimer = True,
+ timer = 0,                                                (*Tempo di esecuzione del sudoku. *)
+ refreshTimer = True,                                      (*Flag per fermare il tempo. *)
 (* Aiuto *)
- aiuto = False,
- aiutoCheckbox = creaCheckBox[aiuto],
+ aiuto = False,                                            (*Valore della checkbox dell'aiuto. *)
+ aiutoCheckbox = creaCheckBox[aiuto],                      (*Checkbox dell'aiuto. *)
 (* Mostra Soluzione *)
- mostraSoluzione = False,
- mostraSoluzioneCheckbox = creaCheckBox[mostraSoluzione],
+ mostraSoluzione = False,                                  (*Valore della checkbox di mostra soluzione. *)
+ mostraSoluzioneCheckbox = creaCheckBox[mostraSoluzione],  (*Checkbox di mostra soluzione. *)
 (* Manipulate *)
- dimensioneManipulate = {larghezza = 700, altezza = 430}
+ dimensioneManipulate = {larghezza = 700, altezza = 480}   (*Dimensione dell'intera manipulate. *)
 },
- 
- numSudoku = generaNuovoSeed[difficoltaInCorso];
+
+ (*Generazione del seed del sudoku iniziale. Sar\[AGrave] la variabile che conterr\[AGrave] il seed ogni volta. *)
+ numSudoku = generaNuovoSeed[difficoltaInCorso];            
+ (*Conterr\[AGrave] di volta in volta le 3 variabili che vediamo sotto. *)
  sudoku = CreateSudoku[3, numSudoku];
- fullBoard = sudoku[["fullBoard"]];
- puzzle = sudoku[["sudokuPuzzle"]];
- startPosition = sudoku[["startPosition"]]; 
+ fullBoard = sudoku[["fullBoard"]];              (*Griglia completa del Sudoku. *)
+ puzzle = sudoku[["sudokuPuzzle"]];              (*Griglia da completare del Sudoku. *)
+ startPosition = sudoku[["startPosition"]];      (*Posizioni fisse del Sudoku. *)
 
 Manipulate[
 (*Contenuto principale della manipulate. *)
  Grid[{{
-  (*Griglia sudoku*)
+  (*Griglia sudoku, la visualizziamo solo se l'utente non ha ancora vinto. *)
   Column[{
-  If[Normal[fullBoard] === Normal[puzzle], refreshTimer = False; Row[{mainStyle["Complimenti! Hai vinto! Tempo trascorso:  "], convert[timer]}],
+  If[checkVittoria[fullBoard, puzzle], refreshTimer = False; stampaVittoria[timer],
   EventHandler[
-   Dynamic[ShowSudoku[puzzle, grandezzaGrigliaSudoku, cursor,startPosition]],
+   stampaSudokuManipulate[puzzle, grandezzaGrigliaSudoku, cursor, startPosition],
    {"MouseClicked":> (cursor = loc2[MousePosition["EventHandlerScaled"], startPosition])}
-   ]],
-   "  ",
-   (*Griglia numeri da selezionare*)
-   If[Normal[fullBoard] === Normal[puzzle], "",
+  ]],
+  (* Griglia numeri da selezionare, appare solo quando c'\[EGrave] una cella selezionata per evitare errori e quando l'utente
+  non ha ancora vinto. *)
+  If[checkVittoria[fullBoard, puzzle] || cursor === {0,0}, "",
    Column[{
-    Style["Seleziona il valore che vuoi inserire:","Label", 15],
+    elemStyle["\nSeleziona il valore che vuoi inserire:"],
     EventHandler[
-     Grid[
-      grigliaSelezionaNumeri,
-      Frame -> All,
-      BaseStyle->Large],
+     stampaGrigliaSelezioneNumeri[grigliaSelezionaNumeri],
       "MouseClicked" :> Module[
 	  {num = Floor[10First@MousePosition["EventHandlerScaled"]]},
-	  If[num == 0,puzzle[[cursor[[1]]]][[cursor[[2]]]] = _, puzzle[[cursor[[1]]]][[cursor[[2]]]] = num]]]}]]}
-	],
-	"\t",
+	  (*Se \[EGrave] stata selezionata la caseslla per cancellare mettiamo un trattino al suo interno, altrimenti il numero selezionato. *)
+	  If[num == 0, puzzle[[cursor[[1]]]][[cursor[[2]]]] = _, puzzle[[cursor[[1]]]][[cursor[[2]]]] = num]]]
+    }]]
+   }],
+   "\t",
 	(*Griglia soluzione. *)
 	If[mostraSoluzione, Dynamic[ShowSudoku[fullBoard, 15, cursor]], ""]
   }}],
@@ -207,9 +226,7 @@ Manipulate[
     }],
     Spacer[{350, 0}],
     (*Timer. *)
-    Column[{
-     Row[{mainStyle["Tempo:  "], avviaTimer[]}]
-    }]
+    stampaTimerManipulate[]
  }]],
  (*Controlli che stanno sotto la griglia. "Nuovo Sudoku" e "Carica Sudoku". *)
  Control[
