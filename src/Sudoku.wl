@@ -25,54 +25,48 @@ Begin["`Private`"];
 (*"Crea sudoku 2*)
 
 
-calcErrors[struct_, lFlat_, listPar_]:=Module[{norm,auxNorm,cnt, dupl, coord, aux},
-norm  = Normal[struct];
-auxNorm = If[Length[listPar]==1, Flatten[norm], norm];
-cnt = Tally[Cases[auxNorm, _Integer]];
-dupl = Cases[cnt, {x_,y_}/;y>1];
-coord = If[Length[dupl]>0, Flatten[Map[Position[norm,First[#]]&, dupl], lFlat], Nothing];
-Switch[Length[listPar], 
- 1,Map[{First[#]+listPar[[1,1]]-1,#[[2]]+listPar[[1,2]]-1}&,coord],
- 2,If[listPar[[2]],Map[{listPar[[1]],#}&,coord], Map[{#,listPar[[1]]}&,coord]]]
- ];
+calcErrors[struct_, lFlat_, listPar_]:= Module[{norm,auxNorm,cnt, dupl, coord, aux},
+ norm  = Normal[struct];
+ auxNorm = If[Length[listPar]==1, Flatten[norm], norm];
+ cnt = Tally[Cases[auxNorm, _Integer]];
+ dupl = Cases[cnt, {x_,y_}/;y>1];
+ coord = If[Length[dupl]>0, Flatten[Map[Position[norm,First[#]]&, dupl], lFlat], Nothing];
+ Switch[Length[listPar], 
+  1, Map[{First[#]+listPar[[1,1]]-1,#[[2]]+listPar[[1,2]]-1}&,coord],
+  2, If[listPar[[2]],Map[{listPar[[1]],#}&,coord], Map[{#,listPar[[1]]}&,coord]]]
+];
 
 checkErrors[puzzle_, startPosition_, maxInd_]:=Module[{auxRow, auxColumn, maxSq, incr, auxSquare, union, final},
 	auxRow = Flatten[Table[calcErrors[puzzle[[x]],2,{x, True}],{x,1,maxInd}], 1];
 	auxColumn =Flatten[Table[calcErrors[puzzle[[All,x]],2,{x,False}],{x,1,maxInd}], 1];
-	Print[auxRow];
-	Print[auxColumn];
 	maxSq = If[maxInd==9, 7, 3];
 	incr = If[maxInd==9, 3, 2];
-	
 	auxSquare = Flatten[Table[calcErrors[puzzle[[x;;x+(incr-1),y;;y+(incr-1)]],1, {{x,y}}],{x,1,maxSq,incr},{y,1,maxSq,incr}],2];
-	Print[auxSquare];
 	union = Union[auxRow,auxColumn,auxSquare];
 	final = DeleteCases[union, {x_,y_}/;MemberQ[startPosition,{x,y}]];
 	Map[#-> LightRed&, final]
 ]
 
 (* Metodo per visualizzare il sudoku. *)
-ShowSudoku[board_, dim_, dimQ_, cursor_:{0,0},startPosition_:{}, aiuti_:False]:= Module[{background, err, un, numberColor, maxIndex},
-
-maxIndex= If[dimQ == 2, 4, 9];
-background= If[dimQ==3, Flatten[Table[{i,j}->If[EvenQ[Plus@@Floor[{i-1,j-1}/3]],Darker[White],White],{i,maxIndex},{j,maxIndex}]], {}];
-dimQ;
-numberColor = If[startPosition != {},
-Flatten[Table[If[MemberQ[startPosition, {x,y}], {x,y} -> {Black},{x,y} -> {Blue} ], {x, 1,maxIndex},{y, 1,maxIndex}]],
-Black];
-un = If[aiuti, 
-		err = checkErrors[board, startPosition, maxIndex];
-		Join[background,err],
-	background
-	];
-Grid[board,
-ItemSize->Full,
-ItemStyle->{Automatic, Automatic, numberColor},
-Frame->If[Equal[cursor,{0,0}],All,{All,All,cursor->{Blue}}],
-BaseStyle->dim,
-Spacings->{Offset[0.9],Offset[0.6]},
-Background -> {Automatic, Automatic,
-  un}]]
+ShowSudoku[board_, dim_, dimQ_, cursor_:{0,0}, startPosition_:{}, aiuti_:False]:= Module[
+ {background, err, un, numberColor, maxIndex},
+ maxIndex= If[dimQ == 2, 4, 9];
+ background= Flatten[Table[{i,j}->If[EvenQ[Plus@@Floor[{i-1,j-1}/dimQ]],Darker[White],White],{i,maxIndex},{j,maxIndex}]];
+ numberColor = If[startPosition != {},
+ Flatten[Table[If[MemberQ[startPosition, {x,y}], {x,y} -> {Black},{x,y} -> {Blue} ], {x, 1,maxIndex},{y, 1,maxIndex}]], Black];
+ un = If[aiuti,
+	  err = checkErrors[board, startPosition, maxIndex];
+	  Join[background,err],
+	  background
+	 ];
+ Grid[board,
+  ItemSize->Full,
+  ItemStyle->{Automatic, Automatic, numberColor},
+  Frame-> If[Equal[cursor,{0,0}], All, {All, All, cursor->{Blue, Thickness->1.5}}],
+  BaseStyle->dim,
+  Spacings->{Offset[1.2],Offset[0.9]},
+  Background -> {Automatic, Automatic, un}]
+]
 
 
 (*Metodo per creare il sudoku. Prende come parametro la dimensione del sudoku ed il seed. *)
@@ -81,7 +75,7 @@ CreateSudoku[dim_, seed_]:= Module[
   SeedRandom[seed];                                                         (*Setta il seed per generare sempre lo stesso sudoku. *)
   difficolta = getDifficoltaCarica[seed];                                   (*Prendiamo la difficolt\[AGrave] del sudoku in base al seed. *)
   (*A seconda della difficolta verra settata la variabile della percentuale delle caselle che saranno piene. *)
-  percentualeDifficolta = Switch[difficolta, "Tutorial", 0.50, "Facile", 0.7, "Medio", 0.5, "Difficile", 0.2];
+  percentualeDifficolta = Switch[difficolta, "Tutorial", 0.90, "Facile", 0.7, "Medio", 0.5, "Difficile", 0.2];
   (*Generiamo il sudoku completo (soluzione) ed il sudoku da completare grazie alla funzione pre-esistente. *)
   {sudokuCompleto, sudokuDaCompletare} = ResourceFunction["GenerateSudokuPuzzle"][dim, percentualeDifficolta];
   posizioniIniziali = Position[Normal[sudokuDaCompletare], _Integer]; (*Salviamo le posizioni occupate dai numeri fissi nel sudoku da completare. *)
@@ -99,7 +93,7 @@ vittoriaStyle[s_] := Style[s, FontSize->30, Bold, RGBColor[0,0.64,0.36], FontFam
 (*Funzione per creare un PopupMenu di base data la variabile dinamica da collegare ad esso. *)
 creaPopup[var_]:=PopupMenu[Dynamic[var], {"Tutorial", "Facile", "Medio", "Difficile"}, FieldSize -> Small];
 (*Funzione per creare una CheckBox di base data la variabile dinamica da collegare ad essa. *)
-creaCheckBox[var_]:= Checkbox[Dynamic[var]];
+creaCheckBox[var_]:= Checkbox[Dynamic[var], Enabled->Dynamic[controlliAttivi]];
 (*Funzione che converte i secondi in ore, minuti e secondi. *)
 convert[x_] := elemStyle[UnitConvert[Quantity[x, "Seconds"], MixedUnit[{"Hours", "Minutes", "Seconds"}]]];
 (*Funzione che permette di far partire il timer del men\[UGrave]. Verr\[AGrave] sommato al timer ogni secondo il valore 1 e grazie alla funzione "convert" convertiamo i 
@@ -118,12 +112,16 @@ stampaVittoria[time_] :=
 stampaSudokuManipulate[puzzle_, grandezzaGrigliaSudoku_, dimQuadratoSudoku_, cursor_, startPosition_, aiuto_] :=
  Dynamic[ShowSudoku[puzzle, grandezzaGrigliaSudoku,dimQuadratoSudoku, cursor, startPosition, aiuto]];
 (*Stampa la griglia per sscrivere i numeri nel sudoku nell amanipulate. *) 
-stampaGrigliaSelezioneNumeri[grigliaSelezionaNumeri_]:=
+stampaGrigliaSelezioneNumeri[difficolta_]:= Module[
+ {grigliaSelezionaNumeri, grigliaNumeriTutorial, griglia},
+ grigliaSelezionaNumeri = {{"C",1,2,3,4,5,6,7,8,9}};       (*Griglia di selezione dei numeri. *)
+ grigliaNumeriTutorial = {{"C", 1,2,3,4}};                 (*Griglia di selezione dei numeri per il tutorial. *)
+ griglia = If[difficolta === "Tutorial", grigliaNumeriTutorial, grigliaSelezionaNumeri];
  Grid[
-  grigliaSelezionaNumeri,
-  Frame -> All,
-  Background->RGBColor[0.5,0.74,0.5,0.4],
-  BaseStyle->Large];
+   griglia,
+   Frame -> All,
+   Background->RGBColor[0.5,0.74,0.5,0.4],
+   BaseStyle->Large]];
 (*Restituisce True se il sudoku \[EGrave] stato completato correttamente, False altrimenti. *)
 checkVittoria[fullBoard_, puzzle_]:= Normal[fullBoard] === Normal[puzzle];
 
@@ -167,7 +165,7 @@ SudokuGame[] := DynamicModule[
  startPosition,  (*Posizioni non modificabili nel sudoku. *)
  cursor = {0,0}, (*Cursore che ci dar\[AGrave] la posizione del mouse all'interno del nostro sudoku. *)
  inputValue,     (**) 
- grigliaSelezionaNumeri = {{"C",1,2,3,4,5,6,7,8,9}},       (*Griglia di selezione dei numeri. *)
+ controlliAttivi = True,
 (* Timer *)
  timer = 0,                                                (*Tempo di esecuzione del sudoku. *)
  refreshTimer = True,                                      (*Flag per fermare il tempo. *)
@@ -196,9 +194,9 @@ Manipulate[
  Grid[{{
   (*Griglia sudoku, la visualizziamo solo se l'utente non ha ancora vinto. *)
   Column[{
-  If[checkVittoria[fullBoard, puzzle], refreshTimer = False; stampaVittoria[timer],
+  If[checkVittoria[fullBoard, puzzle], refreshTimer = False; controlliAttivi = False; stampaVittoria[timer],
   EventHandler[
-   stampaSudokuManipulate[puzzle, grandezzaGrigliaSudoku, dimQuadratoSudoku, cursor, startPosition,aiuto],
+   stampaSudokuManipulate[puzzle, grandezzaGrigliaSudoku, dimQuadratoSudoku, cursor, startPosition, aiuto],
    {"MouseClicked":> (cursor = loc2[MousePosition["EventHandlerScaled"], startPosition, dimQuadratoSudoku^2])}
   ]],
   (* Griglia numeri da selezionare, appare solo quando c'\[EGrave] una cella selezionata per evitare errori e quando l'utente
@@ -207,9 +205,10 @@ Manipulate[
    Column[{
     elemStyle["\nSeleziona il valore che vuoi inserire:"],
     EventHandler[
-     stampaGrigliaSelezioneNumeri[grigliaSelezionaNumeri],
+     stampaGrigliaSelezioneNumeri[difficoltaInCorso],
       "MouseClicked" :> Module[
-	  {num = Floor[10First@MousePosition["EventHandlerScaled"]]},
+      (*Se \[EGrave] il tutorial cambia il mappaggio delle celle per la selezione dei numeri. *)
+	  {num = If[difficoltaInCorso === "Tutorial", Floor[5First@MousePosition["EventHandlerScaled"]], Floor[10First@MousePosition["EventHandlerScaled"]]]},
 	  (*Se \[EGrave] stata selezionata la caseslla per cancellare mettiamo un trattino al suo interno, altrimenti il numero selezionato. *)
 	  If[num == 0, puzzle[[cursor[[1]]]][[cursor[[2]]]] = _, puzzle[[cursor[[1]]]][[cursor[[2]]]] = num]]]
     }]]
@@ -217,7 +216,7 @@ Manipulate[
    "\t",
 	(*Griglia soluzione. *)
 	If[mostraSoluzione, Dynamic[ShowSudoku[fullBoard, 15, dimQuadratoSudoku, cursor]], ""]
-  }}],
+  }}, Editable->False],
  (*Intestazione manipulate con scritta della difficolt\[AGrave] e del seed. *)
  Control[
   Row[{
@@ -238,6 +237,8 @@ Manipulate[
     Button["Ricomincia", (
      timer = -1;                                 (*Resetta timer. *)
      aiuto = False;                              (*Resetta aiuto. *)
+     controlliAttivi = True;                     (*Riattiva checkbox. *)
+     refreshTimer = True;                        (*Ricomincio a contare il tempo*)
      mostraSoluzione = False;                    (*Resetta Checkbox mostra soluzione. *)
      sudoku = CreateSudoku[dimQuadratoSudoku, numSudoku];        (*Creiamo lo stesso sudoku che avevamo all'inizio. *)
      fullBoard = sudoku[["fullBoard"]];            (*Resettiamo la griglia piena. FORSE POSSIAMO EVITARLO*)
@@ -261,6 +262,7 @@ Manipulate[
      Button["Nuovo Sudoku", (
       timer = -1;                                        (*Resetta timer. *)
       aiuto = False;                                     (*Resetta aiuto. *)
+      controlliAttivi = True;                            (*Riattiva checkbox. *)
       refreshTimer = True;                               (*Ricomincio a contare il tempo*)
       mostraSoluzione = False;                           (*Resetta Checkbox mostra soluzione. *)
       difficoltaInCorso = difficolta;                    (*Settiamo la nuova difficolt\[AGrave] come quella selezionata nella dropdown. *)
@@ -283,6 +285,7 @@ Manipulate[
         Button["Carica Sudoku", (
         timer = -1;                                         (*Resetta timer. *)
         aiuto = False;                                      (*Resetta aiuto. *)
+        controlliAttivi = True;                             (*Riattiva checkbox. *)
         refreshTimer = True;                                (*Ricomincio a contare il tempo*)
         mostraSoluzione = False;                            (*Resetta Checkbox mostra soluzione. *)
         numSudoku = caricaSudoku;                           (*Il seed del nuovo sudoku sar\[AGrave] quello scritto nell'InputField. *)
