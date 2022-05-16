@@ -3,7 +3,7 @@
 (* :Title: Sudoku*)
 (* :Context: Sudoku'*)
 (* :Author: Luca Asunis, Mauro Barbieri, Andrea Cirina, Chiara Manca*)
-(* :Summary:*)
+(* :Summary:Funzione per giocare con mathematica a sudoku*)
 (* :Copyright: Alma Mater Studiorum - Bologna 2022 *)
 (* :Package Version: 1*)
 (* :Mathematica Version: 13*)
@@ -15,9 +15,8 @@
 
 BeginPackage["Sudoku`"];
 
-SudokuGame::usage="Gioco del sudoku";
-ShowSudoku::usage="mostra";
-CreateSudoku::usage=" ";
+SudokuGame::usage="SudokuGame[] crea l'interfaccia per giocare a sudoku su un notebook Mathematica";
+
 Begin["`Private`"];
 
 
@@ -25,40 +24,78 @@ Begin["`Private`"];
 (*"Crea sudoku 2*)
 
 
-calcErrors[struct_, lFlat_, listPar_]:= Module[{norm,auxNorm,cnt, dupl, coord, aux},
+(*Data una riga/colonna/quadrato di un sudoku, restituisce le coordinate delle celle in cui sono presenti delle ripetizioni (errori)*)
+calcErrors[struct_, lFlat_, listPar_]:= Module[
+{norm,auxNorm,cnt, dupl, coord, aux},
+(*Normalizzazione dello sparse array*)	
  norm  = Normal[struct];
+ (*Se Length[listPar]==1, il quale significa che abbiamo passato un quadrato del sudoku (3x3), 
+ dobbiamo fare la Flatten poich\[EGrave] \[EGrave] una lista di liste*)
  auxNorm = If[Length[listPar]==1, Flatten[norm], norm];
+ (*Dopo aver eliminato i non numeri (_), andiamo a contare il numero di occorrenze per ogni elemento nella lista *)
  cnt = Tally[Cases[auxNorm, _Integer]];
+ (*In dupl rimangono solamente i numeri che sono presenti pi\[UGrave] di una volta*)
  dupl = Cases[cnt, {x_,y_}/;y>1];
+ (*Se abbiamo degli errori, ci ricaviamo le coordiante di questi nella struttura passata (Livello della Flatten (LFlat) differente 
+ in base a quadrato e riga/colonna)*)
  coord = If[Length[dupl]>0, Flatten[Map[Position[norm,First[#]]&, dupl], lFlat], Nothing];
+ (*In base alla lunghezza di listPar (che ci indica anche la struttura passata), andiamo a ricavarci le coordinate 
+ rispetto al sudoku di partenza*)
  Switch[Length[listPar], 
-  1, Map[{First[#]+listPar[[1,1]]-1,#[[2]]+listPar[[1,2]]-1}&,coord],
-  2, If[listPar[[2]],Map[{listPar[[1]],#}&,coord], Map[{#,listPar[[1]]}&,coord]]]
+ (*listPar[[1,1]] e listPar[[1,2]] indicano le coordinate x e y del quadrato del sudoku*)
+  1, Map[{First[#]+listPar[[1,1]]-1,#[[2]]+listPar[[1,2]]-1}&,coord], (*Mappiamo le coordinate avendo passato un quadrato*)
+  (*In questo caso listPar[[2]] indica se \[EGrave] una riga (True) o colonna (False), e listPar[[1]] indica la coordinata x o y della colonna/riga rispetto al sudoku*)
+  2, If[listPar[[2]],Map[{listPar[[1]],#}&,coord], Map[{#,listPar[[1]]}&,coord]] (*Mappiamo le coordinate avendo passato una riga/colonna*)
+  ]
 ];
 
-checkErrors[puzzle_, startPosition_, maxInd_]:=Module[{auxRow, auxColumn, maxSq, incr, auxSquare, union, final},
+(*Trova tutti gli errori all'interno del sudoku e li mappa con lo sfondo rosso per l'interfaccia grafica*)
+checkErrors[puzzle_, startPosition_, maxInd_]:=Module[
+{auxRow, auxColumn, maxSq, incr, auxSquare, union, final},
+	(*maxInd cambia in base alla dimensione del sudoku (4 sudoku tutorial, 9 gli altri)*)
+	(*Calcolo errori per le righe*)
 	auxRow = Flatten[Table[calcErrors[puzzle[[x]],2,{x, True}],{x,1,maxInd}], 1];
+	(*Calcolo errori per le colonne*)
 	auxColumn =Flatten[Table[calcErrors[puzzle[[All,x]],2,{x,False}],{x,1,maxInd}], 1];
-	maxSq = If[maxInd==9, 7, 3];
-	incr = If[maxInd==9, 3, 2];
+	(*Calcoliamo i parametri per ricavarci le coordinate di partenza dei quadrati(3x3 o 2x2) nel sudoku*)
+	maxSq = If[maxInd==9, 7, 3]; (*Range massimo*)
+	incr = If[maxInd==9, 3, 2]; (*Incremento*)
+	(*Calcoliamo gli errori per i quadrati del sudoku*)
+	(*Es. su una lista di liste [[x;;y]] indica di prendere le righe da indice x a indice y. Si pu\[OGrave] combinare con le colonne affiancando quest'istruzione
+	con una ',' lista[[x;;x+3, y;;y+3]]*)
 	auxSquare = Flatten[Table[calcErrors[puzzle[[x;;x+(incr-1),y;;y+(incr-1)]],1, {{x,y}}],{x,1,maxSq,incr},{y,1,maxSq,incr}],2];
+	(*Unione di tutte le coordinate degli errori, no duplicati*)
 	union = Union[auxRow,auxColumn,auxSquare];
+	(*Andiamo a eliminare le coordinate che indicano le posizioni fisse del sudoku*)
 	final = DeleteCases[union, {x_,y_}/;MemberQ[startPosition,{x,y}]];
+	(*Mappaggio con il loro nuovo sfondo*)
 	Map[#-> LightRed&, final]
 ]
 
 (* Metodo per visualizzare il sudoku. *)
 ShowSudoku[board_, dim_, dimQ_, cursor_:{0,0}, startPosition_:{}, aiuti_:False]:= Module[
  {background, err, un, numberColor, maxIndex},
+ (*Calcolo dell'indice massimo (4 per tutorial, 9 gli altri)*)
  maxIndex= If[dimQ == 2, 4, 9];
+ 
+ (*Calcolo BackGround base grigio/bianco*)
  background= Flatten[Table[{i,j}->If[EvenQ[Plus@@Floor[{i-1,j-1}/dimQ]],Darker[White],White],{i,maxIndex},{j,maxIndex}]];
+ 
+ (*Calcoliamo il colore dei numeri del sudoku, neri quelli fissi, blu gli altri. StartPosition sar\[AGrave] vuoto solo nel caso di mostrare la soluzione*)
  numberColor = If[startPosition != {},
+ (*Se una cella (la sua coordinata) fa parte delle posizioni fisse, il suo numero sar\[AGrave] nero, altrimenti blu*)
  Flatten[Table[If[MemberQ[startPosition, {x,y}], {x,y} -> {Black},{x,y} -> {Blue} ], {x, 1,maxIndex},{y, 1,maxIndex}]], Black];
+ 
+ (*Se gli aiuti sono  attivi, andiamo a unire le i colori del background con quelli degli errori.
+ Utilizziamo la join per eliminare le chiavi duplicate, ovvero in questo caso le coordinate, cos\[IGrave] da non avere pi\[UGrave] colori nella lista*)
  un = If[aiuti,
+		(*Chiamata alla funzione per il calcolo degli errori*) 
 	  err = checkErrors[board, startPosition, maxIndex];
+	  (*Join tra background e errori*)
 	  Join[background,err],
 	  background
 	 ];
+(*Stampa del sudoku con una griglia*)	 
  Grid[board,
   ItemSize->Full,
   ItemStyle->{Automatic, Automatic, numberColor},
@@ -114,6 +151,12 @@ stampaSudokuManipulate[puzzle_, grandezzaGrigliaSudoku_, dimQuadratoSudoku_, cur
  
 (*Decide se attivare gli aiuti o meno. *)
 attivaAiuti[diff_]:= If[diff === "Tutorial" || diff === "Facile", True, False];
+getDimSudoku[diff_]:= If[diff == "Tutorial", 2, 3];
+
+
+(*Restituisce True se il sudoku \[EGrave] stato completato correttamente, False altrimenti. *)
+checkVittoria[fullBoard_, puzzle_]:= Normal[fullBoard] === Normal[puzzle];
+
 
 (*Stampa la griglia per sscrivere i numeri nel sudoku nell amanipulate. *) 
 stampaGrigliaSelezioneNumeri[difficolta_]:= Module[
@@ -126,14 +169,14 @@ stampaGrigliaSelezioneNumeri[difficolta_]:= Module[
    Frame -> All,
    Background->RGBColor[0.5,0.74,0.5,0.4],
    BaseStyle->Large]];
-(*Restituisce True se il sudoku \[EGrave] stato completato correttamente, False altrimenti. *)
-checkVittoria[fullBoard_, puzzle_]:= Normal[fullBoard] === Normal[puzzle];
 
 
+(*Funzione che prende le coordinate dell'input del cursore rispetto la griglia del sudoku*)
 loc2[{x_,y_}, startPosition_, dimQ_] := Module[
  {coord},
- coord={Floor[dimQ(1-y)]+1, Floor[dimQ x]+1};
- If[!MemberQ[startPosition, coord], coord,{0,0}]
+ coord={Floor[dimQ(1-y)]+1, Floor[dimQ x]+1}; (*siccome l'event del click ci restituisce le coordinate globali della griglia, le trasformiamo nella 
+                                                 coordinata della cella cliccata*)
+ If[!MemberQ[startPosition, coord], coord,{0,0}] (*Se abbiamo cliccato su una cella fissa, restituiamo il cursore in una posizione di default*)
 ];
 
 
@@ -147,9 +190,6 @@ generaNuovoSeed[difficolta_]:= Module[
 ]
 
 
-getDimSudoku[diff_]:= If[diff == "Tutorial", 2, 3]
-
-
 SudokuGame[] := DynamicModule[
 {
 (* Difficolt\[AGrave] *)
@@ -159,7 +199,7 @@ SudokuGame[] := DynamicModule[
  popupDifficolta = creaPopup[difficolta],                (*Popup della difficolt\[AGrave] di "Nuova Partita". *)
  popupDifficoltaCarica = creaPopup[difficoltaCarica],    (*Popup della difficolt\[AGrave] di "Carica Partita". *)
 (*Sudoku*)
- grandezzaGrigliaSudoku = 22,
+ grandezzaGrigliaSudoku = 22,                             (*Dimensione font caratteri*)
  caricaSudoku = 0,                                         (*Variabile dell'inputField del Seed. *)
  caricaSudokuInput = InputField[Dynamic[caricaSudoku], FieldSize->Small], (*InputField del Seed. *)
  numSudoku,      (*Seed del sudoku che stiamo completando. *)
@@ -168,8 +208,7 @@ SudokuGame[] := DynamicModule[
  puzzle,         (*Schema del sudoku da completare. *)
  startPosition,  (*Posizioni non modificabili nel sudoku. *)
  cursor = {0,0}, (*Cursore che ci dar\[AGrave] la posizione del mouse all'interno del nostro sudoku. *)
- inputValue,     (**) 
- controlliAttivi = True,
+ controlliAttivi = True,                                   (*Variabile per attivare/disattivare le checkbox*)
 (* Timer *)
  timer = 0,                                                (*Tempo di esecuzione del sudoku. *)
  refreshTimer = True,                                      (*Flag per fermare il tempo. *)
@@ -181,13 +220,15 @@ SudokuGame[] := DynamicModule[
  mostraSoluzioneCheckbox = creaCheckBox[mostraSoluzione],  (*Checkbox di mostra soluzione. *)
 (* Manipulate *)
  dimensioneManipulate = {larghezza = 700, altezza = 480},   (*Dimensione dell'intera manipulate. *)
- dimQuadratoSudoku
+ dimQuadratoSudoku                                           (*A seconda della difficolt\[AGrave], indica le dimensioni dei quadrati all'interno del sudoku
+                                                              (2x2 o 3x3)*)
 },
 
  (*Generazione del seed del sudoku iniziale. Sar\[AGrave] la variabile che conterr\[AGrave] il seed ogni volta. *)
- numSudoku = generaNuovoSeed[difficoltaInCorso];            
- (*Conterr\[AGrave] di volta in volta le 3 variabili che vediamo sotto. *)
+ numSudoku = generaNuovoSeed[difficoltaInCorso];     
+ (*Calcolo dimensione dei quadrati singoli del sudoku*)       
  dimQuadratoSudoku = getDimSudoku[difficoltaInCorso];
+ (*Conterr\[AGrave] di volta in volta le 3 variabili che vediamo sotto. *)
  sudoku = CreateSudoku[dimQuadratoSudoku, numSudoku];
  fullBoard = sudoku[["fullBoard"]];              (*Griglia completa del Sudoku. *)
  puzzle = sudoku[["sudokuPuzzle"]];              (*Griglia da completare del Sudoku. *)
@@ -198,10 +239,12 @@ Manipulate[
  Grid[{{
   (*Griglia sudoku, la visualizziamo solo se l'utente non ha ancora vinto. *)
   Column[{
+  (*Se l'utente ha vinto stampiamo il messaggio di vittoria, altrimenti il sudoku*)
   If[checkVittoria[fullBoard, puzzle], refreshTimer = False; mostraSoluzione = False; controlliAttivi = False; stampaVittoria[timer],
   EventHandler[
    stampaSudokuManipulate[puzzle, grandezzaGrigliaSudoku, dimQuadratoSudoku, cursor, startPosition, aiuto],
-   {"MouseClicked":> (cursor = loc2[MousePosition["EventHandlerScaled"], startPosition, dimQuadratoSudoku^2])}
+   (*eventHandler per il clic, restituisce le coordinate {x,y} rispetto la griglia, con origine in basso a sinistra*)
+   {"MouseClicked":> (cursor = loc2[MousePosition["EventHandlerScaled"], startPosition, dimQuadratoSudoku^2])} 
   ]],
   (* Griglia numeri da selezionare, appare solo quando c'\[EGrave] una cella selezionata per evitare errori e quando l'utente
   non ha ancora vinto. *)
@@ -272,7 +315,7 @@ Manipulate[
       aiuto = attivaAiuti[difficoltaInCorso];            (*Resetta aiuto. *)
       cursor = {0,0};                                    (*Resettiamo il cursore. *)
       numSudoku = generaNuovoSeed[difficoltaInCorso];    (*Generiamo il nuovo seed con la difficolt\[AGrave] scelta. *)
-      dimQuadratoSudoku = getDimSudoku[difficoltaInCorso];
+      dimQuadratoSudoku = getDimSudoku[difficoltaInCorso]; (*Calcolo dimensione dei quadrati singoli del sudoku*)       
       sudoku = CreateSudoku[dimQuadratoSudoku, numSudoku];
       fullBoard = sudoku[["fullBoard"]];                   (*Prendiamo le nuove griglie. *)
       puzzle = sudoku[["sudokuPuzzle"]];
@@ -295,7 +338,7 @@ Manipulate[
         difficoltaInCorso = getDifficoltaCarica[numSudoku]; (*Ricaviamoci la difficolt\[AGrave] del sudoku che andremo a risolvere per scriverla in alto. *)
         aiuto = attivaAiuti[difficoltaInCorso];             (*Resetta aiuto. *)
         controlliAttivi = True;                             (*Resetta le checkBox. *)
-        dimQuadratoSudoku = getDimSudoku[difficoltaInCorso];
+        dimQuadratoSudoku = getDimSudoku[difficoltaInCorso]; (*Calcolo dimensione dei quadrati singoli del sudoku*)       
         sudoku = CreateSudoku[dimQuadratoSudoku, numSudoku]; (*Creiamo il sudoku con tale seed. *)
         fullBoard = sudoku[["fullBoard"]];                    (*Prendiamoci le griglie corrette. *)
         puzzle = sudoku[["sudokuPuzzle"]];
