@@ -122,11 +122,11 @@ CreateSudoku[dim_, seed_]:= Module[
 
 
 (*Funzioni per lo stile delle label nel men\[UGrave]. *)
-titleElemStyle[s_]:= Style[s, FontSize->16, Bold];
-titleMainStyle[s_]:= Style[s, FontSize->16];
-elemStyle[s_]:= Style[s, FontSize->14, Bold, FontFamily->"Arial"];
-mainStyle[s_]:= Style[s, FontSize->14];
-vittoriaStyle[s_] := Style[s, FontSize->30, Bold, RGBColor[0,0.64,0.36], FontFamily->"Arial", TextAlignment->Center];
+titleElemStyle[s_]:= Style[s, FontSize->12, Bold];
+titleMainStyle[s_]:= Style[s, FontSize->12];
+elemStyle[s_]:= Style[s, FontSize->10, Bold, FontFamily->"Arial"];
+mainStyle[s_]:= Style[s, FontSize->10];
+vittoriaStyle[s_] := Style[s, FontSize->26, Bold, RGBColor[0,0.64,0.36], FontFamily->"Arial", TextAlignment->Center];
 (*Funzione per creare un PopupMenu di base data la variabile dinamica da collegare ad esso. *)
 creaPopup[var_]:=PopupMenu[Dynamic[var], {"Tutorial", "Facile", "Medio", "Difficile"}, FieldSize -> Small];
 (*Funzione per creare una CheckBox di base data la variabile dinamica da collegare ad essa. *)
@@ -168,7 +168,7 @@ stampaGrigliaSelezioneNumeri[difficolta_]:= Module[
    griglia,
    Frame -> All,
    Background->RGBColor[0.5,0.74,0.5,0.4],
-   BaseStyle->Large]];
+   BaseStyle->14]];
 
 
 (*Funzione che prende le coordinate dell'input del cursore rispetto la griglia del sudoku*)
@@ -199,7 +199,7 @@ SudokuGame[] := DynamicModule[
  popupDifficolta = creaPopup[difficolta],                (*Popup della difficolt\[AGrave] di "Nuova Partita". *)
  popupDifficoltaCarica = creaPopup[difficoltaCarica],    (*Popup della difficolt\[AGrave] di "Carica Partita". *)
 (*Sudoku*)
- grandezzaGrigliaSudoku = 22,                             (*Dimensione font caratteri*)
+ grandezzaGrigliaSudoku = 14,                             (*Dimensione font caratteri*)
  caricaSudoku = 0,                                         (*Variabile dell'inputField del Seed. *)
  caricaSudokuInput = InputField[Dynamic[caricaSudoku], FieldSize->Small], (*InputField del Seed. *)
  numSudoku,      (*Seed del sudoku che stiamo completando. *)
@@ -219,7 +219,7 @@ SudokuGame[] := DynamicModule[
  mostraSoluzione = False,                                  (*Valore della checkbox di mostra soluzione. *)
  mostraSoluzioneCheckbox = creaCheckBox[mostraSoluzione],  (*Checkbox di mostra soluzione. *)
 (* Manipulate *)
- dimensioneManipulate = {larghezza = 700, altezza = 480},   (*Dimensione dell'intera manipulate. *)
+ dimensioneManipulate = {larghezza = 600, altezza = 330},   (*Dimensione dell'intera manipulate. *)
  dimQuadratoSudoku                                           (*A seconda della difficolt\[AGrave], indica le dimensioni dei quadrati all'interno del sudoku
                                                               (2x2 o 3x3)*)
 },
@@ -262,7 +262,7 @@ Manipulate[
    }],
    "\t",
 	(*Griglia soluzione. *)
-	If[mostraSoluzione, Dynamic[ShowSudoku[fullBoard, 15, dimQuadratoSudoku, cursor]], ""]
+	If[mostraSoluzione, Dynamic[ShowSudoku[fullBoard, 11, dimQuadratoSudoku, cursor]], ""]
   }}, Editable->False],
  (*Intestazione manipulate con scritta della difficolt\[AGrave] e del seed. *)
  Control[
@@ -278,7 +278,7 @@ Manipulate[
  (*Insieme delle checkbox e del bottone Ricomincia. *)
  Control[
   Row[{
-   Spacer[{20, 50}],
+   Spacer[{20, 0}],
    Column[{
     Grid[Transpose[{{mainStyle["Aiuto: "], mainStyle["Mostra soluzione: "]},{aiutoCheckbox, mostraSoluzioneCheckbox}}]],
     Button["Ricomincia", (
@@ -324,7 +324,6 @@ Manipulate[
      Spacer[{50,0}],
      (*Sezione "Carica Sudoku". *)
      Column[{
-      Spacer[{0,5}],
       elemStyle["Carica Sudoku:"],
       Panel[
        Column[{
