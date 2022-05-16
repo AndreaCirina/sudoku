@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    873904,      14583]
-NotebookOptionsPosition[    871636,      14536]
-NotebookOutlinePosition[    872417,      14561]
-CellTagsIndexPosition[    872374,      14558]
+NotebookDataLength[    876100,      14662]
+NotebookOptionsPosition[    872775,      14598]
+NotebookOutlinePosition[    873506,      14622]
+CellTagsIndexPosition[    873463,      14619]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -25,17 +25,16 @@ Cell[TextData[StyleBox["Sudoku",
  FontColor->RGBColor[1, 0, 0]]], "Title",
  CellChangeTimes->{{3.8613563890288205`*^9, 3.8613563905573664`*^9}, {
   3.86135678015303*^9, 3.861356783974431*^9}, {3.861356878907662*^9, 
-  3.861356899605829*^9}},
+  3.861356899605829*^9}, {3.861677173756958*^9, 3.861677180502749*^9}},
  TextAlignment->Center,ExpressionUUID->"a681d5b2-1764-41cc-a06b-368d5ea352bf"],
 
-Cell[TextData[StyleBox["Implementato utilizzando Mathematica",
- FontSize->18,
- FontColor->GrayLevel[0.5]]], "Subtitle",
- CellChangeTimes->{{3.861356913882717*^9, 3.8613569202570143`*^9}, {
-  3.861357039516176*^9, 3.8613570551362677`*^9}},
- TextAlignment->Center,ExpressionUUID->"b89c6e2f-9ee4-407d-bd9c-01d2cf54d9f0"],
-
-Cell["", "Text",ExpressionUUID->"5c856080-c2e6-4dc0-9d07-58c372f451c4"],
+Cell["\<\
+                                                                             L\
+uca Asunis, Mauro Barbieri, Andrea Cirina, Chiara Manca\
+\>", "Subtitle",
+ CellChangeTimes->{{3.861677190408751*^9, 
+  3.861677247331506*^9}},ExpressionUUID->"012db840-51cd-46a6-a8f4-\
+1414dc249afb"],
 
 Cell[CellGroupData[{
 
@@ -2477,6 +2476,7 @@ anQVBkSJQwmNYQ5VvFleXl5qCpLm5eWtXbt25cqV33///ZIlSxYtWvTtt9/O
 mzcPCt5XX331xRdfzJw58/3333/33XffeecdXHz00Ueffvrp559/jo+gWS1c
 uBD/tdTghx9+WLNmzfr1601U3S75wUBXWVnJCwbgbdmypbCwsKioSGLy7fuy
 fYaO9Pt1dXW4TfkCT1yWmCi+ZBlf5VVe5U2sbvb/onzpJw==
+       
        "], {{0, 561.}, {615., 0}}, {0, 255},
        ColorFunction->RGBColor,
        ImageResolution->{96, 96}],
@@ -4920,6 +4920,7 @@ anQVBkSJQwmNYQ5VvFleXl5qCpLm5eWtXbt25cqV33///ZIlSxYtWvTtt9/O
 mzcPCt5XX331xRdfzJw58/3333/33XffeecdXHz00Ueffvrp559/jo+gWS1c
 uBD/tdTghx9+WLNmzfr1601U3S75wUBXWVnJCwbgbdmypbCwsKioSGLy7fuy
 fYaO9Pt1dXW4TfkCT1yWmCi+ZBlf5VVe5U2sbvb/onzpJw==
+       
        "], {{0, 561.}, {615., 0}}, {0, 255},
        ColorFunction->RGBColor,
        ImageResolution->{96, 96}],
@@ -7363,6 +7364,7 @@ anQVBkSJQwmNYQ5VvFleXl5qCpLm5eWtXbt25cqV33///ZIlSxYtWvTtt9/O
 mzcPCt5XX331xRdfzJw58/3333/33XffeecdXHz00Ueffvrp559/jo+gWS1c
 uBD/tdTghx9+WLNmzfr1601U3S75wUBXWVnJCwbgbdmypbCwsKioSGLy7fuy
 fYaO9Pt1dXW4TfkCT1yWmCi+ZBlf5VVe5U2sbvb/onzpJw==
+       
        "], {{0, 561.}, {615., 0}}, {0, 255},
        ColorFunction->RGBColor,
        ImageResolution->{96, 96}],
@@ -9806,6 +9808,7 @@ anQVBkSJQwmNYQ5VvFleXl5qCpLm5eWtXbt25cqV33///ZIlSxYtWvTtt9/O
 mzcPCt5XX331xRdfzJw58/3333/33XffeecdXHz00Ueffvrp559/jo+gWS1c
 uBD/tdTghx9+WLNmzfr1601U3S75wUBXWVnJCwbgbdmypbCwsKioSGLy7fuy
 fYaO9Pt1dXW4TfkCT1yWmCi+ZBlf5VVe5U2sbvb/onzpJw==
+       
        "], {{0, 561.}, {615., 0}}, {0, 255},
        ColorFunction->RGBColor,
        ImageResolution->{96, 96}],
@@ -9814,7 +9817,8 @@ fYaO9Pt1dXW4TfkCT1yWmCi+ZBlf5VVe5U2sbvb/onzpJw==
      DefaultBaseStyle->"ImageGraphics",
      ImageSize->{261.99999999999955`, Automatic},
      ImageSizeRaw->{615., 561.},
-     PlotRange->{{0, 615.}, {0, 561.}}]}], "\[IndentingNewLine]"}]}]], "Input",
+     PlotRange->{{0, 615.}, {0, 561.}}]}], "\[IndentingNewLine]"}]}]], "Input",\
+
  CellChangeTimes->{{3.86135773637391*^9, 3.861357746302228*^9}, {
    3.8613577871030827`*^9, 3.861357819531714*^9}, {3.861357880041544*^9, 
    3.861357880989236*^9}, {3.8613579807419367`*^9, 3.8613579883110404`*^9}, {
@@ -13629,6 +13633,7 @@ L37xmx74xS9+0wW/+MVv//B/Afwt54w=
   ImageSize->{260.3999999999997, Automatic},
   ImageSizeRaw->{615., 561.},
   PlotRange->{{0, 615.}, {0, 561.}}]], "Output",
+ CellOpen->False,
  CellChangeTimes->{
   3.861417146594282*^9, 3.861417300447958*^9, 3.8614173720261173`*^9, {
    3.861417420861706*^9, 3.8614174394765725`*^9}, 3.861417534827093*^9, 
@@ -13680,97 +13685,132 @@ L37xmx74xS9+0wW/+MVv//B/Afwt54w=
  CellLabel->"Out[62]=",ExpressionUUID->"e6e8a2d6-c535-43fc-8134-d04a008a30a4"]
 }, Open  ]],
 
-Cell[TextData[StyleBox["                                              Luca \
-Asunis \t\tMauro Barbieri \tAndrea Cirina\t\tChiara Manca",
- FontSize->24]], "Text",
- CellChangeTimes->{{3.861357918885865*^9, 3.8613579484185677`*^9}, {
-  3.861359965923395*^9, 3.8613599946146564`*^9}, {3.861361236851575*^9, 
-  3.8613612588784637`*^9}, {3.861361309059266*^9, 3.8613613385141582`*^9}},
- TextAlignment->-0.5,ExpressionUUID->"9fe5f7d7-543c-4e1c-9137-e7f51f701f48"],
+Cell[CellGroupData[{
 
-Cell[TextData[StyleBox["Matematica Computazionale 2021/2022",
+Cell[TextData[StyleBox["Indice",
+ FontSize->50]], "Section",
+ CellChangeTimes->{{3.8616773138018*^9, 
+  3.861677333437419*^9}},ExpressionUUID->"add6f3f2-9dc3-4b0e-b2ff-\
+2477b5dcf797"],
+
+Cell["Introduzione", "ItemNumbered",
+ CellChangeTimes->{{3.861677336047489*^9, 3.8616773682955227`*^9}},
  FontSize->36,
- FontColor->GrayLevel[0.5]]], "Text",
- CellChangeTimes->{{3.861358027597845*^9, 3.8613580443040457`*^9}},
- TextAlignment->Center,ExpressionUUID->"2c7f16d7-e156-413a-85ba-77b0f7617d34"],
+ FontColor->RGBColor[
+  1, 0.5, 0],ExpressionUUID->"ec9b88fb-b2fc-432d-b1ea-e248b46094d1"],
+
+Cell[CellGroupData[{
+
+Cell["Sudoku", "ItemNumbered",
+ CellChangeTimes->{{3.861677336047489*^9, 3.861677373082141*^9}},
+ FontSize->36,
+ FontColor->RGBColor[
+  1, 0.5, 0],ExpressionUUID->"c8e606a4-3835-4890-8444-43acfb53650c"],
+
+Cell["Scelte Implementative", "SubitemNumbered",
+ CellChangeTimes->{{3.861677336047489*^9, 3.8616773831901608`*^9}},
+ FontSize->36,
+ FontColor->RGBColor[
+  1, 0.5, 0],ExpressionUUID->"4220b4d3-e536-429d-b92b-809d899f27bd"],
+
+Cell["Gioco", "SubitemNumbered",
+ CellChangeTimes->{{3.861677336047489*^9, 3.861677385412251*^9}},
+ FontSize->36,
+ FontColor->RGBColor[
+  1, 0.5, 0],ExpressionUUID->"7266b424-944a-4a22-bc57-f10facd9cbe4"]
+}, Open  ]],
+
+Cell["Bibliografia e Sitografia", "ItemNumbered",
+ CellChangeTimes->{{3.861677336047489*^9, 3.8616774020935383`*^9}},
+ FontSize->36,
+ FontColor->RGBColor[
+  1, 0.5, 0],ExpressionUUID->"372d3d9d-1981-4db7-9b1e-51ed004fcb8f"],
+
+Cell["Conclusioni e Sviluppi Futuri", "ItemNumbered",
+ CellChangeTimes->{{3.861677336047489*^9, 3.861677411456525*^9}},
+ FontSize->36,
+ FontColor->RGBColor[
+  1, 0.5, 0],ExpressionUUID->"f1cde463-e0af-48f1-87b3-21a1ba1099b2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["1. Introduzione",
+ FontSize->50]], "Section",
+ CellChangeTimes->{{3.8616773138018*^9, 3.861677333437419*^9}, {
+  3.861677586782461*^9, 3.861677588491941*^9}, {3.861678039961233*^9, 
+  3.86167804054211*^9}},ExpressionUUID->"9be5ebd2-c6c7-41c0-9df5-\
+d6606665183d"],
 
 Cell[TextData[{
- StyleBox["Indice\n\t\n\t",
-  FontSize->36,
-  FontColor->RGBColor[1, 0.5, 0]],
- StyleBox["Introduzione\n\t\n\tI. Sudoku\n\t\t",
-  FontSize->30,
-  FontColor->RGBColor[1, 0, 0]],
- StyleBox["Scelte implementative\n\t\t      ....",
-  FontSize->24,
-  FontColor->RGBColor[1, 0, 1]],
- StyleBox["\n\tII. Bibliografia e Sitografia\n\tIII. Conclusioni e sviluppi \
-futuri",
-  FontSize->30,
-  FontColor->RGBColor[1, 0, 0]],
- StyleBox["\t",
-  FontSize->30,
-  FontColor->RGBColor[1, 0.5, 0]]
-}], "Text",
- CellChangeTimes->{{3.861358235039347*^9, 3.86135827718769*^9}, {
-  3.8613583590493507`*^9, 3.861358415359824*^9}, {3.8613584852303276`*^9, 
-  3.8613585063588505`*^9}, {3.861358631595599*^9, 3.8613586477652526`*^9}, {
-  3.8613591833527417`*^9, 
-  3.861359186972074*^9}},ExpressionUUID->"900f1b01-8f9f-47a5-b140-\
-c2e03fdc5358"],
-
-Cell[TextData[{
- StyleBox["Introduzione",
-  FontSize->36,
-  FontColor->RGBColor[1, 0.5, 0]],
- StyleBox["\n\n\t      ",
-  FontColor->RGBColor[1, 0.5, 0]],
  StyleBox["Il sudoku, in giapponese, ",
-  FontSize->24,
+  FontSize->30,
   FontColor->GrayLevel[0]],
  StyleBox["S\:016b",
-  FontSize->24,
+  FontSize->30,
   FontWeight->"Bold",
   FontColor->GrayLevel[0]],
  StyleBox["ji wa ",
-  FontSize->24,
+  FontSize->30,
   FontColor->GrayLevel[0]],
  StyleBox["doku",
-  FontSize->24,
+  FontSize->30,
   FontWeight->"Bold",
   FontColor->GrayLevel[0]],
  StyleBox["shin ni kagiru, che in italiano vuol dire \
 \[OpenCurlyDoubleQuote]sono consentiti solo numeri solitari, \[EGrave] un \
-gioco di logica nel \tquale al giocatore o solutore viene proposta \
-solitamente una griglia di 9\[Times]9 celle, ciascuna delle quali pu\[OGrave] \
-contenere un numero da 1 a 9, \toppure essere vuota; la griglia \[EGrave] \
-suddivisa in 9 righe orizzontali, 9 colonne verticali e in 9 \
+gioco di logica nel quale al giocatore o solutore viene proposta solitamente \
+una griglia di 9\[Times]9 celle, ciascuna delle quali pu\[OGrave] contenere \
+un numero da 1 a 9, oppure essere vuota; la griglia \[EGrave] suddivisa in 9 \
+righe orizzontali, 9 colonne verticali e in 9 \
 \[OpenCurlyDoubleQuote]sottogriglie\[CloseCurlyDoubleQuote] di 3\[Times]3 \
-celle contigue.\n\t\n\tLe griglie proposte al giocatore hanno da 20 a 35 \
-celle contenenti un numero. Lo scopo del gioco \[EGrave] quello di riempire \
-le caselle bianche \tcon numeri da 1 a 9 in modo tale che in ogni riga, in \
-ogni colonna e in ogni regione siano presenti tutte le cifre da 1 a 9, quindi \
-senza \t\tripetizioni.\n\t\n\tLa versione moderna del gioco fu pubblicata per \
-la prima volta nel 1979 dall\[CloseCurlyQuote]architetto statunitense Howard \
-Garns all\[CloseCurlyQuote]interno del Dell \t\tMagazines con il titolo \
+celle contigue.\n\nLe griglie proposte al giocatore hanno da 20 a 35 celle \
+contenenti un numero. Lo scopo del gioco \[EGrave] quello di riempire le \
+caselle bianche con numeri da 1 a 9 in modo tale che in ogni riga, in ogni \
+colonna e in ogni regione siano presenti tutte le cifre da 1 a 9, quindi \
+senza ripetizioni.\n\t\nLa versione moderna del gioco fu pubblicata per la \
+prima volta nel 1979 dall\[CloseCurlyQuote]architetto statunitense Howard \
+Garns all\[CloseCurlyQuote]interno del Dell Magazines con il titolo \
 \[OpenCurlyDoubleQuote]Number Place\[CloseCurlyDoubleQuote]. In seguito fu \
 diffuso in Giappone dalla casa editrice Nikoli nel 1984, per poi diventare \
-noto a \t\tlivello internazionale soltanto a partire dal 2005, quando fu \
-proposto in molti periodici.\n\t\n\tNelle successive sezioni verranno \
-mostrate le varie tecniche e scelte implementative che hanno portato alla \
-realizzazione di un \t\t\tprogramma per la generazione casuale di Sudoku \
-utilizzando il linguaggio visto a lezione.",
-  FontSize->24,
+noto a livello internazionale soltanto a partire dal 2005, quando fu proposto \
+in molti periodici.",
+  FontSize->30,
   FontColor->GrayLevel[0]],
- StyleBox["\n\n\t\n\t",
-  FontColor->RGBColor[1, 0.5, 0]]
+ "\n"
 }], "Text",
- CellChangeTimes->{{3.8613587801290116`*^9, 3.861358928400441*^9}, {
-   3.8613589610978975`*^9, 3.8613589681749425`*^9}, {3.8613609534302588`*^9, 
-   3.861361119979452*^9}, {3.861361169115159*^9, 3.8613611799920845`*^9}, {
-   3.8613614132244473`*^9, 3.8613614307336884`*^9}, 
-   3.861361461403702*^9},ExpressionUUID->"75880340-32aa-4794-a66b-\
-d6a60c0d15ae"],
+ CellChangeTimes->{{3.861677706459343*^9, 
+  3.861677737458198*^9}},ExpressionUUID->"af5896ee-e185-4f9a-8ec1-\
+b807f99be7a8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["2. Sudoku",
+ FontSize->50]], "Section",
+ CellChangeTimes->{{3.861677753305414*^9, 3.861677770008587*^9}, {
+  3.861678041955002*^9, 
+  3.861678042229577*^9}},ExpressionUUID->"dfcb5280-3e87-4e80-a4b9-\
+80ab8ab6f016"],
+
+Cell[TextData[StyleBox["2.1. Scelte Implementative",
+ FontSize->40]], "Subsection",
+ CellChangeTimes->{{3.861677771363171*^9, 3.861677788025522*^9}, 
+   3.861677856627314*^9, {3.8616780437083178`*^9, 
+   3.861678046336203*^9}},ExpressionUUID->"5e2313fb-7884-479e-9d68-\
+f40d7b0b118e"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "\n",
+ StyleBox["2.2 Gioco",
+  FontSize->40]
+}], "Subsection",
+ CellChangeTimes->{{3.861677792594239*^9, 3.86167780471275*^9}, {
+  3.861678047561036*^9, 
+  3.861678048164137*^9}},ExpressionUUID->"8753c749-a10c-45fc-8c85-\
+4ccceef79c9a"],
 
 Cell[BoxData[
  RowBox[{
@@ -13785,7 +13825,7 @@ Cell[BoxData[
   RowBox[{"<<", " ", "Sudoku`"}], "\[IndentingNewLine]"}]], "Input",
  CellChangeTimes->{{3.8605003335934033`*^9, 3.860500333749993*^9}, {
   3.860500366188586*^9, 3.8605003750664425`*^9}, {3.861675845583156*^9, 
-  3.8616758740534115`*^9}},
+  3.8616758740534115`*^9}, {3.861677836869873*^9, 3.8616778428008547`*^9}},
  CellLabel->"In[64]:=",ExpressionUUID->"f74477cc-5091-4301-8864-0f395ffe0271"],
 
 Cell[CellGroupData[{
@@ -13835,8 +13875,6 @@ Cell[BoxData[
  CellLabel->"Out[65]=",ExpressionUUID->"fb5293f7-dfd6-46e2-af3e-9205d2a4a5fb"]
 }, Open  ]],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[
  RowBox[{"SudokuGame", "[", "]"}]], "Input",
  CellOpen->False,
@@ -13881,7 +13919,7 @@ Cell[BoxData[
   Sudoku`Private`startPosition$$ = {{1, 2}, {1, 3}, {1, 4}, {2, 2}, {2, 4}, {
   3, 1}, {3, 2}, {3, 3}, {3, 4}, {4, 1}, {4, 2}, {4, 3}}, 
   Sudoku`Private`cursor$$ = {0, 0}, Sudoku`Private`inputValue$$, 
-  Sudoku`Private`controlliAttivi$$ = True, Sudoku`Private`timer$$ = 6, 
+  Sudoku`Private`controlliAttivi$$ = True, Sudoku`Private`timer$$ = 776, 
   Sudoku`Private`refreshTimer$$ = True, Sudoku`Private`aiuto$$ = True, 
   Sudoku`Private`aiutoCheckbox$$ = Checkbox[
    Dynamic[Sudoku`Private`aiuto$$], Enabled -> 
@@ -14030,7 +14068,7 @@ Cell[BoxData[
                 Sudoku`Private`startPosition$$ = 
                  Part[Sudoku`Private`sudoku$$, "startPosition"]; 
                 Null)& ]}]]}]}]], Manipulate`Dump`ThisIsNotAControl}}, 
-     Typeset`size$$ = {113., {45.79541024034843, 50.20458975965157}}, 
+     Typeset`size$$ = {119., {50.29541015625, 54.70458984375}}, 
      Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
      False}, 
      DynamicBox[Manipulate`ManipulateBoxes[
@@ -14223,7 +14261,7 @@ Cell[BoxData[
        "Options" :> {
         ContentSize -> {700, 480}, ControlPlacement -> {Top, Top, Bottom}}, 
        "DefaultOptions" :> {}],
-      ImageSizeCache->{364., {192.79541024034842`, 197.20458975965158`}},
+      ImageSizeCache->{360., {206., 210.}},
       SingleEvaluation->True],
      Deinitialization:>None,
      DynamicModuleValues:>{},
@@ -14304,7 +14342,8 @@ Cell[BoxData[
                 Darker[White], White], {
               Sudoku`Private`i, Sudoku`Private`maxIndex}, {
               Sudoku`Private`j, Sudoku`Private`maxIndex}]]; 
-          Sudoku`Private`numberColor = If[Sudoku`Private`startPosition != {}, 
+          Sudoku`Private`numberColor = 
+           If[Sudoku`Private`startPosition != {}, 
              Flatten[
               Table[
                If[
@@ -14513,9 +14552,10 @@ Cell[BoxData[
         Module[{Sudoku`Private`seedDiBase}, 
           Sudoku`Private`seedDiBase = 
            IntegerPart[RandomInteger[{10, 100000}] 4]; 
-          Switch[Sudoku`Private`difficolta, "Tutorial", 
-            Sudoku`Private`seedDiBase, "Facile", Sudoku`Private`seedDiBase + 
-            1, "Medio", Sudoku`Private`seedDiBase + 2, 
+          Switch[
+           Sudoku`Private`difficolta, "Tutorial", Sudoku`Private`seedDiBase, 
+            "Facile", Sudoku`Private`seedDiBase + 1, "Medio", 
+            Sudoku`Private`seedDiBase + 2, 
             Blank[], Sudoku`Private`seedDiBase + 3]], 
         Sudoku`Private`getDimSudoku[
           Pattern[Sudoku`Private`diff, 
@@ -14528,25 +14568,46 @@ Cell[BoxData[
     Deployed->True,
     StripOnInput->False],
    Manipulate`InterpretManipulate[1]],
-  DynamicModuleValues:>{}]], "Output",
- CellChangeTimes->{3.861677025994375*^9},
- CellLabel->"Out[66]=",ExpressionUUID->"caac9a9d-fc04-4085-a3a0-d7962d79e844"]
+  DynamicModuleValues:>{}]], "Input",
+ CellChangeTimes->{{3.8616778774140778`*^9, 
+  3.861677881720813*^9}},ExpressionUUID->"caac9a9d-fc04-4085-a3a0-\
+d7962d79e844"]
 }, Open  ]]
+}, Open  ]],
+
+Cell[TextData[{
+ StyleBox["3. Bibliografia e Sitografia",
+  FontSize->50],
+ "\n"
+}], "Section",
+ CellChangeTimes->{{3.861677753305414*^9, 3.861677770008587*^9}, {
+  3.861677928969697*^9, 3.861677946045341*^9}, {3.861678058909149*^9, 
+  3.861678059292618*^9}},ExpressionUUID->"e010e1c1-9082-41c2-953b-\
+8fb3f290223b"],
+
+Cell[TextData[{
+ StyleBox["4. Conclusioni e Sviluppi Futuri",
+  FontSize->50],
+ "\n"
+}], "Section",
+ CellChangeTimes->{{3.861677753305414*^9, 3.861677770008587*^9}, {
+  3.861677928969697*^9, 3.861677962373558*^9}, {3.861678060723876*^9, 
+  3.861678060977378*^9}},ExpressionUUID->"d6276fa8-4311-4a09-9cbe-\
+61925263918a"]
 }, Open  ]]
 },
 ScreenStyleEnvironment->"SlideShow",
-WindowSize->{1152., 592.8},
-WindowMargins->{{Automatic, -5.399999999999864}, {
-  Automatic, -5.3999999999999995`}},
+WindowSize->{Full, Full},
+WindowMargins->{{Automatic, -5}, {Automatic, 0}},
 DockedCells->{},
 TaggingRules-><|"TryRealOnly" -> False|>,
 Magnification:>0.5 Inherited,
-FrontEndVersion->"13.0 for Microsoft Windows (64-bit) (February 4, 2022)",
+FrontEndVersion->"13.0 for Mac OS X x86 (64-bit) (February 4, 2022)",
 StyleDefinitions->Notebook[{
    Cell[
     StyleData[StyleDefinitions -> "Default.nb"]]}, Visible -> False, 
-  FrontEndVersion -> "13.0 for Microsoft Windows (64-bit) (February 4, 2022)",
-   StyleDefinitions -> "PrivateStylesheetFormatting.nb"],
+  FrontEndVersion -> "13.0 for Mac OS X x86 (64-bit) (February 4, 2022)", 
+  StyleDefinitions -> "PrivateStylesheetFormatting.nb"],
 ExpressionUUID->"aa3ba23a-012a-44de-86b9-47e132f7fc63"
 ]
 (* End of Notebook Content *)
@@ -14561,29 +14622,47 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 335, 6, 105, "Title",ExpressionUUID->"a681d5b2-1764-41cc-a06b-368d5ea352bf"],
-Cell[918, 30, 317, 5, 33, "Subtitle",ExpressionUUID->"b89c6e2f-9ee4-407d-bd9c-01d2cf54d9f0"],
-Cell[1238, 37, 71, 0, 25, "Text",ExpressionUUID->"5c856080-c2e6-4dc0-9d07-58c372f451c4"],
+Cell[580, 22, 381, 6, 124, "Title",ExpressionUUID->"a681d5b2-1764-41cc-a06b-368d5ea352bf"],
+Cell[964, 30, 289, 6, 52, "Subtitle",ExpressionUUID->"012db840-51cd-46a6-a8f4-1414dc249afb"],
 Cell[CellGroupData[{
-Cell[1334, 41, 596025, 9787, 158, "Input",ExpressionUUID->"56133431-4c52-4e79-a3e8-ec0274d7e63a"],
-Cell[597362, 9830, 234983, 3849, 130, "Output",ExpressionUUID->"e6e8a2d6-c535-43fc-8134-d04a008a30a4"]
-}, Open  ]],
-Cell[832360, 13682, 456, 6, 26, "Text",ExpressionUUID->"9fe5f7d7-543c-4e1c-9137-e7f51f701f48"],
-Cell[832819, 13690, 261, 4, 33, "Text",ExpressionUUID->"2c7f16d7-e156-413a-85ba-77b0f7617d34"],
-Cell[833083, 13696, 834, 23, 207, "Text",ExpressionUUID->"900f1b01-8f9f-47a5-b140-c2e03fdc5358"],
-Cell[833920, 13721, 2480, 51, 309, "Text",ExpressionUUID->"75880340-32aa-4794-a66b-d6a60c0d15ae"],
-Cell[836403, 13774, 274, 6, 25, "Input",ExpressionUUID->"9a39f568-919f-4adb-8af6-e8e71e19f064"],
-Cell[836680, 13782, 341, 6, 38, "Input",ExpressionUUID->"f74477cc-5091-4301-8864-0f395ffe0271"],
-Cell[CellGroupData[{
-Cell[837046, 13792, 849, 18, 13, "Input",ExpressionUUID->"3fc6b9ab-cd71-4295-be44-8919554c9149",
- CellOpen->False],
-Cell[837898, 13812, 1059, 22, 63, "Output",ExpressionUUID->"fb5293f7-dfd6-46e2-af3e-9205d2a4a5fb"]
+Cell[1278, 40, 596059, 9792, 161, "Input",ExpressionUUID->"56133431-4c52-4e79-a3e8-ec0274d7e63a"],
+Cell[597340, 9834, 235001, 3850, 14, "Output",ExpressionUUID->"e6e8a2d6-c535-43fc-8134-d04a008a30a4",
+ CellOpen->False]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[838994, 13839, 223, 4, 13, "Input",ExpressionUUID->"7ff7ca20-e480-47ef-9a35-6a7db4db5833",
+Cell[832378, 13689, 184, 4, 68, "Section",ExpressionUUID->"add6f3f2-9dc3-4b0e-b2ff-2477b5dcf797"],
+Cell[832565, 13695, 210, 4, 33, "ItemNumbered",ExpressionUUID->"ec9b88fb-b2fc-432d-b1ea-e248b46094d1"],
+Cell[CellGroupData[{
+Cell[832800, 13703, 202, 4, 33, "ItemNumbered",ExpressionUUID->"c8e606a4-3835-4890-8444-43acfb53650c"],
+Cell[833005, 13709, 222, 4, 33, "SubitemNumbered",ExpressionUUID->"4220b4d3-e536-429d-b92b-809d899f27bd"],
+Cell[833230, 13715, 204, 4, 33, "SubitemNumbered",ExpressionUUID->"7266b424-944a-4a22-bc57-f10facd9cbe4"]
+}, Open  ]],
+Cell[833449, 13722, 223, 4, 33, "ItemNumbered",ExpressionUUID->"372d3d9d-1981-4db7-9b1e-51ed004fcb8f"],
+Cell[833675, 13728, 225, 4, 33, "ItemNumbered",ExpressionUUID->"f1cde463-e0af-48f1-87b3-21a1ba1099b2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[833937, 13737, 287, 5, 68, "Section",ExpressionUUID->"9be5ebd2-c6c7-41c0-9df5-d6606665183d"],
+Cell[834227, 13744, 1796, 39, 197, "Text",ExpressionUUID->"af5896ee-e185-4f9a-8ec1-b807f99be7a8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[836060, 13788, 238, 5, 68, "Section",ExpressionUUID->"dfcb5280-3e87-4e80-a4b9-80ab8ab6f016"],
+Cell[836301, 13795, 284, 5, 53, "Subsection",ExpressionUUID->"5e2313fb-7884-479e-9d68-f40d7b0b118e"],
+Cell[CellGroupData[{
+Cell[836610, 13804, 253, 8, 58, "Subsection",ExpressionUUID->"8753c749-a10c-45fc-8c85-4ccceef79c9a"],
+Cell[836866, 13814, 274, 6, 28, "Input",ExpressionUUID->"9a39f568-919f-4adb-8af6-e8e71e19f064"],
+Cell[837143, 13822, 389, 6, 42, "Input",ExpressionUUID->"f74477cc-5091-4301-8864-0f395ffe0271"],
+Cell[CellGroupData[{
+Cell[837557, 13832, 849, 18, 14, "Input",ExpressionUUID->"3fc6b9ab-cd71-4295-be44-8919554c9149",
  CellOpen->False],
-Cell[839220, 13845, 32388, 687, 403, "Output",ExpressionUUID->"caac9a9d-fc04-4085-a3a0-d7962d79e844"]
+Cell[838409, 13852, 1059, 22, 65, "Output",ExpressionUUID->"fb5293f7-dfd6-46e2-af3e-9205d2a4a5fb"]
+}, Open  ]],
+Cell[839483, 13877, 223, 4, 14, "Input",ExpressionUUID->"7ff7ca20-e480-47ef-9a35-6a7db4db5833",
+ CellOpen->False],
+Cell[839709, 13883, 32384, 690, 430, InheritFromParent,ExpressionUUID->"caac9a9d-fc04-4085-a3a0-d7962d79e844"]
 }, Open  ]]
+}, Open  ]],
+Cell[872120, 14577, 316, 8, 95, "Section",ExpressionUUID->"e010e1c1-9082-41c2-953b-8fb3f290223b"],
+Cell[872439, 14587, 320, 8, 72, "Section",ExpressionUUID->"d6276fa8-4311-4a09-9cbe-61925263918a"]
 }, Open  ]]
 }
 ]
