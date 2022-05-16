@@ -75,7 +75,7 @@ CreateSudoku[dim_, seed_]:= Module[
   SeedRandom[seed];                                                         (*Setta il seed per generare sempre lo stesso sudoku. *)
   difficolta = getDifficoltaCarica[seed];                                   (*Prendiamo la difficolt\[AGrave] del sudoku in base al seed. *)
   (*A seconda della difficolta verra settata la variabile della percentuale delle caselle che saranno piene. *)
-  percentualeDifficolta = Switch[difficolta, "Tutorial", 0.90, "Facile", 0.7, "Medio", 0.5, "Difficile", 0.2];
+  percentualeDifficolta = Switch[difficolta, "Tutorial", 0.70, "Facile", 0.7, "Medio", 0.5, "Difficile", 0.2];
   (*Generiamo il sudoku completo (soluzione) ed il sudoku da completare grazie alla funzione pre-esistente. *)
   {sudokuCompleto, sudokuDaCompletare} = ResourceFunction["GenerateSudokuPuzzle"][dim, percentualeDifficolta];
   posizioniIniziali = Position[Normal[sudokuDaCompletare], _Integer]; (*Salviamo le posizioni occupate dai numeri fissi nel sudoku da completare. *)
@@ -111,6 +111,10 @@ stampaVittoria[time_] :=
 (*Stampa la griglia del sudoku nella manipulate. *)
 stampaSudokuManipulate[puzzle_, grandezzaGrigliaSudoku_, dimQuadratoSudoku_, cursor_, startPosition_, aiuto_] :=
  Dynamic[ShowSudoku[puzzle, grandezzaGrigliaSudoku,dimQuadratoSudoku, cursor, startPosition, aiuto]];
+ 
+(*Decide se attivare gli aiuti o meno. *)
+attivaAiuti[diff_]:= If[diff === "Tutorial" || diff === "Facile", True, False];
+
 (*Stampa la griglia per sscrivere i numeri nel sudoku nell amanipulate. *) 
 stampaGrigliaSelezioneNumeri[difficolta_]:= Module[
  {grigliaSelezionaNumeri, grigliaNumeriTutorial, griglia},
@@ -170,7 +174,7 @@ SudokuGame[] := DynamicModule[
  timer = 0,                                                (*Tempo di esecuzione del sudoku. *)
  refreshTimer = True,                                      (*Flag per fermare il tempo. *)
 (* Aiuto *)
- aiuto = False,                                            (*Valore della checkbox dell'aiuto. *)
+ aiuto = True,                                             (*Valore della checkbox dell'aiuto. *)
  aiutoCheckbox = creaCheckBox[aiuto],                      (*Checkbox dell'aiuto. *)
 (* Mostra Soluzione *)
  mostraSoluzione = False,                                  (*Valore della checkbox di mostra soluzione. *)
@@ -236,8 +240,8 @@ Manipulate[
     Grid[Transpose[{{mainStyle["Aiuto: "], mainStyle["Mostra soluzione: "]},{aiutoCheckbox, mostraSoluzioneCheckbox}}]],
     Button["Ricomincia", (
      timer = -1;                                 (*Resetta timer. *)
-     aiuto = False;                              (*Resetta aiuto. *)
-     controlliAttivi = True;                     (*Riattiva checkbox. *)
+     aiuto = attivaAiuti[difficoltaInCorso];     (*Resetta aiuto. *)
+     controlliAttivi = True;                     (*Resetta le checkBox. *)
      refreshTimer = True;                        (*Ricomincio a contare il tempo*)
      mostraSoluzione = False;                    (*Resetta Checkbox mostra soluzione. *)
      sudoku = CreateSudoku[dimQuadratoSudoku, numSudoku];        (*Creiamo lo stesso sudoku che avevamo all'inizio. *)
@@ -261,11 +265,11 @@ Manipulate[
      Grid[Transpose[{{mainStyle["Difficolt\[AGrave]: "]}, {popupDifficolta}}]],
      Button["Nuovo Sudoku", (
       timer = -1;                                        (*Resetta timer. *)
-      aiuto = False;                                     (*Resetta aiuto. *)
-      controlliAttivi = True;                            (*Riattiva checkbox. *)
       refreshTimer = True;                               (*Ricomincio a contare il tempo*)
       mostraSoluzione = False;                           (*Resetta Checkbox mostra soluzione. *)
       difficoltaInCorso = difficolta;                    (*Settiamo la nuova difficolt\[AGrave] come quella selezionata nella dropdown. *)
+      controlliAttivi = True;                            (*Resetta le checkBox. *)
+      aiuto = attivaAiuti[difficoltaInCorso];            (*Resetta aiuto. *)
       cursor = {0,0};                                    (*Resettiamo il cursore. *)
       numSudoku = generaNuovoSeed[difficoltaInCorso];    (*Generiamo il nuovo seed con la difficolt\[AGrave] scelta. *)
       dimQuadratoSudoku = getDimSudoku[difficoltaInCorso];
@@ -284,12 +288,13 @@ Manipulate[
         Grid[Transpose[{{mainStyle["Numero sudoku:"]}, {caricaSudokuInput}}]],
         Button["Carica Sudoku", (
         timer = -1;                                         (*Resetta timer. *)
-        aiuto = False;                                      (*Resetta aiuto. *)
         controlliAttivi = True;                             (*Riattiva checkbox. *)
         refreshTimer = True;                                (*Ricomincio a contare il tempo*)
         mostraSoluzione = False;                            (*Resetta Checkbox mostra soluzione. *)
         numSudoku = caricaSudoku;                           (*Il seed del nuovo sudoku sar\[AGrave] quello scritto nell'InputField. *)
         difficoltaInCorso = getDifficoltaCarica[numSudoku]; (*Ricaviamoci la difficolt\[AGrave] del sudoku che andremo a risolvere per scriverla in alto. *)
+        aiuto = attivaAiuti[difficoltaInCorso];             (*Resetta aiuto. *)
+        controlliAttivi = True;                             (*Resetta le checkBox. *)
         dimQuadratoSudoku = getDimSudoku[difficoltaInCorso];
         sudoku = CreateSudoku[dimQuadratoSudoku, numSudoku]; (*Creiamo il sudoku con tale seed. *)
         fullBoard = sudoku[["fullBoard"]];                    (*Prendiamoci le griglie corrette. *)

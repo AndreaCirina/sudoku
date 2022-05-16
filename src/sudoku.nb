@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    985245,      16885]
-NotebookOptionsPosition[    982594,      16835]
-NotebookOutlinePosition[    983357,      16859]
-CellTagsIndexPosition[    983314,      16856]
+NotebookDataLength[    873904,      14583]
+NotebookOptionsPosition[    871636,      14536]
+NotebookOutlinePosition[    872417,      14561]
+CellTagsIndexPosition[    872374,      14558]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -9826,7 +9826,7 @@ fYaO9Pt1dXW4TfkCT1yWmCi+ZBlf5VVe5U2sbvb/onzpJw==
    3.8613616165462503`*^9, 3.8613616201092987`*^9}, 3.861362232179384*^9, {
    3.8613623760760765`*^9, 3.8613623783550844`*^9}},
  TextAlignment->Center,
- CellLabel->"In[16]:=",ExpressionUUID->"56133431-4c52-4e79-a3e8-ec0274d7e63a"],
+ CellLabel->"In[62]:=",ExpressionUUID->"56133431-4c52-4e79-a3e8-ec0274d7e63a"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -13668,8 +13668,16 @@ L37xmx74xS9+0wW/+MVv//B/Afwt54w=
    3.8615297674551086`*^9, 3.861529887769927*^9, 3.861529927326579*^9, 
    3.861529970946109*^9, 3.8615301010636706`*^9, 3.8615303148799524`*^9, 
    3.8615303558131213`*^9, 3.8615311494836807`*^9, 3.8615323850812864`*^9, 
-   3.8615325012769814`*^9},
- CellLabel->"Out[16]=",ExpressionUUID->"f57b55f5-16ed-4bd4-9888-8c8798447b65"]
+   3.8615325012769814`*^9, 3.8616733808351655`*^9, 3.8616734442705503`*^9, 
+   3.861673482999485*^9, {3.861673529374339*^9, 3.861673552503685*^9}, 
+   3.861673693580165*^9, 3.8616738176439238`*^9, {3.861674077340891*^9, 
+   3.861674097704664*^9}, 3.8616744393258495`*^9, 3.861674592406333*^9, {
+   3.8616748508240876`*^9, 3.8616749124979167`*^9}, {3.8616749438178873`*^9, 
+   3.861674969749628*^9}, 3.86167515764587*^9, 3.8616752789909925`*^9, 
+   3.8616753613207865`*^9, 3.8616759174979334`*^9, 3.8616759551947637`*^9, 
+   3.861676249480749*^9, {3.8616769679645357`*^9, 3.8616769895694304`*^9}, 
+   3.8616770256507063`*^9},
+ CellLabel->"Out[62]=",ExpressionUUID->"e6e8a2d6-c535-43fc-8134-d04a008a30a4"]
 }, Open  ]],
 
 Cell[TextData[StyleBox["                                              Luca \
@@ -13764,6 +13772,22 @@ utilizzando il linguaggio visto a lezione.",
    3.861361461403702*^9},ExpressionUUID->"75880340-32aa-4794-a66b-\
 d6a60c0d15ae"],
 
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"$Path", ",", " ", 
+    RowBox[{"NotebookDirectory", "[", "]"}]}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{3.860500368636446*^9},
+ CellLabel->"In[63]:=",ExpressionUUID->"9a39f568-919f-4adb-8af6-e8e71e19f064"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<<", " ", "Sudoku`"}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.8605003335934033`*^9, 3.860500333749993*^9}, {
+  3.860500366188586*^9, 3.8605003750664425`*^9}, {3.861675845583156*^9, 
+  3.8616758740534115`*^9}},
+ CellLabel->"In[64]:=",ExpressionUUID->"f74477cc-5091-4301-8864-0f395ffe0271"],
+
 Cell[CellGroupData[{
 
 Cell[BoxData[
@@ -13778,10 +13802,13 @@ Cell[BoxData[
    RowBox[{"ImageSize", "\[Rule]", 
     RowBox[{"{", 
      RowBox[{"200", ",", " ", "100"}], "}"}]}]}], "]"}]], "Input",
+ CellOpen->False,
  CellChangeTimes->{{3.8611668368562527`*^9, 3.861166845210455*^9}, {
   3.86116689025853*^9, 3.861166892499959*^9}, {3.861532349593706*^9, 
-  3.861532497224259*^9}, {3.86153254378445*^9, 3.8615325941056747`*^9}},
- CellLabel->"In[24]:=",ExpressionUUID->"3fc6b9ab-cd71-4295-be44-8919554c9149"],
+  3.861532497224259*^9}, {3.86153254378445*^9, 3.8615325941056747`*^9}, {
+  3.8616734386392293`*^9, 3.8616734419751654`*^9}, {3.861673549811058*^9, 
+  3.8616735504843607`*^9}},
+ CellLabel->"In[65]:=",ExpressionUUID->"3fc6b9ab-cd71-4295-be44-8919554c9149"],
 
 Cell[BoxData[
  ButtonBox[
@@ -13796,992 +13823,25 @@ Cell[BoxData[
   ImageSize->{200, 100},
   Method->"Preemptive"]], "Output",
  CellChangeTimes->{{3.8615323828452897`*^9, 3.8615324578293705`*^9}, {
-  3.861532497848418*^9, 3.8615325013402414`*^9}, {3.8615325521199865`*^9, 
-  3.8615325944794626`*^9}},
- CellLabel->"Out[24]=",ExpressionUUID->"f417a08b-d1a2-4416-a79f-1dc8561bd008"]
-}, Open  ]],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"AppendTo", "[", 
-   RowBox[{"$Path", ",", " ", 
-    RowBox[{"NotebookDirectory", "[", "]"}]}], "]"}], ";"}]], "Input",
- CellChangeTimes->{3.860500368636446*^9},
- CellLabel->"In[18]:=",ExpressionUUID->"9a39f568-919f-4adb-8af6-e8e71e19f064"],
-
-Cell[BoxData[
- RowBox[{"<<", " ", "Sudoku`"}]], "Input",
- CellChangeTimes->{{3.8605003335934033`*^9, 3.860500333749993*^9}, {
-  3.860500366188586*^9, 3.8605003750664425`*^9}},
- CellLabel->"In[19]:=",ExpressionUUID->"f74477cc-5091-4301-8864-0f395ffe0271"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"?", "SudokuGame"}]], "Input",
- CellChangeTimes->{{3.8605003805693626`*^9, 3.860500384786579*^9}, {
-  3.8607488923670864`*^9, 3.8607488947851815`*^9}},
- CellLabel->"In[20]:=",ExpressionUUID->"423ffae2-6041-4243-a41d-4be3275970a1"],
-
-Cell[BoxData[
- InterpretationBox[
-  StyleBox[
-   FrameBox[
-    DynamicModuleBox[{System`InformationDump`open$$ = False, 
-     System`InformationDump`mouseOver$$ = False}, 
-     PaneSelectorBox[{True->
-      TagBox[GridBox[{
-         {
-          ItemBox[
-           PaneBox[
-            StyleBox["\<\" Symbol\"\>", "InformationTitleText",
-             StripOnInput->False,
-             BaseStyle -> None],
-            FrameMargins->{{4, 0}, {-1, 1}}],
-           BaseStyle->"InformationTitleBackground",
-           StripOnInput->False], 
-          ItemBox["\<\"\"\>",
-           BaseStyle->"InformationTitleBackground",
-           StripOnInput->False]},
-         {
-          ItemBox[
-           PaneBox[
-            StyleBox["\<\"Gioco del sudoku\"\>", "InformationUsageText",
-             StripOnInput->False,
-             LineSpacing->{1.5, 1.5, 3.}],
-            FrameMargins->{{10, 10}, {8, 10}}],
-           BaseStyle->"InformationUsageSubtitleBackground",
-           StripOnInput->False], 
-          ItemBox["\<\"\"\>",
-           BaseStyle->"InformationUsageSubtitleBackground",
-           StripOnInput->False]},
-         {
-          PaneBox[
-           TagBox[GridBox[{
-              {
-               StyleBox[
-                TagBox[
-                 TooltipBox[
-                  StyleBox["\<\" Definitions\"\>", "InformationRowLabel",
-                   StripOnInput->False],
-                  "\"Definitions\"",
-                  TooltipStyle->"TextStyling"],
-                 Annotation[#, "Definitions", "Tooltip"]& ], "DialogStyle",
-                StripOnInput->False]},
-              {
-               TemplateBox[{"\"\[ThinSpace]\"", 
-                 GridBox[{{
-                    RowBox[{
-                    RowBox[{"SudokuGame", "[", "]"}], ":=", 
-                    RowBox[{"DynamicModule", "[", 
-                    RowBox[{
-                    RowBox[{"{", 
-                    RowBox[{
-                    
-                    RowBox[{"Sudoku`Private`difficolta", "=", 
-                    "\"Tutorial\""}], ",", 
-                    
-                    RowBox[{"Sudoku`Private`difficoltaInCorso", "=", 
-                    "\"Tutorial\""}], ",", 
-                    
-                    RowBox[{"Sudoku`Private`difficoltaCarica", "=", 
-                    "\"Tutorial\""}], ",", 
-                    RowBox[{"Sudoku`Private`popupDifficolta", "=", 
-                    
-                    RowBox[{"Sudoku`Private`creaPopup", "[", 
-                    "Sudoku`Private`difficolta", "]"}]}], ",", 
-                    RowBox[{"Sudoku`Private`popupDifficoltaCarica", "=", 
-                    
-                    RowBox[{"Sudoku`Private`creaPopup", "[", 
-                    "Sudoku`Private`difficoltaCarica", "]"}]}], ",", 
-                    
-                    RowBox[{"Sudoku`Private`grandezzaGrigliaSudoku", "=", 
-                    "22"}], ",", 
-                    RowBox[{"Sudoku`Private`caricaSudoku", "=", "0"}], ",", 
-                    RowBox[{"Sudoku`Private`caricaSudokuInput", "=", 
-                    RowBox[{"InputField", "[", 
-                    RowBox[{
-                    
-                    RowBox[{"Dynamic", "[", "Sudoku`Private`caricaSudoku", 
-                    "]"}], ",", 
-                    RowBox[{"FieldSize", "\[Rule]", "Small"}]}], "]"}]}], ",",
-                     "Sudoku`Private`numSudoku", ",", "Sudoku`Private`sudoku",
-                     ",", "Sudoku`Private`fullBoard", ",", 
-                    "Sudoku`Private`puzzle", ",", 
-                    "Sudoku`Private`startPosition", ",", 
-                    RowBox[{"Sudoku`Private`cursor", "=", 
-                    RowBox[{"{", 
-                    RowBox[{"0", ",", "0"}], "}"}]}], ",", 
-                    "Sudoku`Private`inputValue", ",", 
-                    RowBox[{"Sudoku`Private`controlliAttivi", "=", "True"}], 
-                    ",", 
-                    RowBox[{"Sudoku`Private`timer", "=", "0"}], ",", 
-                    RowBox[{"Sudoku`Private`refreshTimer", "=", "True"}], ",", 
-                    RowBox[{"Sudoku`Private`aiuto", "=", "False"}], ",", 
-                    RowBox[{"Sudoku`Private`aiutoCheckbox", "=", 
-                    
-                    RowBox[{"Sudoku`Private`creaCheckBox", "[", 
-                    "Sudoku`Private`aiuto", "]"}]}], ",", 
-                    RowBox[{"Sudoku`Private`mostraSoluzione", "=", "False"}], 
-                    ",", 
-                    RowBox[{"Sudoku`Private`mostraSoluzioneCheckbox", "=", 
-                    
-                    RowBox[{"Sudoku`Private`creaCheckBox", "[", 
-                    "Sudoku`Private`mostraSoluzione", "]"}]}], ",", 
-                    RowBox[{"Sudoku`Private`dimensioneManipulate", "=", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"Sudoku`Private`larghezza", "=", "700"}], ",", 
-                    RowBox[{"Sudoku`Private`altezza", "=", "480"}]}], "}"}]}],
-                     ",", "Sudoku`Private`dimQuadratoSudoku"}], "}"}], ",", 
-                    RowBox[{
-                    RowBox[{"Sudoku`Private`numSudoku", "=", 
-                    
-                    RowBox[{"Sudoku`Private`generaNuovoSeed", "[", 
-                    "Sudoku`Private`difficoltaInCorso", "]"}]}], ";", 
-                    RowBox[{"Sudoku`Private`dimQuadratoSudoku", "=", 
-                    
-                    RowBox[{"Sudoku`Private`getDimSudoku", "[", 
-                    "Sudoku`Private`difficoltaInCorso", "]"}]}], ";", 
-                    RowBox[{"Sudoku`Private`sudoku", "=", 
-                    RowBox[{"CreateSudoku", "[", 
-                    
-                    RowBox[{"Sudoku`Private`dimQuadratoSudoku", ",", 
-                    "Sudoku`Private`numSudoku"}], "]"}]}], ";", 
-                    RowBox[{"Sudoku`Private`fullBoard", "=", 
-                    
-                    RowBox[{"Sudoku`Private`sudoku", "\[LeftDoubleBracket]", 
-                    "\"fullBoard\"", "\[RightDoubleBracket]"}]}], ";", 
-                    RowBox[{"Sudoku`Private`puzzle", "=", 
-                    
-                    RowBox[{"Sudoku`Private`sudoku", "\[LeftDoubleBracket]", 
-                    "\"sudokuPuzzle\"", "\[RightDoubleBracket]"}]}], ";", 
-                    RowBox[{"Sudoku`Private`startPosition", "=", 
-                    RowBox[{"Sudoku`Private`sudoku", "\[LeftDoubleBracket]", 
-                    "\"startPosition\"", "\[RightDoubleBracket]"}]}], ";", 
-                    RowBox[{"Manipulate", "[", 
-                    RowBox[{
-                    RowBox[{"Grid", "[", 
-                    RowBox[{
-                    RowBox[{"{", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"Column", "[", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"If", "[", 
-                    RowBox[{
-                    RowBox[{"Sudoku`Private`checkVittoria", "[", 
-                    
-                    RowBox[{"Sudoku`Private`fullBoard", ",", 
-                    "Sudoku`Private`puzzle"}], "]"}], ",", 
-                    RowBox[{
-                    RowBox[{"Sudoku`Private`refreshTimer", "=", "False"}], 
-                    ";", 
-                    RowBox[{"Sudoku`Private`controlliAttivi", "=", "False"}], 
-                    ";", 
-                    RowBox[{
-                    "Sudoku`Private`stampaVittoria", "[", 
-                    "Sudoku`Private`timer", "]"}]}], ",", 
-                    RowBox[{"EventHandler", "[", 
-                    RowBox[{
-                    RowBox[{"Sudoku`Private`stampaSudokuManipulate", "[", 
-                    
-                    RowBox[{"Sudoku`Private`puzzle", ",", 
-                    "Sudoku`Private`grandezzaGrigliaSudoku", ",", 
-                    "Sudoku`Private`dimQuadratoSudoku", ",", 
-                    "Sudoku`Private`cursor", ",", 
-                    "Sudoku`Private`startPosition", ",", 
-                    "Sudoku`Private`aiuto"}], "]"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"\"MouseClicked\"", "\[RuleDelayed]", 
-                    RowBox[{"(", 
-                    RowBox[{"Sudoku`Private`cursor", "=", 
-                    RowBox[{"Sudoku`Private`loc2", "[", 
-                    RowBox[{
-                    
-                    RowBox[{"MousePosition", "[", "\"EventHandlerScaled\"", 
-                    "]"}], ",", "Sudoku`Private`startPosition", ",", 
-                    SuperscriptBox["Sudoku`Private`dimQuadratoSudoku", "2"]}],
-                     "]"}]}], ")"}]}], "}"}]}], "]"}]}], "]"}], ",", 
-                    RowBox[{"If", "[", 
-                    RowBox[{
-                    RowBox[{
-                    RowBox[{"Sudoku`Private`checkVittoria", "[", 
-                    
-                    RowBox[{"Sudoku`Private`fullBoard", ",", 
-                    "Sudoku`Private`puzzle"}], "]"}], "||", 
-                    RowBox[{"Sudoku`Private`cursor", "===", 
-                    RowBox[{"{", 
-                    RowBox[{"0", ",", "0"}], "}"}]}]}], ",", "\"\"", ",", 
-                    RowBox[{"Column", "[", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    
-                    RowBox[{"Sudoku`Private`elemStyle", "[", 
-                    "\"\\nSeleziona il valore che vuoi inserire:\"", "]"}], 
-                    ",", 
-                    RowBox[{"EventHandler", "[", 
-                    RowBox[{
-                    
-                    RowBox[{"Sudoku`Private`stampaGrigliaSelezioneNumeri", 
-                    "[", "Sudoku`Private`difficoltaInCorso", "]"}], ",", 
-                    RowBox[{"\"MouseClicked\"", "\[RuleDelayed]", 
-                    RowBox[{"Module", "[", 
-                    RowBox[{
-                    RowBox[{"{", 
-                    RowBox[{"Sudoku`Private`num", "=", 
-                    RowBox[{"If", "[", 
-                    RowBox[{
-                    
-                    RowBox[{"Sudoku`Private`difficoltaInCorso", "===", 
-                    "\"Tutorial\""}], ",", 
-                    RowBox[{"Floor", "[", 
-                    RowBox[{"5", " ", 
-                    RowBox[{"First", "[", 
-                    
-                    RowBox[{"MousePosition", "[", "\"EventHandlerScaled\"", 
-                    "]"}], "]"}]}], "]"}], ",", 
-                    RowBox[{"Floor", "[", 
-                    RowBox[{"10", " ", 
-                    RowBox[{"First", "[", 
-                    
-                    RowBox[{"MousePosition", "[", "\"EventHandlerScaled\"", 
-                    "]"}], "]"}]}], "]"}]}], "]"}]}], "}"}], ",", 
-                    RowBox[{"If", "[", 
-                    RowBox[{
-                    RowBox[{"Sudoku`Private`num", "\[Equal]", "0"}], ",", 
-                    RowBox[{
-                    RowBox[{
-                    RowBox[{"Sudoku`Private`puzzle", "\[LeftDoubleBracket]", 
-                    
-                    RowBox[{"Sudoku`Private`cursor", "\[LeftDoubleBracket]", 
-                    "1", "\[RightDoubleBracket]"}], "\[RightDoubleBracket]"}],
-                     "\[LeftDoubleBracket]", 
-                    RowBox[{"Sudoku`Private`cursor", "\[LeftDoubleBracket]", 
-                    "2", "\[RightDoubleBracket]"}], "\[RightDoubleBracket]"}],
-                     "=", "_"}], ",", 
-                    RowBox[{
-                    RowBox[{
-                    RowBox[{"Sudoku`Private`puzzle", "\[LeftDoubleBracket]", 
-                    
-                    RowBox[{"Sudoku`Private`cursor", "\[LeftDoubleBracket]", 
-                    "1", "\[RightDoubleBracket]"}], "\[RightDoubleBracket]"}],
-                     "\[LeftDoubleBracket]", 
-                    RowBox[{"Sudoku`Private`cursor", "\[LeftDoubleBracket]", 
-                    "2", "\[RightDoubleBracket]"}], "\[RightDoubleBracket]"}],
-                     "=", "Sudoku`Private`num"}]}], "]"}]}], "]"}]}]}], 
-                    "]"}]}], "}"}], "]"}]}], "]"}]}], "}"}], "]"}], ",", 
-                    "\"\\t\"", ",", 
-                    RowBox[{"If", "[", 
-                    RowBox[{"Sudoku`Private`mostraSoluzione", ",", 
-                    RowBox[{"Dynamic", "[", 
-                    RowBox[{"ShowSudoku", "[", 
-                    
-                    RowBox[{"Sudoku`Private`fullBoard", ",", "15", ",", 
-                    "Sudoku`Private`dimQuadratoSudoku", ",", 
-                    "Sudoku`Private`cursor"}], "]"}], "]"}], ",", "\"\""}], 
-                    "]"}]}], "}"}], "}"}], ",", 
-                    RowBox[{"Editable", "\[Rule]", "False"}]}], "]"}], ",", 
-                    RowBox[{"Control", "[", 
-                    RowBox[{"Row", "[", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"Spacer", "[", "170", "]"}], ",", 
-                    RowBox[{"Sudoku`Private`titleMainStyle", "[", 
-                    "\"Difficolt\[AGrave]:  \"", "]"}], ",", 
-                    RowBox[{"Sudoku`Private`titleElemStyle", "[", 
-                    
-                    RowBox[{"Dynamic", "[", 
-                    "Sudoku`Private`difficoltaInCorso", "]"}], "]"}], ",", 
-                    RowBox[{"Spacer", "[", "20", "]"}], ",", 
-                    
-                    RowBox[{"Sudoku`Private`titleMainStyle", "[", 
-                    "\"Numero Sudoku:  \"", "]"}], ",", 
-                    RowBox[{"Sudoku`Private`titleElemStyle", "[", 
-                    RowBox[{"Dynamic", "[", "Sudoku`Private`numSudoku", "]"}],
-                     "]"}]}], "}"}], "]"}], "]"}], ",", 
-                    RowBox[{"Control", "[", 
-                    RowBox[{"Row", "[", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"Spacer", "[", 
-                    RowBox[{"{", 
-                    RowBox[{"20", ",", "50"}], "}"}], "]"}], ",", 
-                    RowBox[{"Column", "[", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"Grid", "[", 
-                    RowBox[{"Transpose", "[", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"{", 
-                    RowBox[{
-                    
-                    RowBox[{"Sudoku`Private`mainStyle", "[", "\"Aiuto: \"", 
-                    "]"}], ",", 
-                    RowBox[{
-                    "Sudoku`Private`mainStyle", "[", "\"Mostra soluzione: \"",
-                     "]"}]}], "}"}], ",", 
-                    RowBox[{"{", 
-                    
-                    RowBox[{"Sudoku`Private`aiutoCheckbox", ",", 
-                    "Sudoku`Private`mostraSoluzioneCheckbox"}], "}"}]}], 
-                    "}"}], "]"}], "]"}], ",", 
-                    RowBox[{"Button", "[", 
-                    RowBox[{"\"Ricomincia\"", ",", 
-                    RowBox[{
-                    RowBox[{"(", 
-                    RowBox[{
-                    RowBox[{"Sudoku`Private`timer", "=", 
-                    RowBox[{"-", "1"}]}], ";", 
-                    RowBox[{"Sudoku`Private`aiuto", "=", "False"}], ";", 
-                    RowBox[{"Sudoku`Private`controlliAttivi", "=", "True"}], 
-                    ";", 
-                    RowBox[{"Sudoku`Private`refreshTimer", "=", "True"}], ";", 
-                    RowBox[{"Sudoku`Private`mostraSoluzione", "=", "False"}], 
-                    ";", 
-                    RowBox[{"Sudoku`Private`sudoku", "=", 
-                    RowBox[{"CreateSudoku", "[", 
-                    
-                    RowBox[{"Sudoku`Private`dimQuadratoSudoku", ",", 
-                    "Sudoku`Private`numSudoku"}], "]"}]}], ";", 
-                    RowBox[{"Sudoku`Private`fullBoard", "=", 
-                    
-                    RowBox[{"Sudoku`Private`sudoku", "\[LeftDoubleBracket]", 
-                    "\"fullBoard\"", "\[RightDoubleBracket]"}]}], ";", 
-                    RowBox[{"Sudoku`Private`puzzle", "=", 
-                    
-                    RowBox[{"Sudoku`Private`sudoku", "\[LeftDoubleBracket]", 
-                    "\"sudokuPuzzle\"", "\[RightDoubleBracket]"}]}], ";", 
-                    RowBox[{"Sudoku`Private`startPosition", "=", 
-                    
-                    RowBox[{"Sudoku`Private`sudoku", "\[LeftDoubleBracket]", 
-                    "\"startPosition\"", "\[RightDoubleBracket]"}]}], ";"}], 
-                    ")"}], "&"}]}], "]"}]}], "}"}], "]"}], ",", 
-                    RowBox[{"Spacer", "[", 
-                    RowBox[{"{", 
-                    RowBox[{"350", ",", "0"}], "}"}], "]"}], ",", 
-                    
-                    RowBox[{"Sudoku`Private`stampaTimerManipulate", "[", 
-                    "]"}]}], "}"}], "]"}], "]"}], ",", 
-                    RowBox[{"Control", "[", 
-                    RowBox[{"Row", "[", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"Spacer", "[", 
-                    RowBox[{"{", 
-                    RowBox[{"100", ",", "0"}], "}"}], "]"}], ",", 
-                    RowBox[{"Column", "[", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    
-                    RowBox[{"Sudoku`Private`elemStyle", "[", 
-                    "\"Nuovo Sudoku:\"", "]"}], ",", 
-                    RowBox[{"Panel", "[", 
-                    RowBox[{"Column", "[", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"Grid", "[", 
-                    RowBox[{"Transpose", "[", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"{", 
-                    
-                    RowBox[{"Sudoku`Private`mainStyle", "[", 
-                    "\"Difficolt\[AGrave]: \"", "]"}], "}"}], ",", 
-                    RowBox[{"{", "Sudoku`Private`popupDifficolta", "}"}]}], 
-                    "}"}], "]"}], "]"}], ",", 
-                    RowBox[{"Button", "[", 
-                    RowBox[{"\"Nuovo Sudoku\"", ",", 
-                    RowBox[{
-                    RowBox[{"(", 
-                    RowBox[{
-                    RowBox[{"Sudoku`Private`timer", "=", 
-                    RowBox[{"-", "1"}]}], ";", 
-                    RowBox[{"Sudoku`Private`aiuto", "=", "False"}], ";", 
-                    RowBox[{"Sudoku`Private`controlliAttivi", "=", "True"}], 
-                    ";", 
-                    RowBox[{"Sudoku`Private`refreshTimer", "=", "True"}], ";", 
-                    RowBox[{"Sudoku`Private`mostraSoluzione", "=", "False"}], 
-                    ";", 
-                    RowBox[{"Sudoku`Private`difficoltaInCorso", "=", 
-                    "Sudoku`Private`difficolta"}], ";", 
-                    RowBox[{"Sudoku`Private`cursor", "=", 
-                    RowBox[{"{", 
-                    RowBox[{"0", ",", "0"}], "}"}]}], ";", 
-                    RowBox[{"Sudoku`Private`numSudoku", "=", 
-                    
-                    RowBox[{"Sudoku`Private`generaNuovoSeed", "[", 
-                    "Sudoku`Private`difficoltaInCorso", "]"}]}], ";", 
-                    RowBox[{"Sudoku`Private`dimQuadratoSudoku", "=", 
-                    
-                    RowBox[{"Sudoku`Private`getDimSudoku", "[", 
-                    "Sudoku`Private`difficoltaInCorso", "]"}]}], ";", 
-                    RowBox[{"Sudoku`Private`sudoku", "=", 
-                    RowBox[{"CreateSudoku", "[", 
-                    
-                    RowBox[{"Sudoku`Private`dimQuadratoSudoku", ",", 
-                    "Sudoku`Private`numSudoku"}], "]"}]}], ";", 
-                    RowBox[{"Sudoku`Private`fullBoard", "=", 
-                    
-                    RowBox[{"Sudoku`Private`sudoku", "\[LeftDoubleBracket]", 
-                    "\"fullBoard\"", "\[RightDoubleBracket]"}]}], ";", 
-                    RowBox[{"Sudoku`Private`puzzle", "=", 
-                    
-                    RowBox[{"Sudoku`Private`sudoku", "\[LeftDoubleBracket]", 
-                    "\"sudokuPuzzle\"", "\[RightDoubleBracket]"}]}], ";", 
-                    RowBox[{"Sudoku`Private`startPosition", "=", 
-                    
-                    RowBox[{"Sudoku`Private`sudoku", "\[LeftDoubleBracket]", 
-                    "\"startPosition\"", "\[RightDoubleBracket]"}]}], ";"}], 
-                    ")"}], "&"}]}], "]"}]}], "}"}], "]"}], "]"}]}], "}"}], 
-                    "]"}], ",", 
-                    RowBox[{"Spacer", "[", 
-                    RowBox[{"{", 
-                    RowBox[{"50", ",", "0"}], "}"}], "]"}], ",", 
-                    RowBox[{"Column", "[", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"Spacer", "[", 
-                    RowBox[{"{", 
-                    RowBox[{"0", ",", "5"}], "}"}], "]"}], ",", 
-                    
-                    RowBox[{"Sudoku`Private`elemStyle", "[", 
-                    "\"Carica Sudoku:\"", "]"}], ",", 
-                    RowBox[{"Panel", "[", 
-                    RowBox[{"Column", "[", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"Grid", "[", 
-                    RowBox[{"Transpose", "[", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"{", 
-                    
-                    RowBox[{"Sudoku`Private`mainStyle", "[", 
-                    "\"Numero sudoku:\"", "]"}], "}"}], ",", 
-                    RowBox[{"{", "Sudoku`Private`caricaSudokuInput", "}"}]}], 
-                    "}"}], "]"}], "]"}], ",", 
-                    RowBox[{"Button", "[", 
-                    RowBox[{"\"Carica Sudoku\"", ",", 
-                    RowBox[{
-                    RowBox[{"(", 
-                    RowBox[{
-                    RowBox[{"Sudoku`Private`timer", "=", 
-                    RowBox[{"-", "1"}]}], ";", 
-                    RowBox[{"Sudoku`Private`aiuto", "=", "False"}], ";", 
-                    RowBox[{"Sudoku`Private`controlliAttivi", "=", "True"}], 
-                    ";", 
-                    RowBox[{"Sudoku`Private`refreshTimer", "=", "True"}], ";", 
-                    RowBox[{"Sudoku`Private`mostraSoluzione", "=", "False"}], 
-                    ";", 
-                    RowBox[{"Sudoku`Private`numSudoku", "=", 
-                    "Sudoku`Private`caricaSudoku"}], ";", 
-                    RowBox[{"Sudoku`Private`difficoltaInCorso", "=", 
-                    
-                    RowBox[{"Sudoku`Private`getDifficoltaCarica", "[", 
-                    "Sudoku`Private`numSudoku", "]"}]}], ";", 
-                    RowBox[{"Sudoku`Private`dimQuadratoSudoku", "=", 
-                    
-                    RowBox[{"Sudoku`Private`getDimSudoku", "[", 
-                    "Sudoku`Private`difficoltaInCorso", "]"}]}], ";", 
-                    RowBox[{"Sudoku`Private`sudoku", "=", 
-                    RowBox[{"CreateSudoku", "[", 
-                    
-                    RowBox[{"Sudoku`Private`dimQuadratoSudoku", ",", 
-                    "Sudoku`Private`numSudoku"}], "]"}]}], ";", 
-                    RowBox[{"Sudoku`Private`fullBoard", "=", 
-                    
-                    RowBox[{"Sudoku`Private`sudoku", "\[LeftDoubleBracket]", 
-                    "\"fullBoard\"", "\[RightDoubleBracket]"}]}], ";", 
-                    RowBox[{"Sudoku`Private`puzzle", "=", 
-                    
-                    RowBox[{"Sudoku`Private`sudoku", "\[LeftDoubleBracket]", 
-                    "\"sudokuPuzzle\"", "\[RightDoubleBracket]"}]}], ";", 
-                    RowBox[{"Sudoku`Private`startPosition", "=", 
-                    RowBox[{"Sudoku`Private`sudoku", "\[LeftDoubleBracket]", 
-                    "\"startPosition\"", "\[RightDoubleBracket]"}]}], ";"}], 
-                    ")"}], "&"}]}], "]"}]}], "}"}], "]"}], "]"}]}], "}"}], 
-                    "]"}]}], "}"}], "]"}], "]"}], ",", 
-                    RowBox[{"SaveDefinitions", "\[Rule]", "True"}], ",", 
-                    
-                    RowBox[{"ContentSize", "\[Rule]", 
-                    "Sudoku`Private`dimensioneManipulate"}], ",", 
-                    RowBox[{"ControlPlacement", "\[Rule]", 
-                    RowBox[{"{", 
-                    RowBox[{"Top", ",", "Top", ",", "Bottom"}], "}"}]}]}], 
-                    "]"}]}]}], "]"}]}]}, {" "}}, 
-                  GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                  DefaultBaseStyle -> "Column", 
-                  GridBoxItemSize -> {
-                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]},
-                "RowDefault"]}
-             },
-             DefaultBaseStyle->"Column",
-             GridBoxAlignment->{"Columns" -> {{Left}}},
-             
-             GridBoxItemSize->{
-              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-            "Column"],
-           FrameMargins->{{6, 0}, {3, 6}}], "\<\"\"\>"},
-         {
-          PaneBox[GridBox[{
-             {
-              
-              DynamicModuleBox[{System`InformationDump`open$$ = {
-               False, False, False, False, False, False}}, 
-               StyleBox[GridBox[{
-                  {
-                   TagBox[
-                    TooltipBox[
-                    StyleBox["\<\" Full Name\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                    "\"FullName\"",
-                    TooltipStyle->"TextStyling"],
-                    
-                    Annotation[#, "FullName", 
-                    "Tooltip"]& ], "\<\"Sudoku`SudokuGame\"\>"}
-                 },
-                 AutoDelete->False,
-                 GridBoxAlignment->{"Columns" -> {Right, Left}},
-                 GridBoxDividers->None,
-                 GridBoxItemSize->{"Columns" -> {Automatic, Automatic}},
-                 GridBoxSpacings->{"Columns" -> {
-                    Offset[0.27999999999999997`], {
-                    Offset[0.5599999999999999]}, 
-                    Offset[0.27999999999999997`]}, "Rows" -> {
-                    Offset[0.2], {
-                    Offset[0.8]}, 
-                    Offset[0.2]}}], "DialogStyle",
-                StripOnInput->False],
-               DynamicModuleValues:>{}]}
-            },
-            DefaultBaseStyle->"Column",
-            GridBoxAlignment->{"Columns" -> {{Left}}},
-            GridBoxDividers->{"Columns" -> {{False}}, "Rows" -> {{False}}},
-            
-            GridBoxItemSize->{
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-            GridBoxSpacings->{"Columns" -> {
-                Offset[0.27999999999999997`], {
-                 Offset[0.5599999999999999]}, 
-                Offset[0.27999999999999997`]}, "Rows" -> {
-                Offset[0.2], {
-                 Offset[3.6]}, 
-                Offset[0.2]}}],
-           FrameMargins->{{6, 6}, {6, 3}}], ""},
-         {
-          ItemBox[
-           TagBox[
-            ButtonBox[
-             PaneSelectorBox[{False->
-              
-              DynamicBox[FEPrivate`FrontEndResource[
-               "FEBitmaps", "UpPointerOpener"]], True->
-              
-              DynamicBox[FEPrivate`FrontEndResource[
-               "FEBitmaps", "UpPointerOpenerHot"]]}, Dynamic[
-              System`InformationDump`mouseOver$$]],
-             Alignment->Left,
-             Appearance->{"Default" -> None},
-             
-             ButtonFunction:>FEPrivate`Set[
-              System`InformationDump`open$$, False],
-             Evaluator->Automatic,
-             FrameMargins->{{9, 0}, {0, 0}},
-             ImageMargins->0,
-             ImageSize->Full,
-             Method->"Preemptive"],
-            
-            EventHandlerTag[{
-             "MouseEntered" :> 
-              FEPrivate`Set[System`InformationDump`mouseOver$$, True], 
-              "MouseExited" :> 
-              FEPrivate`Set[System`InformationDump`mouseOver$$, False], 
-              Method -> "Preemptive", PassEventsDown -> Automatic, 
-              PassEventsUp -> True}]],
-           BaseStyle->"InformationTitleBackground",
-           StripOnInput->False], "\[SpanFromLeft]"}
-        },
-        AutoDelete->False,
-        FrameStyle->Directive[
-          GrayLevel[0.8], 
-          Thickness[Tiny]],
-        GridBoxAlignment->{"Columns" -> {Left, Right}, "Rows" -> {{Center}}},
-        GridBoxDividers->{
-         "Columns" -> {{None}}, "Rows" -> {False, {True}, False}},
-        GridBoxItemSize->{
-         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-       "Grid"], False->
-      TagBox[GridBox[{
-         {
-          ItemBox[
-           PaneBox[
-            StyleBox["\<\" Symbol\"\>", "InformationTitleText",
-             StripOnInput->False],
-            FrameMargins->{{4, 0}, {-1, 1}}],
-           BaseStyle->"InformationTitleBackground",
-           StripOnInput->False], 
-          ItemBox["\<\"\"\>",
-           BaseStyle->"InformationTitleBackground",
-           StripOnInput->False]},
-         {
-          ItemBox[
-           PaneBox[
-            StyleBox["\<\"Gioco del sudoku\"\>", "InformationUsageText",
-             StripOnInput->False,
-             LineSpacing->{1.5, 1.5, 3.}],
-            FrameMargins->{{10, 10}, {8, 10}}],
-           BaseStyle->"InformationUsageSubtitleBackground",
-           StripOnInput->False], 
-          ItemBox["\<\"\"\>",
-           BaseStyle->"InformationUsageSubtitleBackground",
-           StripOnInput->False]},
-         {
-          ItemBox[
-           TagBox[
-            ButtonBox[
-             PaneSelectorBox[{False->
-              
-              DynamicBox[FEPrivate`FrontEndResource[
-               "FEBitmaps", "DownPointerOpener"],
-               ImageSizeCache->{5., {2., 3.}}], True->
-              
-              DynamicBox[FEPrivate`FrontEndResource[
-               "FEBitmaps", "DownPointerOpenerHot"],
-               ImageSizeCache->{5., {2., 3.}}]}, Dynamic[
-              System`InformationDump`mouseOver$$]],
-             Alignment->Left,
-             Appearance->{"Default" -> None},
-             
-             ButtonFunction:>FEPrivate`Set[
-              System`InformationDump`open$$, True],
-             Evaluator->Automatic,
-             FrameMargins->{{9, 0}, {0, 0}},
-             ImageMargins->0,
-             ImageSize->Full,
-             Method->"Preemptive"],
-            
-            EventHandlerTag[{
-             "MouseEntered" :> 
-              FEPrivate`Set[System`InformationDump`mouseOver$$, True], 
-              "MouseExited" :> 
-              FEPrivate`Set[System`InformationDump`mouseOver$$, False], 
-              Method -> "Preemptive", PassEventsDown -> Automatic, 
-              PassEventsUp -> True}]],
-           BaseStyle->"InformationTitleBackground",
-           StripOnInput->False], "\[SpanFromLeft]"}
-        },
-        AutoDelete->False,
-        FrameStyle->Directive[
-          GrayLevel[0.8], 
-          Thickness[Tiny]],
-        GridBoxAlignment->{"Columns" -> {Left, Right}, "Rows" -> {{Center}}},
-        GridBoxDividers->{
-         "Columns" -> {{None}}, "Rows" -> {False, {True}, False}},
-        GridBoxItemSize->{
-         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-       "Grid"]}, Dynamic[System`InformationDump`open$$],
-      BaselinePosition->Baseline,
-      FrameMargins->0,
-      ImageSize->Automatic],
-     DynamicModuleValues:>{}],
-    BaseStyle->"InformationGridFrame",
-    StripOnInput->False], "InformationGridPlain",
-   StripOnInput->False],
-  InformationData[<|
-   "ObjectType" -> "Symbol", "Usage" -> "Gioco del sudoku", "Documentation" -> 
-    None, "OwnValues" -> None, "UpValues" -> None, "DownValues" -> 
-    Information`InformationValueForm[
-     DownValues, Sudoku`SudokuGame, {
-      Sudoku`SudokuGame[] :> 
-       DynamicModule[{
-         Sudoku`Private`difficolta = "Tutorial", 
-          Sudoku`Private`difficoltaInCorso = "Tutorial", 
-          Sudoku`Private`difficoltaCarica = "Tutorial", 
-          Sudoku`Private`popupDifficolta = 
-          Sudoku`Private`creaPopup[Sudoku`Private`difficolta], 
-          Sudoku`Private`popupDifficoltaCarica = 
-          Sudoku`Private`creaPopup[Sudoku`Private`difficoltaCarica], 
-          Sudoku`Private`grandezzaGrigliaSudoku = 22, 
-          Sudoku`Private`caricaSudoku = 0, Sudoku`Private`caricaSudokuInput = 
-          InputField[
-            Dynamic[Sudoku`Private`caricaSudoku], FieldSize -> Small], 
-          Sudoku`Private`numSudoku, Sudoku`Private`sudoku, 
-          Sudoku`Private`fullBoard, Sudoku`Private`puzzle, 
-          Sudoku`Private`startPosition, Sudoku`Private`cursor = {0, 0}, 
-          Sudoku`Private`inputValue, Sudoku`Private`controlliAttivi = True, 
-          Sudoku`Private`timer = 0, Sudoku`Private`refreshTimer = True, 
-          Sudoku`Private`aiuto = False, Sudoku`Private`aiutoCheckbox = 
-          Sudoku`Private`creaCheckBox[Sudoku`Private`aiuto], 
-          Sudoku`Private`mostraSoluzione = False, 
-          Sudoku`Private`mostraSoluzioneCheckbox = 
-          Sudoku`Private`creaCheckBox[Sudoku`Private`mostraSoluzione], 
-          Sudoku`Private`dimensioneManipulate = {
-           Sudoku`Private`larghezza = 700, Sudoku`Private`altezza = 480}, 
-          Sudoku`Private`dimQuadratoSudoku}, 
-         Sudoku`Private`numSudoku = 
-          Sudoku`Private`generaNuovoSeed[Sudoku`Private`difficoltaInCorso]; 
-         Sudoku`Private`dimQuadratoSudoku = 
-          Sudoku`Private`getDimSudoku[Sudoku`Private`difficoltaInCorso]; 
-         Sudoku`Private`sudoku = 
-          Sudoku`CreateSudoku[
-           Sudoku`Private`dimQuadratoSudoku, Sudoku`Private`numSudoku]; 
-         Sudoku`Private`fullBoard = Part[Sudoku`Private`sudoku, "fullBoard"]; 
-         Sudoku`Private`puzzle = Part[Sudoku`Private`sudoku, "sudokuPuzzle"]; 
-         Sudoku`Private`startPosition = 
-          Part[Sudoku`Private`sudoku, "startPosition"]; Manipulate[
-           Grid[{{
-              Column[{
-                If[
-                 Sudoku`Private`checkVittoria[
-                 Sudoku`Private`fullBoard, Sudoku`Private`puzzle], 
-                 Sudoku`Private`refreshTimer = False; 
-                 Sudoku`Private`controlliAttivi = False; 
-                 Sudoku`Private`stampaVittoria[Sudoku`Private`timer], 
-                 EventHandler[
-                  Sudoku`Private`stampaSudokuManipulate[
-                  Sudoku`Private`puzzle, 
-                   Sudoku`Private`grandezzaGrigliaSudoku, 
-                   Sudoku`Private`dimQuadratoSudoku, Sudoku`Private`cursor, 
-                   Sudoku`Private`startPosition, Sudoku`Private`aiuto], {
-                  "MouseClicked" :> (Sudoku`Private`cursor = 
-                    Sudoku`Private`loc2[
-                    MousePosition["EventHandlerScaled"], 
-                    Sudoku`Private`startPosition, 
-                    Sudoku`Private`dimQuadratoSudoku^2])}]], 
-                If[
-                 Or[
-                  Sudoku`Private`checkVittoria[
-                  Sudoku`Private`fullBoard, Sudoku`Private`puzzle], 
-                  Sudoku`Private`cursor === {0, 0}], "", 
-                 Column[{
-                   Sudoku`Private`elemStyle[
-                   "\nSeleziona il valore che vuoi inserire:"], 
-                   EventHandler[
-                    Sudoku`Private`stampaGrigliaSelezioneNumeri[
-                    Sudoku`Private`difficoltaInCorso], "MouseClicked" :> 
-                    Module[{
-                    Sudoku`Private`num = 
-                    If[Sudoku`Private`difficoltaInCorso === "Tutorial", 
-                    Floor[5 First[
-                    MousePosition["EventHandlerScaled"]]], 
-                    Floor[10 First[
-                    MousePosition["EventHandlerScaled"]]]]}, 
-                    If[Sudoku`Private`num == 0, Part[
-                    Part[Sudoku`Private`puzzle, 
-                    Part[Sudoku`Private`cursor, 1]], 
-                    Part[Sudoku`Private`cursor, 2]] = Blank[], Part[
-                    Part[Sudoku`Private`puzzle, 
-                    Part[Sudoku`Private`cursor, 1]], 
-                    Part[Sudoku`Private`cursor, 2]] = 
-                    Sudoku`Private`num]]]}]]}], "\t", 
-              If[Sudoku`Private`mostraSoluzione, 
-               Dynamic[
-                Sudoku`ShowSudoku[
-                Sudoku`Private`fullBoard, 15, 
-                 Sudoku`Private`dimQuadratoSudoku, Sudoku`Private`cursor]], 
-               ""]}}, Editable -> False], 
-           Control[
-            Row[{
-              Spacer[170], 
-              Sudoku`Private`titleMainStyle["Difficolt\[AGrave]:  "], 
-              Sudoku`Private`titleElemStyle[
-               Dynamic[Sudoku`Private`difficoltaInCorso]], 
-              Spacer[20], 
-              Sudoku`Private`titleMainStyle["Numero Sudoku:  "], 
-              Sudoku`Private`titleElemStyle[
-               Dynamic[Sudoku`Private`numSudoku]]}]], 
-           Control[
-            Row[{
-              Spacer[{20, 50}], 
-              Column[{
-                Grid[
-                 Transpose[{{
-                    Sudoku`Private`mainStyle["Aiuto: "], 
-                    Sudoku`Private`mainStyle["Mostra soluzione: "]}, {
-                   Sudoku`Private`aiutoCheckbox, 
-                    Sudoku`Private`mostraSoluzioneCheckbox}}]], 
-                Button[
-                "Ricomincia", (Sudoku`Private`timer = -1; 
-                 Sudoku`Private`aiuto = False; 
-                 Sudoku`Private`controlliAttivi = True; 
-                 Sudoku`Private`refreshTimer = True; 
-                 Sudoku`Private`mostraSoluzione = False; 
-                 Sudoku`Private`sudoku = 
-                  Sudoku`CreateSudoku[
-                   Sudoku`Private`dimQuadratoSudoku, 
-                    Sudoku`Private`numSudoku]; 
-                 Sudoku`Private`fullBoard = 
-                  Part[Sudoku`Private`sudoku, "fullBoard"]; 
-                 Sudoku`Private`puzzle = 
-                  Part[Sudoku`Private`sudoku, "sudokuPuzzle"]; 
-                 Sudoku`Private`startPosition = 
-                  Part[Sudoku`Private`sudoku, "startPosition"]; Null)& ]}], 
-              Spacer[{350, 0}], 
-              Sudoku`Private`stampaTimerManipulate[]}]], 
-           Control[
-            Row[{
-              Spacer[{100, 0}], 
-              Column[{
-                Sudoku`Private`elemStyle["Nuovo Sudoku:"], 
-                Panel[
-                 Column[{
-                   Grid[
-                    Transpose[{{
-                    Sudoku`Private`mainStyle["Difficolt\[AGrave]: "]}, {
-                    Sudoku`Private`popupDifficolta}}]], 
-                   Button[
-                   "Nuovo Sudoku", (Sudoku`Private`timer = -1; 
-                    Sudoku`Private`aiuto = False; 
-                    Sudoku`Private`controlliAttivi = True; 
-                    Sudoku`Private`refreshTimer = True; 
-                    Sudoku`Private`mostraSoluzione = False; 
-                    Sudoku`Private`difficoltaInCorso = 
-                    Sudoku`Private`difficolta; Sudoku`Private`cursor = {0, 0}; 
-                    Sudoku`Private`numSudoku = 
-                    Sudoku`Private`generaNuovoSeed[
-                    Sudoku`Private`difficoltaInCorso]; 
-                    Sudoku`Private`dimQuadratoSudoku = 
-                    Sudoku`Private`getDimSudoku[
-                    Sudoku`Private`difficoltaInCorso]; 
-                    Sudoku`Private`sudoku = 
-                    Sudoku`CreateSudoku[
-                    Sudoku`Private`dimQuadratoSudoku, 
-                    Sudoku`Private`numSudoku]; 
-                    Sudoku`Private`fullBoard = 
-                    Part[Sudoku`Private`sudoku, "fullBoard"]; 
-                    Sudoku`Private`puzzle = 
-                    Part[Sudoku`Private`sudoku, "sudokuPuzzle"]; 
-                    Sudoku`Private`startPosition = 
-                    Part[Sudoku`Private`sudoku, "startPosition"]; 
-                    Null)& ]}]]}], 
-              Spacer[{50, 0}], 
-              Column[{
-                Spacer[{0, 5}], 
-                Sudoku`Private`elemStyle["Carica Sudoku:"], 
-                Panel[
-                 Column[{
-                   Grid[
-                    Transpose[{{
-                    Sudoku`Private`mainStyle["Numero sudoku:"]}, {
-                    Sudoku`Private`caricaSudokuInput}}]], 
-                   Button[
-                   "Carica Sudoku", (Sudoku`Private`timer = -1; 
-                    Sudoku`Private`aiuto = False; 
-                    Sudoku`Private`controlliAttivi = True; 
-                    Sudoku`Private`refreshTimer = True; 
-                    Sudoku`Private`mostraSoluzione = False; 
-                    Sudoku`Private`numSudoku = Sudoku`Private`caricaSudoku; 
-                    Sudoku`Private`difficoltaInCorso = 
-                    Sudoku`Private`getDifficoltaCarica[
-                    Sudoku`Private`numSudoku]; 
-                    Sudoku`Private`dimQuadratoSudoku = 
-                    Sudoku`Private`getDimSudoku[
-                    Sudoku`Private`difficoltaInCorso]; 
-                    Sudoku`Private`sudoku = 
-                    Sudoku`CreateSudoku[
-                    Sudoku`Private`dimQuadratoSudoku, 
-                    Sudoku`Private`numSudoku]; 
-                    Sudoku`Private`fullBoard = 
-                    Part[Sudoku`Private`sudoku, "fullBoard"]; 
-                    Sudoku`Private`puzzle = 
-                    Part[Sudoku`Private`sudoku, "sudokuPuzzle"]; 
-                    Sudoku`Private`startPosition = 
-                    Part[Sudoku`Private`sudoku, "startPosition"]; 
-                    Null)& ]}]]}]}]], SaveDefinitions -> True, ContentSize -> 
-           Sudoku`Private`dimensioneManipulate, 
-           ControlPlacement -> {Top, Top, Bottom}]]}], "SubValues" -> None, 
-    "DefaultValues" -> None, "NValues" -> None, "FormatValues" -> None, 
-    "Options" -> None, "Attributes" -> {}, "FullName" -> 
-    "Sudoku`SudokuGame"|>, False]]], "Output",
- CellChangeTimes->{{3.8607489040490932`*^9, 3.8607489107812395`*^9}, 
-   3.8607495906691008`*^9, {3.860749958607411*^9, 3.860749976144865*^9}, 
-   3.8607500845043573`*^9, 3.8607503637521105`*^9, 3.8607520768512306`*^9, 
-   3.8607526619883895`*^9, 3.8608187854979134`*^9, 3.860819038883255*^9, 
-   3.8608190982651815`*^9, {3.860819158397416*^9, 3.860819178487342*^9}, 
-   3.8608192581411285`*^9, 3.860819304174997*^9, {3.86081940408652*^9, 
-   3.8608194285073357`*^9}, 3.861068754089235*^9, 3.8610690415475187`*^9, 
-   3.8610691322219505`*^9, 3.8610691904404674`*^9, 3.861069228171137*^9, 
-   3.8610698449077024`*^9, 3.861069888651621*^9, 3.861069940723174*^9, 
-   3.8610703768581266`*^9, 3.8610704116528997`*^9, 3.861070618611951*^9, 
-   3.8610715848580055`*^9, {3.8610718275473228`*^9, 3.8610718448788266`*^9}, 
-   3.861072052496004*^9, 3.8610721274829473`*^9, 3.861072171979582*^9, 
-   3.861072228061187*^9, 3.8610722605735345`*^9, 3.8610724043896956`*^9, {
-   3.861072437841797*^9, 3.8610724610748596`*^9}, 3.861072497133757*^9, 
-   3.86107254369843*^9, 3.8610726328755026`*^9, 3.861072786495719*^9, 
-   3.8610730197000947`*^9, 3.8610732232252035`*^9, 3.861073293723981*^9, 
-   3.861073410285663*^9, 3.8610735435009594`*^9, 3.861074114138278*^9, {
-   3.8610741862894278`*^9, 3.861074205798152*^9}, 3.861075131248342*^9, 
-   3.861075170909728*^9, 3.861075202735977*^9, {3.861075375698885*^9, 
-   3.861075410794454*^9}, 3.86107544812363*^9, 3.861075741411654*^9, 
-   3.861075772508885*^9, 3.8610762127361403`*^9, 3.861076248194137*^9, {
-   3.86107628514662*^9, 3.861076326029964*^9}, 3.861076414029303*^9, 
-   3.861076482328784*^9, 3.861076564863647*^9, 3.861076745935114*^9, {
-   3.861077586919086*^9, 3.8610776359442244`*^9}, 3.861165996258467*^9, 
-   3.8611677883394794`*^9, 3.861170201210271*^9, 3.861170253908403*^9, 
-   3.861170334003229*^9, 3.861170426635374*^9, 3.8611705211820927`*^9, 
-   3.861170694744446*^9, 3.861170796605777*^9, 3.8611734261431274`*^9, {
-   3.8611844489453044`*^9, 3.861184467600052*^9}, 3.86118532852423*^9, 
-   3.861185873713335*^9, {3.861186009383313*^9, 3.861186012893289*^9}, {
-   3.861186099222857*^9, 3.861186122523074*^9}, 3.8611862021229696`*^9, 
-   3.8611862831224422`*^9, 3.861186523639904*^9, 3.8611866038732367`*^9, 
-   3.861186719817876*^9, 3.8611868627478437`*^9, 3.8611869041894054`*^9, {
-   3.8611869656171107`*^9, 3.8611870089168153`*^9}, 3.861187077861293*^9, {
-   3.8611886553310337`*^9, 3.861188671537587*^9}, {3.861188701932613*^9, 
-   3.8611887072771053`*^9}, {3.8611887565746827`*^9, 3.8611887741425843`*^9}, 
-   3.8611888067862043`*^9, 3.861190333902763*^9, 3.861353132473331*^9, 
-   3.861353181138462*^9, 3.8614171470804358`*^9, 3.86141730074387*^9, 
-   3.861417372329399*^9, {3.861417421190732*^9, 3.861417439743122*^9}, 
-   3.861417535129243*^9, 3.8614175686942253`*^9, 3.861417632861313*^9, 
-   3.861417695057223*^9, 3.8614177749914646`*^9, 3.861417810555599*^9, 
-   3.8614179330616975`*^9, 3.8614333825571613`*^9, 3.861433420860366*^9, 
-   3.861433629068591*^9, 3.8614337621112614`*^9, 3.86143380153986*^9, 
-   3.8614339098123655`*^9, 3.8614339922830915`*^9, {3.8614340435340796`*^9, 
-   3.861434111930907*^9}, 3.8614341497620754`*^9, {3.8614341858652525`*^9, 
-   3.861434207663928*^9}, {3.861434241261463*^9, 3.8614342792653685`*^9}, 
-   3.861434399097359*^9, 3.8614346057430887`*^9, 3.8614347022432413`*^9, 
-   3.861434786457508*^9, 3.8614348575607567`*^9, 3.8614348964661274`*^9, 
-   3.8614349781200914`*^9, {3.8614351579710464`*^9, 3.8614351798483677`*^9}, {
-   3.861435247370817*^9, 3.86143527602827*^9}, 3.861435379887103*^9, 
-   3.8614354829877076`*^9, {3.861435592719487*^9, 3.8614356181928015`*^9}, 
-   3.861435658901568*^9, 3.86143569030928*^9, {3.8614358420249753`*^9, 
-   3.861435854977309*^9}, 3.8614365966373262`*^9, 3.8614366465201373`*^9, 
-   3.861436856620697*^9, {3.8614369646931057`*^9, 3.861436978895048*^9}, 
-   3.861437069643503*^9, {3.861437135980856*^9, 3.861437178489519*^9}, 
-   3.86143723238725*^9, 3.861437316884577*^9, 3.861437361467574*^9, 
-   3.861437423565342*^9, {3.8614374595244155`*^9, 3.8614374705505233`*^9}, 
-   3.8614375245043926`*^9, {3.8614376034187613`*^9, 3.8614376803404813`*^9}, {
-   3.8614380985579367`*^9, 3.8614381424234657`*^9}, {3.861438255482983*^9, 
-   3.8614382764259815`*^9}, 3.8614383133362303`*^9, {3.8614384085760336`*^9, 
-   3.861438590925886*^9}, 3.8614386625517573`*^9, 3.861438752172616*^9, {
-   3.8614388686318784`*^9, 3.8614388958679066`*^9}, 3.8614389325763426`*^9, {
-   3.861438964012153*^9, 3.8614391046283464`*^9}, {3.8614391447394333`*^9, 
-   3.861439164041922*^9}, 3.8614477469252906`*^9, 3.861448033575202*^9, 
-   3.8615269385926533`*^9, 3.8615272859733944`*^9, 3.861527685838408*^9, {
-   3.8615277454078255`*^9, 3.861527768542986*^9}, 3.861527886805611*^9, 
-   3.8615279841357355`*^9, {3.8615280230893555`*^9, 3.8615280555721846`*^9}, 
-   3.8615280861183558`*^9, 3.8615281286354785`*^9, 3.8615281642913284`*^9, 
-   3.8615283222134695`*^9, 3.8615283700258303`*^9, 3.8615284163609753`*^9, 
-   3.86152845719881*^9, 3.8615285506071405`*^9, 3.861528654390728*^9, 
-   3.861528686094406*^9, 3.8615292733837748`*^9, {3.8615294092007446`*^9, 
-   3.8615294264468107`*^9}, {3.8615295098964677`*^9, 3.8615295861588697`*^9}, 
-   3.861529707393093*^9, 3.8615297677382965`*^9, 3.861529888097331*^9, 
-   3.861529927643551*^9, 3.8615299712434034`*^9, 3.8615301013329306`*^9, 
-   3.861530315319488*^9, 3.8615303567030354`*^9, 3.8615311497494497`*^9, 
-   3.861532385475422*^9, 3.861532501570109*^9},
- CellLabel->"Out[20]=",ExpressionUUID->"72fbbc94-d706-4476-ad4c-a85a1ffa5416"]
+   3.861532497848418*^9, 3.8615325013402414`*^9}, {3.8615325521199865`*^9, 
+   3.8615325944794626`*^9}, 3.861673381036991*^9, 3.8616735528309755`*^9, 
+   3.861673693807226*^9, 3.861673817787364*^9, {3.861674077406956*^9, 
+   3.8616740978877826`*^9}, 3.861674439510943*^9, 3.8616745925690312`*^9, {
+   3.86167485109774*^9, 3.861674912695237*^9}, {3.861674944238134*^9, 
+   3.86167497001155*^9}, 3.861675157732638*^9, 3.861675279175973*^9, 
+   3.86167536153351*^9, 3.86167591767248*^9, 3.861675955374908*^9, 
+   3.861676249736143*^9, {3.861676968167609*^9, 3.8616769897725053`*^9}, 
+   3.861677025838163*^9},
+ CellLabel->"Out[65]=",ExpressionUUID->"fb5293f7-dfd6-46e2-af3e-9205d2a4a5fb"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"SudokuGame", "[", "]"}]], "Input",
- CellChangeTimes->{{3.8610692491032915`*^9, 3.861069254593988*^9}, {
-  3.8610704491045384`*^9, 3.8610704509888315`*^9}, {3.86107053567478*^9, 
-  3.8610705369364696`*^9}},
- CellLabel->"In[21]:=",ExpressionUUID->"129225ac-57d0-4eb3-ade8-5a1611fdb436"],
+ CellOpen->False,
+ CellChangeTimes->{{3.8616769992712584`*^9, 3.861677002218848*^9}},
+ CellLabel->"In[66]:=",ExpressionUUID->"7ff7ca20-e480-47ef-9a35-6a7db4db5833"],
 
 Cell[BoxData[
  DynamicModuleBox[{Sudoku`Private`difficolta$$ = "Tutorial", 
@@ -14797,32 +13857,32 @@ Cell[BoxData[
   Sudoku`Private`caricaSudoku$$ = 0, Sudoku`Private`caricaSudokuInput$$ = 
   InputField[
    Dynamic[Sudoku`Private`caricaSudoku$$], FieldSize -> Small], 
-  Sudoku`Private`numSudoku$$ = 255568, Sudoku`Private`sudoku$$ = <|
+  Sudoku`Private`numSudoku$$ = 295296, Sudoku`Private`sudoku$$ = <|
   "fullBoard" -> 
    SparseArray[
     Automatic, {4, 4}, 0, {
      1, {{0, 4, 8, 12, 16}, {{1}, {2}, {3}, {4}, {1}, {2}, {3}, {4}, {1}, {
-       2}, {3}, {4}, {1}, {2}, {3}, {4}}}, {4, 1, 3, 2, 3, 2, 4, 1, 1, 3, 2, 
-      4, 2, 4, 1, 3}}], "sudokuPuzzle" -> 
+       2}, {3}, {4}, {1}, {2}, {3}, {4}}}, {2, 3, 1, 4, 1, 4, 2, 3, 4, 1, 3, 
+      2, 3, 2, 4, 1}}], "sudokuPuzzle" -> 
    SparseArray[
     Automatic, {4, 4}, Blank[], {
-     1, {{0, 4, 8, 11, 15}, {{3}, {2}, {1}, {4}, {2}, {4}, {3}, {1}, {2}, {
-       3}, {1}, {2}, {1}, {4}, {3}}}, {3, 1, 4, 2, 2, 1, 4, 3, 3, 2, 1, 4, 2, 
-      3, 1}}], "startPosition" -> {{1, 1}, {1, 2}, {1, 3}, {1, 4}, {2, 1}, {2,
-     2}, {2, 3}, {2, 4}, {3, 1}, {3, 2}, {3, 3}, {4, 1}, {4, 2}, {4, 3}, {4, 
-    4}}|>, Sudoku`Private`fullBoard$$ = SparseArray[
+     1, {{0, 3, 5, 9, 12}, {{4}, {2}, {3}, {4}, {2}, {1}, {3}, {2}, {4}, {
+       1}, {2}, {3}}}, {4, 3, 1, 3, 4, 4, 3, 1, 2, 3, 2, 4}}], 
+   "startPosition" -> {{1, 2}, {1, 3}, {1, 4}, {2, 2}, {2, 4}, {3, 1}, {3, 
+    2}, {3, 3}, {3, 4}, {4, 1}, {4, 2}, {4, 3}}|>, 
+  Sudoku`Private`fullBoard$$ = SparseArray[
   Automatic, {4, 4}, 0, {
    1, {{0, 4, 8, 12, 16}, {{1}, {2}, {3}, {4}, {1}, {2}, {3}, {4}, {1}, {2}, {
-     3}, {4}, {1}, {2}, {3}, {4}}}, {4, 1, 3, 2, 3, 2, 4, 1, 1, 3, 2, 4, 2, 4,
-     1, 3}}], Sudoku`Private`puzzle$$ = SparseArray[
+     3}, {4}, {1}, {2}, {3}, {4}}}, {2, 3, 1, 4, 1, 4, 2, 3, 4, 1, 3, 2, 3, 2,
+     4, 1}}], Sudoku`Private`puzzle$$ = SparseArray[
   Automatic, {4, 4}, Blank[], {
-   1, {{0, 4, 8, 11, 15}, {{3}, {2}, {1}, {4}, {2}, {4}, {3}, {1}, {2}, {3}, {
-     1}, {2}, {1}, {4}, {3}}}, {3, 1, 4, 2, 2, 1, 4, 3, 3, 2, 1, 4, 2, 3, 
-    1}}], Sudoku`Private`startPosition$$ = {{1, 1}, {1, 2}, {1, 3}, {1, 4}, {
-  2, 1}, {2, 2}, {2, 3}, {2, 4}, {3, 1}, {3, 2}, {3, 3}, {4, 1}, {4, 2}, {4, 
-  3}, {4, 4}}, Sudoku`Private`cursor$$ = {0, 0}, Sudoku`Private`inputValue$$, 
-  Sudoku`Private`controlliAttivi$$ = True, Sudoku`Private`timer$$ = 64, 
-  Sudoku`Private`refreshTimer$$ = True, Sudoku`Private`aiuto$$ = False, 
+   1, {{0, 3, 5, 9, 12}, {{4}, {2}, {3}, {4}, {2}, {1}, {3}, {2}, {4}, {1}, {
+     2}, {3}}}, {4, 3, 1, 3, 4, 4, 3, 1, 2, 3, 2, 4}}], 
+  Sudoku`Private`startPosition$$ = {{1, 2}, {1, 3}, {1, 4}, {2, 2}, {2, 4}, {
+  3, 1}, {3, 2}, {3, 3}, {3, 4}, {4, 1}, {4, 2}, {4, 3}}, 
+  Sudoku`Private`cursor$$ = {0, 0}, Sudoku`Private`inputValue$$, 
+  Sudoku`Private`controlliAttivi$$ = True, Sudoku`Private`timer$$ = 6, 
+  Sudoku`Private`refreshTimer$$ = True, Sudoku`Private`aiuto$$ = True, 
   Sudoku`Private`aiutoCheckbox$$ = Checkbox[
    Dynamic[Sudoku`Private`aiuto$$], Enabled -> 
    Dynamic[Sudoku`Private`controlliAttivi$$]], 
@@ -14863,7 +13923,8 @@ Cell[BoxData[
                 Dynamic[Sudoku`Private`controlliAttivi$$]]}}], 
             Button[
             "Ricomincia", (Sudoku`Private`timer$$ = -1; 
-             Sudoku`Private`aiuto$$ = False; 
+             Sudoku`Private`aiuto$$ = 
+              Sudoku`Private`attivaAiuti[Sudoku`Private`difficoltaInCorso$$]; 
              Sudoku`Private`controlliAttivi$$ = True; 
              Sudoku`Private`refreshTimer$$ = True; 
              Sudoku`Private`mostraSoluzione$$ = False; 
@@ -14904,12 +13965,14 @@ Cell[BoxData[
                    Small]}}], 
                Button[
                "Nuovo Sudoku", (Sudoku`Private`timer$$ = -1; 
-                Sudoku`Private`aiuto$$ = False; 
-                Sudoku`Private`controlliAttivi$$ = True; 
                 Sudoku`Private`refreshTimer$$ = True; 
                 Sudoku`Private`mostraSoluzione$$ = False; 
                 Sudoku`Private`difficoltaInCorso$$ = 
                  Sudoku`Private`difficolta$$; 
+                Sudoku`Private`controlliAttivi$$ = True; 
+                Sudoku`Private`aiuto$$ = 
+                 Sudoku`Private`attivaAiuti[
+                  Sudoku`Private`difficoltaInCorso$$]; 
                 Sudoku`Private`cursor$$ = {0, 0}; 
                 Sudoku`Private`numSudoku$$ = 
                  Sudoku`Private`generaNuovoSeed[
@@ -14942,7 +14005,6 @@ Cell[BoxData[
                    Small]}}], 
                Button[
                "Carica Sudoku", (Sudoku`Private`timer$$ = -1; 
-                Sudoku`Private`aiuto$$ = False; 
                 Sudoku`Private`controlliAttivi$$ = True; 
                 Sudoku`Private`refreshTimer$$ = True; 
                 Sudoku`Private`mostraSoluzione$$ = False; 
@@ -14950,6 +14012,10 @@ Cell[BoxData[
                 Sudoku`Private`difficoltaInCorso$$ = 
                  Sudoku`Private`getDifficoltaCarica[
                   Sudoku`Private`numSudoku$$]; 
+                Sudoku`Private`aiuto$$ = 
+                 Sudoku`Private`attivaAiuti[
+                  Sudoku`Private`difficoltaInCorso$$]; 
+                Sudoku`Private`controlliAttivi$$ = True; 
                 Sudoku`Private`dimQuadratoSudoku$$ = 
                  Sudoku`Private`getDimSudoku[
                   Sudoku`Private`difficoltaInCorso$$]; 
@@ -14964,7 +14030,7 @@ Cell[BoxData[
                 Sudoku`Private`startPosition$$ = 
                  Part[Sudoku`Private`sudoku$$, "startPosition"]; 
                 Null)& ]}]]}]}]], Manipulate`Dump`ThisIsNotAControl}}, 
-     Typeset`size$$ = {112., {45.79541020881152, 50.20458979118848}}, 
+     Typeset`size$$ = {113., {45.79541024034843, 50.20458975965157}}, 
      Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
      False}, 
      DynamicBox[Manipulate`ManipulateBoxes[
@@ -14979,6 +14045,7 @@ Cell[BoxData[
               Sudoku`Private`checkVittoria[
               Sudoku`Private`fullBoard$$, Sudoku`Private`puzzle$$], 
               Sudoku`Private`refreshTimer$$ = False; 
+              Sudoku`Private`mostraSoluzione$$ = False; 
               Sudoku`Private`controlliAttivi$$ = False; 
               Sudoku`Private`stampaVittoria[Sudoku`Private`timer$$], 
               EventHandler[
@@ -15048,7 +14115,8 @@ Cell[BoxData[
                  Dynamic[Sudoku`Private`controlliAttivi$$]]}}], 
              Button[
              "Ricomincia", (Sudoku`Private`timer$$ = -1; 
-              Sudoku`Private`aiuto$$ = False; 
+              Sudoku`Private`aiuto$$ = 
+               Sudoku`Private`attivaAiuti[Sudoku`Private`difficoltaInCorso$$]; 
               Sudoku`Private`controlliAttivi$$ = True; 
               Sudoku`Private`refreshTimer$$ = True; 
               Sudoku`Private`mostraSoluzione$$ = False; 
@@ -15087,12 +14155,14 @@ Cell[BoxData[
                     Small]}}], 
                 Button[
                 "Nuovo Sudoku", (Sudoku`Private`timer$$ = -1; 
-                 Sudoku`Private`aiuto$$ = False; 
-                 Sudoku`Private`controlliAttivi$$ = True; 
                  Sudoku`Private`refreshTimer$$ = True; 
                  Sudoku`Private`mostraSoluzione$$ = False; 
                  Sudoku`Private`difficoltaInCorso$$ = 
                   Sudoku`Private`difficolta$$; 
+                 Sudoku`Private`controlliAttivi$$ = True; 
+                 Sudoku`Private`aiuto$$ = 
+                  Sudoku`Private`attivaAiuti[
+                   Sudoku`Private`difficoltaInCorso$$]; 
                  Sudoku`Private`cursor$$ = {0, 0}; 
                  Sudoku`Private`numSudoku$$ = 
                   Sudoku`Private`generaNuovoSeed[
@@ -15125,7 +14195,6 @@ Cell[BoxData[
                     Small]}}], 
                 Button[
                 "Carica Sudoku", (Sudoku`Private`timer$$ = -1; 
-                 Sudoku`Private`aiuto$$ = False; 
                  Sudoku`Private`controlliAttivi$$ = True; 
                  Sudoku`Private`refreshTimer$$ = True; 
                  Sudoku`Private`mostraSoluzione$$ = False; 
@@ -15133,6 +14202,10 @@ Cell[BoxData[
                  Sudoku`Private`difficoltaInCorso$$ = 
                   Sudoku`Private`getDifficoltaCarica[
                    Sudoku`Private`numSudoku$$]; 
+                 Sudoku`Private`aiuto$$ = 
+                  Sudoku`Private`attivaAiuti[
+                   Sudoku`Private`difficoltaInCorso$$]; 
+                 Sudoku`Private`controlliAttivi$$ = True; 
                  Sudoku`Private`dimQuadratoSudoku$$ = 
                   Sudoku`Private`getDimSudoku[
                    Sudoku`Private`difficoltaInCorso$$]; 
@@ -15150,7 +14223,7 @@ Cell[BoxData[
        "Options" :> {
         ContentSize -> {700, 480}, ControlPlacement -> {Top, Top, Bottom}}, 
        "DefaultOptions" :> {}],
-      ImageSizeCache->{365., {193.79541020881152`, 198.20458979118848`}},
+      ImageSizeCache->{364., {192.79541024034842`, 197.20458975965158`}},
       SingleEvaluation->True],
      Deinitialization:>None,
      DynamicModuleValues:>{},
@@ -15399,7 +14472,13 @@ Cell[BoxData[
              Sudoku`Private`grigliaSelezionaNumeri]; 
           Grid[Sudoku`Private`griglia, Frame -> All, Background -> 
             RGBColor[0.5, 0.74, 0.5, 0.4], BaseStyle -> Large]], 
-        Attributes[Sudoku`Private`num$] = {Temporary}, Sudoku`CreateSudoku[
+        Attributes[Sudoku`Private`num$] = {Temporary}, 
+        Sudoku`Private`attivaAiuti[
+          Pattern[Sudoku`Private`diff, 
+           Blank[]]] := If[
+          Or[
+          Sudoku`Private`diff === "Tutorial", Sudoku`Private`diff === 
+           "Facile"], True, False], Sudoku`CreateSudoku[
           Pattern[Sudoku`Private`dim, 
            Blank[]], 
           Pattern[Sudoku`Private`seed, 
@@ -15411,7 +14490,7 @@ Cell[BoxData[
           Sudoku`Private`difficolta = 
            Sudoku`Private`getDifficoltaCarica[Sudoku`Private`seed]; 
           Sudoku`Private`percentualeDifficolta = 
-           Switch[Sudoku`Private`difficolta, "Tutorial", 0.9, "Facile", 0.7, 
+           Switch[Sudoku`Private`difficolta, "Tutorial", 0.7, "Facile", 0.7, 
              "Medio", 0.5, "Difficile", 0.2]; {
             Sudoku`Private`sudokuCompleto, Sudoku`Private`sudokuDaCompletare} = 
            ResourceFunction["GenerateSudokuPuzzle"][
@@ -15450,1392 +14529,15 @@ Cell[BoxData[
     StripOnInput->False],
    Manipulate`InterpretManipulate[1]],
   DynamicModuleValues:>{}]], "Output",
- GeneratedCell->False,
- CellAutoOverwrite->False,
- CellChangeTimes->{
-  3.8615283223246727`*^9, 3.8615283702954907`*^9, 3.861528416473988*^9, {
-   3.8615284572822933`*^9, 3.8615284694247713`*^9}, {3.861528550776003*^9, 
-   3.8615285686492662`*^9}, {3.861528654469509*^9, 3.861528686190486*^9}, 
-   3.8615292734678135`*^9, {3.8615294092869453`*^9, 3.861529426532909*^9}, {
-   3.8615295100018578`*^9, 3.861529586254882*^9}, 3.861529707473983*^9, 
-   3.8615297678227377`*^9, 3.861529888230332*^9, 3.8615299277377043`*^9, 
-   3.8615299713326993`*^9, {3.86153003856701*^9, 3.8615300404340253`*^9}, 
-   3.8615301014088273`*^9, {3.8615301539895115`*^9, 3.861530155658107*^9}, 
-   3.8615303154975457`*^9, 3.861530356790654*^9, {3.861530615856992*^9, 
-   3.8615306201376314`*^9}, 3.8615311498279934`*^9, 3.861532391123828*^9, 
-   3.8615325016481543`*^9},
- CellLabel->"Out[21]=",ExpressionUUID->"f1ae89e7-6c46-4b8a-b4c4-48a508cb1ac3"],
-
-Cell[BoxData[
- DynamicModuleBox[{Sudoku`Private`difficolta$$ = "Tutorial", 
-  Sudoku`Private`difficoltaInCorso$$ = "Tutorial", 
-  Sudoku`Private`difficoltaCarica$$ = "Tutorial", 
-  Sudoku`Private`popupDifficolta$$ = PopupMenu[
-   Dynamic[Sudoku`Private`difficolta$$], {
-   "Tutorial", "Facile", "Medio", "Difficile"}, FieldSize -> Small], 
-  Sudoku`Private`popupDifficoltaCarica$$ = PopupMenu[
-   Dynamic[Sudoku`Private`difficoltaCarica$$], {
-   "Tutorial", "Facile", "Medio", "Difficile"}, FieldSize -> Small], 
-  Sudoku`Private`grandezzaGrigliaSudoku$$ = 22, 
-  Sudoku`Private`caricaSudoku$$ = 0, Sudoku`Private`caricaSudokuInput$$ = 
-  InputField[
-   Dynamic[Sudoku`Private`caricaSudoku$$], FieldSize -> Small], 
-  Sudoku`Private`numSudoku$$ = 239212, Sudoku`Private`sudoku$$ = <|
-  "fullBoard" -> 
-   SparseArray[
-    Automatic, {4, 4}, 0, {
-     1, {{0, 4, 8, 12, 16}, {{1}, {2}, {3}, {4}, {1}, {2}, {3}, {4}, {1}, {
-       2}, {3}, {4}, {1}, {2}, {3}, {4}}}, {1, 3, 4, 2, 4, 2, 1, 3, 2, 1, 3, 
-      4, 3, 4, 2, 1}}], "sudokuPuzzle" -> 
-   SparseArray[
-    Automatic, {4, 4}, Blank[], {
-     1, {{0, 4, 7, 11, 15}, {{4}, {1}, {3}, {2}, {1}, {3}, {2}, {1}, {3}, {
-       2}, {4}, {4}, {2}, {3}, {1}}}, {2, 1, 4, 3, 4, 1, 2, 2, 3, 1, 4, 1, 4, 
-      2, 3}}], "startPosition" -> {{1, 1}, {1, 2}, {1, 3}, {1, 4}, {2, 1}, {2,
-     2}, {2, 3}, {3, 1}, {3, 2}, {3, 3}, {3, 4}, {4, 1}, {4, 2}, {4, 3}, {4, 
-    4}}|>, Sudoku`Private`fullBoard$$ = SparseArray[
-  Automatic, {4, 4}, 0, {
-   1, {{0, 4, 8, 12, 16}, {{1}, {2}, {3}, {4}, {1}, {2}, {3}, {4}, {1}, {2}, {
-     3}, {4}, {1}, {2}, {3}, {4}}}, {1, 3, 4, 2, 4, 2, 1, 3, 2, 1, 3, 4, 3, 4,
-     2, 1}}], Sudoku`Private`puzzle$$ = SparseArray[
-  Automatic, {4, 4}, Blank[], {
-   1, {{0, 4, 7, 11, 15}, {{4}, {1}, {3}, {2}, {1}, {3}, {2}, {1}, {3}, {2}, {
-     4}, {4}, {2}, {3}, {1}}}, {2, 1, 4, 3, 4, 1, 2, 2, 3, 1, 4, 1, 4, 2, 
-    3}}], Sudoku`Private`startPosition$$ = {{1, 1}, {1, 2}, {1, 3}, {1, 4}, {
-  2, 1}, {2, 2}, {2, 3}, {3, 1}, {3, 2}, {3, 3}, {3, 4}, {4, 1}, {4, 2}, {4, 
-  3}, {4, 4}}, Sudoku`Private`cursor$$ = {0, 0}, Sudoku`Private`inputValue$$, 
-  Sudoku`Private`controlliAttivi$$ = True, Sudoku`Private`timer$$ = 120, 
-  Sudoku`Private`refreshTimer$$ = True, Sudoku`Private`aiuto$$ = False, 
-  Sudoku`Private`aiutoCheckbox$$ = Checkbox[
-   Dynamic[Sudoku`Private`aiuto$$], Enabled -> 
-   Dynamic[Sudoku`Private`controlliAttivi$$]], 
-  Sudoku`Private`mostraSoluzione$$ = False, 
-  Sudoku`Private`mostraSoluzioneCheckbox$$ = Checkbox[
-   Dynamic[Sudoku`Private`mostraSoluzione$$], Enabled -> 
-   Dynamic[Sudoku`Private`controlliAttivi$$]], 
-  Sudoku`Private`dimensioneManipulate$$ = {700, 480}, 
-  Sudoku`Private`dimQuadratoSudoku$$ = 2}, 
-  TagBox[
-   StyleBox[
-    DynamicModuleBox[{Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
-     Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
-     1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
-       Hold[
-        Row[{
-          Spacer[170], 
-          Style["Difficolt\[AGrave]:  ", FontSize -> 16], 
-          Style[
-           Dynamic[Sudoku`Private`difficoltaInCorso$$], FontSize -> 16, Bold], 
-          Spacer[20], 
-          Style["Numero Sudoku:  ", FontSize -> 16], 
-          Style[
-           Dynamic[Sudoku`Private`numSudoku$$], FontSize -> 16, Bold]}]], 
-       Manipulate`Dump`ThisIsNotAControl}, {
-       Hold[
-        Row[{
-          Spacer[{20, 50}], 
-          Column[{
-            Grid[{{
-               Style["Aiuto: ", FontSize -> 14], 
-               Checkbox[
-                Dynamic[Sudoku`Private`aiuto$$], Enabled -> 
-                Dynamic[Sudoku`Private`controlliAttivi$$]]}, {
-               Style["Mostra soluzione: ", FontSize -> 14], 
-               Checkbox[
-                Dynamic[Sudoku`Private`mostraSoluzione$$], Enabled -> 
-                Dynamic[Sudoku`Private`controlliAttivi$$]]}}], 
-            Button[
-            "Ricomincia", (Sudoku`Private`timer$$ = -1; 
-             Sudoku`Private`aiuto$$ = False; 
-             Sudoku`Private`controlliAttivi$$ = True; 
-             Sudoku`Private`refreshTimer$$ = True; 
-             Sudoku`Private`mostraSoluzione$$ = False; 
-             Sudoku`Private`sudoku$$ = 
-              Sudoku`CreateSudoku[
-               Sudoku`Private`dimQuadratoSudoku$$, 
-                Sudoku`Private`numSudoku$$]; 
-             Sudoku`Private`fullBoard$$ = 
-              Part[Sudoku`Private`sudoku$$, "fullBoard"]; 
-             Sudoku`Private`puzzle$$ = 
-              Part[Sudoku`Private`sudoku$$, "sudokuPuzzle"]; 
-             Sudoku`Private`startPosition$$ = 
-              Part[Sudoku`Private`sudoku$$, "startPosition"]; Null)& ]}], 
-          Spacer[{350, 0}], 
-          Column[{
-            Row[{
-              Style["Tempo:  ", FontSize -> 14], 
-              Dynamic[
-               Refresh[
-               If[Sudoku`Private`refreshTimer$$, Sudoku`Private`timer$$ = 
-                  Sudoku`Private`timer$$ + 1, Sudoku`Private`timer$$]; 
-                Sudoku`Private`convert[Sudoku`Private`timer$$], 
-                TrackedSymbols :> {}, UpdateInterval -> 1]]}]}]}]], 
-       Manipulate`Dump`ThisIsNotAControl}, {
-       Hold[
-        Row[{
-          Spacer[{100, 0}], 
-          Column[{
-            Style[
-            "Nuovo Sudoku:", FontSize -> 14, Bold, FontFamily -> "Arial"], 
-            Panel[
-             Column[{
-               Grid[{{
-                  Style["Difficolt\[AGrave]: ", FontSize -> 14], 
-                  PopupMenu[
-                   Dynamic[Sudoku`Private`difficolta$$], {
-                   "Tutorial", "Facile", "Medio", "Difficile"}, FieldSize -> 
-                   Small]}}], 
-               Button[
-               "Nuovo Sudoku", (Sudoku`Private`timer$$ = -1; 
-                Sudoku`Private`aiuto$$ = False; 
-                Sudoku`Private`controlliAttivi$$ = True; 
-                Sudoku`Private`refreshTimer$$ = True; 
-                Sudoku`Private`mostraSoluzione$$ = False; 
-                Sudoku`Private`difficoltaInCorso$$ = 
-                 Sudoku`Private`difficolta$$; 
-                Sudoku`Private`cursor$$ = {0, 0}; 
-                Sudoku`Private`numSudoku$$ = 
-                 Sudoku`Private`generaNuovoSeed[
-                  Sudoku`Private`difficoltaInCorso$$]; 
-                Sudoku`Private`dimQuadratoSudoku$$ = 
-                 Sudoku`Private`getDimSudoku[
-                  Sudoku`Private`difficoltaInCorso$$]; 
-                Sudoku`Private`sudoku$$ = 
-                 Sudoku`CreateSudoku[
-                  Sudoku`Private`dimQuadratoSudoku$$, 
-                   Sudoku`Private`numSudoku$$]; 
-                Sudoku`Private`fullBoard$$ = 
-                 Part[Sudoku`Private`sudoku$$, "fullBoard"]; 
-                Sudoku`Private`puzzle$$ = 
-                 Part[Sudoku`Private`sudoku$$, "sudokuPuzzle"]; 
-                Sudoku`Private`startPosition$$ = 
-                 Part[Sudoku`Private`sudoku$$, "startPosition"]; 
-                Null)& ]}]]}], 
-          Spacer[{50, 0}], 
-          Column[{
-            Spacer[{0, 5}], 
-            Style[
-            "Carica Sudoku:", FontSize -> 14, Bold, FontFamily -> "Arial"], 
-            Panel[
-             Column[{
-               Grid[{{
-                  Style["Numero sudoku:", FontSize -> 14], 
-                  InputField[
-                   Dynamic[Sudoku`Private`caricaSudoku$$], FieldSize -> 
-                   Small]}}], 
-               Button[
-               "Carica Sudoku", (Sudoku`Private`timer$$ = -1; 
-                Sudoku`Private`aiuto$$ = False; 
-                Sudoku`Private`controlliAttivi$$ = True; 
-                Sudoku`Private`refreshTimer$$ = True; 
-                Sudoku`Private`mostraSoluzione$$ = False; 
-                Sudoku`Private`numSudoku$$ = Sudoku`Private`caricaSudoku$$; 
-                Sudoku`Private`difficoltaInCorso$$ = 
-                 Sudoku`Private`getDifficoltaCarica[
-                  Sudoku`Private`numSudoku$$]; 
-                Sudoku`Private`dimQuadratoSudoku$$ = 
-                 Sudoku`Private`getDimSudoku[
-                  Sudoku`Private`difficoltaInCorso$$]; 
-                Sudoku`Private`sudoku$$ = 
-                 Sudoku`CreateSudoku[
-                  Sudoku`Private`dimQuadratoSudoku$$, 
-                   Sudoku`Private`numSudoku$$]; 
-                Sudoku`Private`fullBoard$$ = 
-                 Part[Sudoku`Private`sudoku$$, "fullBoard"]; 
-                Sudoku`Private`puzzle$$ = 
-                 Part[Sudoku`Private`sudoku$$, "sudokuPuzzle"]; 
-                Sudoku`Private`startPosition$$ = 
-                 Part[Sudoku`Private`sudoku$$, "startPosition"]; 
-                Null)& ]}]]}]}]], Manipulate`Dump`ThisIsNotAControl}}, 
-     Typeset`size$$ = {112., {45.79541020881152, 50.20458979118848}}, 
-     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
-     False}, 
-     DynamicBox[Manipulate`ManipulateBoxes[
-      1, StandardForm, "Variables" :> {}, "ControllerVariables" :> {}, 
-       "OtherVariables" :> {
-        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
-         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
-         Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
-         Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> Grid[{{
-           Column[{
-             If[
-              Sudoku`Private`checkVittoria[
-              Sudoku`Private`fullBoard$$, Sudoku`Private`puzzle$$], 
-              Sudoku`Private`refreshTimer$$ = False; 
-              Sudoku`Private`controlliAttivi$$ = False; 
-              Sudoku`Private`stampaVittoria[Sudoku`Private`timer$$], 
-              EventHandler[
-               Sudoku`Private`stampaSudokuManipulate[
-               Sudoku`Private`puzzle$$, 
-                Sudoku`Private`grandezzaGrigliaSudoku$$, 
-                Sudoku`Private`dimQuadratoSudoku$$, Sudoku`Private`cursor$$, 
-                Sudoku`Private`startPosition$$, Sudoku`Private`aiuto$$], {
-               "MouseClicked" :> (Sudoku`Private`cursor$$ = 
-                 Sudoku`Private`loc2[
-                   MousePosition["EventHandlerScaled"], 
-                   Sudoku`Private`startPosition$$, 
-                   Sudoku`Private`dimQuadratoSudoku$$^2])}]], 
-             If[
-              Or[
-               Sudoku`Private`checkVittoria[
-               Sudoku`Private`fullBoard$$, Sudoku`Private`puzzle$$], 
-               Sudoku`Private`cursor$$ === {0, 0}], "", 
-              Column[{
-                Sudoku`Private`elemStyle[
-                "\nSeleziona il valore che vuoi inserire:"], 
-                EventHandler[
-                 Sudoku`Private`stampaGrigliaSelezioneNumeri[
-                 Sudoku`Private`difficoltaInCorso$$], "MouseClicked" :> 
-                 Module[{
-                   Sudoku`Private`num$ = 
-                    If[Sudoku`Private`difficoltaInCorso$$ === "Tutorial", 
-                    Floor[5 First[
-                    MousePosition["EventHandlerScaled"]]], 
-                    Floor[10 First[
-                    MousePosition["EventHandlerScaled"]]]]}, 
-                   If[Sudoku`Private`num$ == 0, Part[
-                    Part[Sudoku`Private`puzzle$$, 
-                    Part[Sudoku`Private`cursor$$, 1]], 
-                    Part[Sudoku`Private`cursor$$, 2]] = Blank[], Part[
-                    Part[Sudoku`Private`puzzle$$, 
-                    Part[Sudoku`Private`cursor$$, 1]], 
-                    Part[Sudoku`Private`cursor$$, 2]] = 
-                    Sudoku`Private`num$]]]}]]}], "\t", 
-           If[Sudoku`Private`mostraSoluzione$$, 
-            Dynamic[
-             Sudoku`ShowSudoku[
-             Sudoku`Private`fullBoard$$, 15, 
-              Sudoku`Private`dimQuadratoSudoku$$, Sudoku`Private`cursor$$]], 
-            ""]}}, Editable -> False], "Specifications" :> {
-         Row[{
-           Spacer[170], 
-           Style["Difficolt\[AGrave]:  ", FontSize -> 16], 
-           Style[
-            Dynamic[Sudoku`Private`difficoltaInCorso$$], FontSize -> 16, 
-            Bold], 
-           Spacer[20], 
-           Style["Numero Sudoku:  ", FontSize -> 16], 
-           Style[
-            Dynamic[Sudoku`Private`numSudoku$$], FontSize -> 16, Bold]}], 
-         Row[{
-           Spacer[{20, 50}], 
-           Column[{
-             Grid[{{
-                Style["Aiuto: ", FontSize -> 14], 
-                Checkbox[
-                 Dynamic[Sudoku`Private`aiuto$$], Enabled -> 
-                 Dynamic[Sudoku`Private`controlliAttivi$$]]}, {
-                Style["Mostra soluzione: ", FontSize -> 14], 
-                Checkbox[
-                 Dynamic[Sudoku`Private`mostraSoluzione$$], Enabled -> 
-                 Dynamic[Sudoku`Private`controlliAttivi$$]]}}], 
-             Button[
-             "Ricomincia", (Sudoku`Private`timer$$ = -1; 
-              Sudoku`Private`aiuto$$ = False; 
-              Sudoku`Private`controlliAttivi$$ = True; 
-              Sudoku`Private`refreshTimer$$ = True; 
-              Sudoku`Private`mostraSoluzione$$ = False; 
-              Sudoku`Private`sudoku$$ = 
-               Sudoku`CreateSudoku[
-                Sudoku`Private`dimQuadratoSudoku$$, 
-                 Sudoku`Private`numSudoku$$]; 
-              Sudoku`Private`fullBoard$$ = 
-               Part[Sudoku`Private`sudoku$$, "fullBoard"]; 
-              Sudoku`Private`puzzle$$ = 
-               Part[Sudoku`Private`sudoku$$, "sudokuPuzzle"]; 
-              Sudoku`Private`startPosition$$ = 
-               Part[Sudoku`Private`sudoku$$, "startPosition"]; Null)& ]}], 
-           Spacer[{350, 0}], 
-           Column[{
-             Row[{
-               Style["Tempo:  ", FontSize -> 14], 
-               Dynamic[
-                Refresh[
-                If[Sudoku`Private`refreshTimer$$, Sudoku`Private`timer$$ = 
-                   Sudoku`Private`timer$$ + 1, Sudoku`Private`timer$$]; 
-                 Sudoku`Private`convert[Sudoku`Private`timer$$], 
-                 TrackedSymbols :> {}, UpdateInterval -> 1]]}]}]}], 
-         Row[{
-           Spacer[{100, 0}], 
-           Column[{
-             Style[
-             "Nuovo Sudoku:", FontSize -> 14, Bold, FontFamily -> "Arial"], 
-             Panel[
-              Column[{
-                Grid[{{
-                   Style["Difficolt\[AGrave]: ", FontSize -> 14], 
-                   PopupMenu[
-                    Dynamic[Sudoku`Private`difficolta$$], {
-                    "Tutorial", "Facile", "Medio", "Difficile"}, FieldSize -> 
-                    Small]}}], 
-                Button[
-                "Nuovo Sudoku", (Sudoku`Private`timer$$ = -1; 
-                 Sudoku`Private`aiuto$$ = False; 
-                 Sudoku`Private`controlliAttivi$$ = True; 
-                 Sudoku`Private`refreshTimer$$ = True; 
-                 Sudoku`Private`mostraSoluzione$$ = False; 
-                 Sudoku`Private`difficoltaInCorso$$ = 
-                  Sudoku`Private`difficolta$$; 
-                 Sudoku`Private`cursor$$ = {0, 0}; 
-                 Sudoku`Private`numSudoku$$ = 
-                  Sudoku`Private`generaNuovoSeed[
-                   Sudoku`Private`difficoltaInCorso$$]; 
-                 Sudoku`Private`dimQuadratoSudoku$$ = 
-                  Sudoku`Private`getDimSudoku[
-                   Sudoku`Private`difficoltaInCorso$$]; 
-                 Sudoku`Private`sudoku$$ = 
-                  Sudoku`CreateSudoku[
-                   Sudoku`Private`dimQuadratoSudoku$$, 
-                    Sudoku`Private`numSudoku$$]; 
-                 Sudoku`Private`fullBoard$$ = 
-                  Part[Sudoku`Private`sudoku$$, "fullBoard"]; 
-                 Sudoku`Private`puzzle$$ = 
-                  Part[Sudoku`Private`sudoku$$, "sudokuPuzzle"]; 
-                 Sudoku`Private`startPosition$$ = 
-                  Part[Sudoku`Private`sudoku$$, "startPosition"]; 
-                 Null)& ]}]]}], 
-           Spacer[{50, 0}], 
-           Column[{
-             Spacer[{0, 5}], 
-             Style[
-             "Carica Sudoku:", FontSize -> 14, Bold, FontFamily -> "Arial"], 
-             Panel[
-              Column[{
-                Grid[{{
-                   Style["Numero sudoku:", FontSize -> 14], 
-                   InputField[
-                    Dynamic[Sudoku`Private`caricaSudoku$$], FieldSize -> 
-                    Small]}}], 
-                Button[
-                "Carica Sudoku", (Sudoku`Private`timer$$ = -1; 
-                 Sudoku`Private`aiuto$$ = False; 
-                 Sudoku`Private`controlliAttivi$$ = True; 
-                 Sudoku`Private`refreshTimer$$ = True; 
-                 Sudoku`Private`mostraSoluzione$$ = False; 
-                 Sudoku`Private`numSudoku$$ = Sudoku`Private`caricaSudoku$$; 
-                 Sudoku`Private`difficoltaInCorso$$ = 
-                  Sudoku`Private`getDifficoltaCarica[
-                   Sudoku`Private`numSudoku$$]; 
-                 Sudoku`Private`dimQuadratoSudoku$$ = 
-                  Sudoku`Private`getDimSudoku[
-                   Sudoku`Private`difficoltaInCorso$$]; 
-                 Sudoku`Private`sudoku$$ = 
-                  Sudoku`CreateSudoku[
-                   Sudoku`Private`dimQuadratoSudoku$$, 
-                    Sudoku`Private`numSudoku$$]; 
-                 Sudoku`Private`fullBoard$$ = 
-                  Part[Sudoku`Private`sudoku$$, "fullBoard"]; 
-                 Sudoku`Private`puzzle$$ = 
-                  Part[Sudoku`Private`sudoku$$, "sudokuPuzzle"]; 
-                 Sudoku`Private`startPosition$$ = 
-                  Part[Sudoku`Private`sudoku$$, "startPosition"]; 
-                 Null)& ]}]]}]}]}, 
-       "Options" :> {
-        ContentSize -> {700, 480}, ControlPlacement -> {Top, Top, Bottom}}, 
-       "DefaultOptions" :> {}],
-      ImageSizeCache->{365., {193.79541020881152`, 198.20458979118848`}},
-      SingleEvaluation->True],
-     Deinitialization:>None,
-     DynamicModuleValues:>{},
-     Initialization:>({Sudoku`Private`checkVittoria[
-          Pattern[Sudoku`Private`fullBoard, 
-           Blank[]], 
-          Pattern[Sudoku`Private`puzzle, 
-           Blank[]]] := 
-        Normal[Sudoku`Private`fullBoard] === Normal[Sudoku`Private`puzzle], 
-        Sudoku`Private`stampaVittoria[
-          Pattern[Sudoku`Private`time, 
-           Blank[]]] := Row[{
-           Column[{
-             Sudoku`Private`vittoriaStyle[
-             "\n\n\n\n\t        Complimenti! Hai vinto!"], 
-             Sudoku`Private`elemStyle[
-             "\n\n\n\t\t\t\t\t         Tempo trascorso:\n\t\t\t\t\t" <> 
-              ToString[
-                Sudoku`Private`convert[Sudoku`Private`time]]]}]}], 
-        Sudoku`Private`vittoriaStyle[
-          Pattern[Sudoku`Private`s, 
-           Blank[]]] := Style[Sudoku`Private`s, FontSize -> 30, Bold, 
-          RGBColor[0, 0.64, 0.36], FontFamily -> "Arial", TextAlignment -> 
-          Center], Sudoku`Private`elemStyle[
-          Pattern[Sudoku`Private`s, 
-           Blank[]]] := 
-        Style[Sudoku`Private`s, FontSize -> 14, Bold, FontFamily -> "Arial"], 
-        Sudoku`Private`convert[
-          Pattern[Sudoku`Private`x, 
-           Blank[]]] := Sudoku`Private`elemStyle[
-          UnitConvert[
-           Quantity[Sudoku`Private`x, "Seconds"], 
-           MixedUnit[{"Hours", "Minutes", "Seconds"}]]], 
-        Sudoku`Private`stampaSudokuManipulate[
-          Pattern[Sudoku`Private`puzzle, 
-           Blank[]], 
-          Pattern[Sudoku`Private`grandezzaGrigliaSudoku, 
-           Blank[]], 
-          Pattern[Sudoku`Private`dimQuadratoSudoku, 
-           Blank[]], 
-          Pattern[Sudoku`Private`cursor, 
-           Blank[]], 
-          Pattern[Sudoku`Private`startPosition, 
-           Blank[]], 
-          Pattern[Sudoku`Private`aiuto, 
-           Blank[]]] := Dynamic[
-          Sudoku`ShowSudoku[
-          Sudoku`Private`puzzle, Sudoku`Private`grandezzaGrigliaSudoku, 
-           Sudoku`Private`dimQuadratoSudoku, Sudoku`Private`cursor, 
-           Sudoku`Private`startPosition, Sudoku`Private`aiuto]], 
-        Sudoku`ShowSudoku[
-          Pattern[Sudoku`Private`board, 
-           Blank[]], 
-          Pattern[Sudoku`Private`dim, 
-           Blank[]], 
-          Pattern[Sudoku`Private`dimQ, 
-           Blank[]], 
-          Optional[
-           Pattern[Sudoku`Private`cursor, 
-            Blank[]], {0, 0}], 
-          Optional[
-           Pattern[Sudoku`Private`startPosition, 
-            Blank[]], {}], 
-          Optional[
-           Pattern[Sudoku`Private`aiuti, 
-            Blank[]], False]] := 
-        Module[{Sudoku`Private`background, Sudoku`Private`err, 
-           Sudoku`Private`un, Sudoku`Private`numberColor, 
-           Sudoku`Private`maxIndex}, 
-          Sudoku`Private`maxIndex = If[Sudoku`Private`dimQ == 2, 4, 9]; 
-          Sudoku`Private`background = Flatten[
-             Table[{Sudoku`Private`i, Sudoku`Private`j} -> If[
-                EvenQ[
-                 Apply[Plus, 
-                  
-                  Floor[{Sudoku`Private`i - 1, Sudoku`Private`j - 1}/
-                   Sudoku`Private`dimQ]]], 
-                Darker[White], White], {
-              Sudoku`Private`i, Sudoku`Private`maxIndex}, {
-              Sudoku`Private`j, Sudoku`Private`maxIndex}]]; 
-          Sudoku`Private`numberColor = If[Sudoku`Private`startPosition != {}, 
-             Flatten[
-              Table[
-               If[
-                MemberQ[
-                Sudoku`Private`startPosition, {
-                 Sudoku`Private`x, Sudoku`Private`y}], {
-                 Sudoku`Private`x, Sudoku`Private`y} -> {Black}, {
-                 Sudoku`Private`x, Sudoku`Private`y} -> {Blue}], {
-               Sudoku`Private`x, 1, Sudoku`Private`maxIndex}, {
-               Sudoku`Private`y, 1, Sudoku`Private`maxIndex}]], Black]; 
-          Sudoku`Private`un = 
-           If[Sudoku`Private`aiuti, 
-             Sudoku`Private`err = 
-              Sudoku`Private`checkErrors[
-               Sudoku`Private`board, Sudoku`Private`startPosition, 
-                Sudoku`Private`maxIndex]; 
-             Join[Sudoku`Private`background, Sudoku`Private`err], 
-             Sudoku`Private`background]; 
-          Grid[Sudoku`Private`board, ItemSize -> Full, 
-            ItemStyle -> {Automatic, Automatic, Sudoku`Private`numberColor}, 
-            Frame -> If[
-             Sudoku`Private`cursor == {0, 0}, All, {
-              All, All, Sudoku`Private`cursor -> {Blue, Thickness -> 1.5}}], 
-            BaseStyle -> Sudoku`Private`dim, Spacings -> {
-              Offset[1.2], 
-              Offset[0.9]}, 
-            Background -> {Automatic, Automatic, Sudoku`Private`un}]], 
-        TagSet[Sudoku`ShowSudoku, 
-         MessageName[Sudoku`ShowSudoku, "usage"], "mostra"], 
-        Sudoku`Private`un = 
-        If[Sudoku`Private`aiuti, 
-          Sudoku`Private`err = 
-           Sudoku`Private`checkErrors[
-            Sudoku`Private`board, Sudoku`Private`startPosition, 
-             Sudoku`Private`maxIndex]; 
-          Join[Sudoku`Private`background, Sudoku`Private`err], 
-          Sudoku`Private`background], Sudoku`Private`checkErrors[
-          Pattern[Sudoku`Private`puzzle, 
-           Blank[]], 
-          Pattern[Sudoku`Private`startPosition, 
-           Blank[]], 
-          Pattern[Sudoku`Private`maxInd, 
-           Blank[]]] := 
-        Module[{Sudoku`Private`auxRow, Sudoku`Private`auxColumn, 
-           Sudoku`Private`maxSq, Sudoku`Private`incr, 
-           Sudoku`Private`auxSquare, Sudoku`Private`union, 
-           Sudoku`Private`final}, Sudoku`Private`auxRow = Flatten[
-             Table[
-              Sudoku`Private`calcErrors[
-               Part[Sudoku`Private`puzzle, Sudoku`Private`x], 2, {
-               Sudoku`Private`x, True}], {
-              Sudoku`Private`x, 1, Sudoku`Private`maxInd}], 1]; 
-          Sudoku`Private`auxColumn = Flatten[
-             Table[
-              Sudoku`Private`calcErrors[
-               Part[Sudoku`Private`puzzle, All, Sudoku`Private`x], 2, {
-               Sudoku`Private`x, False}], {
-              Sudoku`Private`x, 1, Sudoku`Private`maxInd}], 1]; 
-          Sudoku`Private`maxSq = If[Sudoku`Private`maxInd == 9, 7, 3]; 
-          Sudoku`Private`incr = If[Sudoku`Private`maxInd == 9, 3, 2]; 
-          Sudoku`Private`auxSquare = Flatten[
-             Table[
-              Sudoku`Private`calcErrors[
-               Part[Sudoku`Private`puzzle, 
-                Span[
-                Sudoku`Private`x, 
-                 Sudoku`Private`x + (Sudoku`Private`incr - 1)], 
-                Span[
-                Sudoku`Private`y, 
-                 Sudoku`Private`y + (Sudoku`Private`incr - 1)]], 
-               1, {{Sudoku`Private`x, Sudoku`Private`y}}], {
-              Sudoku`Private`x, 1, Sudoku`Private`maxSq, 
-               Sudoku`Private`incr}, {
-              Sudoku`Private`y, 1, Sudoku`Private`maxSq, 
-               Sudoku`Private`incr}], 2]; 
-          Sudoku`Private`union = 
-           Union[Sudoku`Private`auxRow, Sudoku`Private`auxColumn, 
-             Sudoku`Private`auxSquare]; 
-          Sudoku`Private`final = DeleteCases[Sudoku`Private`union, 
-             Condition[{
-               Pattern[Sudoku`Private`x, 
-                Blank[]], 
-               Pattern[Sudoku`Private`y, 
-                Blank[]]}, 
-              MemberQ[
-              Sudoku`Private`startPosition, {
-               Sudoku`Private`x, Sudoku`Private`y}]]]; 
-          Map[# -> LightRed& , Sudoku`Private`final]], 
-        Sudoku`Private`calcErrors[
-          Pattern[Sudoku`Private`struct, 
-           Blank[]], 
-          Pattern[Sudoku`Private`lFlat, 
-           Blank[]], 
-          Pattern[Sudoku`Private`listPar, 
-           Blank[]]] := 
-        Module[{Sudoku`Private`norm, Sudoku`Private`auxNorm, 
-           Sudoku`Private`cnt, Sudoku`Private`dupl, Sudoku`Private`coord, 
-           Sudoku`Private`aux}, 
-          Sudoku`Private`norm = Normal[Sudoku`Private`struct]; 
-          Sudoku`Private`auxNorm = If[Length[Sudoku`Private`listPar] == 1, 
-             Flatten[Sudoku`Private`norm], Sudoku`Private`norm]; 
-          Sudoku`Private`cnt = Tally[
-             Cases[Sudoku`Private`auxNorm, 
-              Blank[Integer]]]; 
-          Sudoku`Private`dupl = Cases[Sudoku`Private`cnt, 
-             Condition[{
-               Pattern[Sudoku`Private`x, 
-                Blank[]], 
-               Pattern[Sudoku`Private`y, 
-                Blank[]]}, Sudoku`Private`y > 1]]; 
-          Sudoku`Private`coord = If[Length[Sudoku`Private`dupl] > 0, 
-             Flatten[
-              Map[Position[Sudoku`Private`norm, 
-                First[#]]& , Sudoku`Private`dupl], Sudoku`Private`lFlat], 
-             Nothing]; Switch[
-            Length[Sudoku`Private`listPar], 1, 
-            
-            Map[{First[#] + Part[Sudoku`Private`listPar, 1, 1] - 1, 
-              Part[#, 2] + Part[Sudoku`Private`listPar, 1, 2] - 1}& , 
-             Sudoku`Private`coord], 2, 
-            If[
-             Part[Sudoku`Private`listPar, 2], 
-             Map[{
-               Part[Sudoku`Private`listPar, 1], #}& , Sudoku`Private`coord], 
-             Map[{#, 
-               Part[Sudoku`Private`listPar, 1]}& , Sudoku`Private`coord]]]], 
-        Sudoku`Private`numberColor = If[Sudoku`Private`startPosition != {}, 
-          Flatten[
-           Table[
-            If[
-             MemberQ[
-             Sudoku`Private`startPosition, {
-              Sudoku`Private`x, Sudoku`Private`y}], {
-              Sudoku`Private`x, Sudoku`Private`y} -> {Black}, {
-              Sudoku`Private`x, Sudoku`Private`y} -> {Blue}], {
-            Sudoku`Private`x, 1, Sudoku`Private`maxIndex}, {
-            Sudoku`Private`y, 1, Sudoku`Private`maxIndex}]], Black], 
-        Sudoku`Private`loc2[{
-           Pattern[Sudoku`Private`x, 
-            Blank[]], 
-           Pattern[Sudoku`Private`y, 
-            Blank[]]}, 
-          Pattern[Sudoku`Private`startPosition, 
-           Blank[]], 
-          Pattern[Sudoku`Private`dimQ, 
-           Blank[]]] := 
-        Module[{Sudoku`Private`coord}, 
-          Sudoku`Private`coord = {
-            Floor[Sudoku`Private`dimQ (1 - Sudoku`Private`y)] + 1, 
-             Floor[Sudoku`Private`dimQ Sudoku`Private`x] + 1}; If[
-            Not[
-             MemberQ[Sudoku`Private`startPosition, Sudoku`Private`coord]], 
-            Sudoku`Private`coord, {0, 0}]], 
-        Sudoku`Private`stampaGrigliaSelezioneNumeri[
-          Pattern[Sudoku`Private`difficolta, 
-           Blank[]]] := 
-        Module[{Sudoku`Private`grigliaSelezionaNumeri, 
-           Sudoku`Private`grigliaNumeriTutorial, Sudoku`Private`griglia}, 
-          Sudoku`Private`grigliaSelezionaNumeri = {{
-             "C", 1, 2, 3, 4, 5, 6, 7, 8, 9}}; 
-          Sudoku`Private`grigliaNumeriTutorial = {{"C", 1, 2, 3, 4}}; 
-          Sudoku`Private`griglia = 
-           If[Sudoku`Private`difficolta === "Tutorial", 
-             Sudoku`Private`grigliaNumeriTutorial, 
-             Sudoku`Private`grigliaSelezionaNumeri]; 
-          Grid[Sudoku`Private`griglia, Frame -> All, Background -> 
-            RGBColor[0.5, 0.74, 0.5, 0.4], BaseStyle -> Large]], 
-        Attributes[Sudoku`Private`num$] = {Temporary}, Sudoku`CreateSudoku[
-          Pattern[Sudoku`Private`dim, 
-           Blank[]], 
-          Pattern[Sudoku`Private`seed, 
-           Blank[]]] := 
-        Module[{Sudoku`Private`sudokuCompleto, 
-           Sudoku`Private`sudokuDaCompletare, 
-           Sudoku`Private`percentualeDifficolta, Sudoku`Private`difficolta, 
-           Sudoku`Private`posizioniIniziali}, SeedRandom[Sudoku`Private`seed]; 
-          Sudoku`Private`difficolta = 
-           Sudoku`Private`getDifficoltaCarica[Sudoku`Private`seed]; 
-          Sudoku`Private`percentualeDifficolta = 
-           Switch[Sudoku`Private`difficolta, "Tutorial", 0.9, "Facile", 0.7, 
-             "Medio", 0.5, "Difficile", 0.2]; {
-            Sudoku`Private`sudokuCompleto, Sudoku`Private`sudokuDaCompletare} = 
-           ResourceFunction["GenerateSudokuPuzzle"][
-            Sudoku`Private`dim, Sudoku`Private`percentualeDifficolta]; 
-          Sudoku`Private`posizioniIniziali = Position[
-             Normal[Sudoku`Private`sudokuDaCompletare], 
-             Blank[Integer]]; 
-          Return[<|"fullBoard" -> Sudoku`Private`sudokuCompleto, 
-             "sudokuPuzzle" -> Sudoku`Private`sudokuDaCompletare, 
-             "startPosition" -> Sudoku`Private`posizioniIniziali|>]], 
-        TagSet[Sudoku`CreateSudoku, 
-         MessageName[Sudoku`CreateSudoku, "usage"], " "], 
-        Sudoku`Private`getDifficoltaCarica[
-          Pattern[Sudoku`Private`seed, 
-           Blank[]]] := Switch[
-          Mod[Sudoku`Private`seed, 4], 0, "Tutorial", 1, "Facile", 2, "Medio", 
-          Blank[], "Difficile"], Sudoku`Private`generaNuovoSeed[
-          Pattern[Sudoku`Private`difficolta, 
-           Blank[]]] := 
-        Module[{Sudoku`Private`seedDiBase}, 
-          Sudoku`Private`seedDiBase = 
-           IntegerPart[RandomInteger[{10, 100000}] 4]; 
-          Switch[Sudoku`Private`difficolta, "Tutorial", 
-            Sudoku`Private`seedDiBase, "Facile", Sudoku`Private`seedDiBase + 
-            1, "Medio", Sudoku`Private`seedDiBase + 2, 
-            Blank[], Sudoku`Private`seedDiBase + 3]], 
-        Sudoku`Private`getDimSudoku[
-          Pattern[Sudoku`Private`diff, 
-           Blank[]]] := If[Sudoku`Private`diff == "Tutorial", 2, 3]}; 
-      Typeset`initDone$$ = True),
-     SynchronousInitialization->True,
-     UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
-     UnsavedVariables:>{Typeset`initDone$$},
-     UntrackedVariables:>{Typeset`size$$}], "Manipulate",
-    Deployed->True,
-    StripOnInput->False],
-   Manipulate`InterpretManipulate[1]],
-  DynamicModuleValues:>{}]], "Output",
- GeneratedCell->False,
- CellAutoOverwrite->False,
- CellChangeTimes->{
-  3.8615283223246727`*^9, 3.8615283702954907`*^9, 3.861528416473988*^9, {
-   3.8615284572822933`*^9, 3.8615284694247713`*^9}, {3.861528550776003*^9, 
-   3.8615285686492662`*^9}, {3.861528654469509*^9, 3.861528686190486*^9}, 
-   3.8615292734678135`*^9, {3.8615294092869453`*^9, 3.861529426532909*^9}, {
-   3.8615295100018578`*^9, 3.861529586254882*^9}, 3.861529707473983*^9, 
-   3.8615297678227377`*^9, 3.861529888230332*^9, 3.8615299277377043`*^9, 
-   3.8615299713326993`*^9, {3.86153003856701*^9, 3.8615300404340253`*^9}, 
-   3.8615301014088273`*^9, {3.8615301539895115`*^9, 3.861530155658107*^9}, 
-   3.8615303154975457`*^9, 3.861530356790654*^9, {3.861530615856992*^9, 
-   3.8615306201376314`*^9}, 3.8615311498279934`*^9, 3.861532391123828*^9},
- CellLabel->"Out[7]=",ExpressionUUID->"24cf0751-cd2b-4fb6-9dd0-c16256a1e808"],
-
-Cell[BoxData[
- DynamicModuleBox[{Sudoku`Private`difficolta$$ = "Tutorial", 
-  Sudoku`Private`difficoltaInCorso$$ = "Tutorial", 
-  Sudoku`Private`difficoltaCarica$$ = "Tutorial", 
-  Sudoku`Private`popupDifficolta$$ = PopupMenu[
-   Dynamic[Sudoku`Private`difficolta$$], {
-   "Tutorial", "Facile", "Medio", "Difficile"}, FieldSize -> Small], 
-  Sudoku`Private`popupDifficoltaCarica$$ = PopupMenu[
-   Dynamic[Sudoku`Private`difficoltaCarica$$], {
-   "Tutorial", "Facile", "Medio", "Difficile"}, FieldSize -> Small], 
-  Sudoku`Private`grandezzaGrigliaSudoku$$ = 22, 
-  Sudoku`Private`caricaSudoku$$ = 0, Sudoku`Private`caricaSudokuInput$$ = 
-  InputField[
-   Dynamic[Sudoku`Private`caricaSudoku$$], FieldSize -> Small], 
-  Sudoku`Private`numSudoku$$ = 253336, Sudoku`Private`sudoku$$ = <|
-  "fullBoard" -> 
-   SparseArray[
-    Automatic, {4, 4}, 0, {
-     1, {{0, 4, 8, 12, 16}, {{1}, {2}, {3}, {4}, {1}, {2}, {3}, {4}, {1}, {
-       2}, {3}, {4}, {1}, {2}, {3}, {4}}}, {1, 3, 4, 2, 4, 2, 1, 3, 3, 4, 2, 
-      1, 2, 1, 3, 4}}], "sudokuPuzzle" -> 
-   SparseArray[
-    Automatic, {4, 4}, Blank[], {
-     1, {{0, 4, 7, 11, 15}, {{4}, {1}, {3}, {2}, {4}, {3}, {1}, {2}, {4}, {
-       1}, {3}, {2}, {4}, {1}, {3}}}, {2, 1, 4, 3, 3, 1, 4, 4, 1, 3, 2, 1, 4, 
-      2, 3}}], "startPosition" -> {{1, 1}, {1, 2}, {1, 3}, {1, 4}, {2, 1}, {2,
-     3}, {2, 4}, {3, 1}, {3, 2}, {3, 3}, {3, 4}, {4, 1}, {4, 2}, {4, 3}, {4, 
-    4}}|>, Sudoku`Private`fullBoard$$ = SparseArray[
-  Automatic, {4, 4}, 0, {
-   1, {{0, 4, 8, 12, 16}, {{1}, {2}, {3}, {4}, {1}, {2}, {3}, {4}, {1}, {2}, {
-     3}, {4}, {1}, {2}, {3}, {4}}}, {1, 3, 4, 2, 4, 2, 1, 3, 3, 4, 2, 1, 2, 1,
-     3, 4}}], Sudoku`Private`puzzle$$ = SparseArray[
-  Automatic, {4, 4}, Blank[], {
-   1, {{0, 4, 7, 11, 15}, {{4}, {1}, {3}, {2}, {4}, {3}, {1}, {2}, {4}, {1}, {
-     3}, {2}, {4}, {1}, {3}}}, {2, 1, 4, 3, 3, 1, 4, 4, 1, 3, 2, 1, 4, 2, 
-    3}}], Sudoku`Private`startPosition$$ = {{1, 1}, {1, 2}, {1, 3}, {1, 4}, {
-  2, 1}, {2, 3}, {2, 4}, {3, 1}, {3, 2}, {3, 3}, {3, 4}, {4, 1}, {4, 2}, {4, 
-  3}, {4, 4}}, Sudoku`Private`cursor$$ = {0, 0}, Sudoku`Private`inputValue$$, 
-  Sudoku`Private`controlliAttivi$$ = True, Sudoku`Private`timer$$ = 51, 
-  Sudoku`Private`refreshTimer$$ = True, Sudoku`Private`aiuto$$ = False, 
-  Sudoku`Private`aiutoCheckbox$$ = Checkbox[
-   Dynamic[Sudoku`Private`aiuto$$], Enabled -> 
-   Dynamic[Sudoku`Private`controlliAttivi$$]], 
-  Sudoku`Private`mostraSoluzione$$ = False, 
-  Sudoku`Private`mostraSoluzioneCheckbox$$ = Checkbox[
-   Dynamic[Sudoku`Private`mostraSoluzione$$], Enabled -> 
-   Dynamic[Sudoku`Private`controlliAttivi$$]], 
-  Sudoku`Private`dimensioneManipulate$$ = {700, 480}, 
-  Sudoku`Private`dimQuadratoSudoku$$ = 2}, 
-  TagBox[
-   StyleBox[
-    DynamicModuleBox[{Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
-     Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
-     1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
-       Hold[
-        Row[{
-          Spacer[170], 
-          Style["Difficolt\[AGrave]:  ", FontSize -> 16], 
-          Style[
-           Dynamic[Sudoku`Private`difficoltaInCorso$$], FontSize -> 16, Bold], 
-          Spacer[20], 
-          Style["Numero Sudoku:  ", FontSize -> 16], 
-          Style[
-           Dynamic[Sudoku`Private`numSudoku$$], FontSize -> 16, Bold]}]], 
-       Manipulate`Dump`ThisIsNotAControl}, {
-       Hold[
-        Row[{
-          Spacer[{20, 50}], 
-          Column[{
-            Grid[{{
-               Style["Aiuto: ", FontSize -> 14], 
-               Checkbox[
-                Dynamic[Sudoku`Private`aiuto$$], Enabled -> 
-                Dynamic[Sudoku`Private`controlliAttivi$$]]}, {
-               Style["Mostra soluzione: ", FontSize -> 14], 
-               Checkbox[
-                Dynamic[Sudoku`Private`mostraSoluzione$$], Enabled -> 
-                Dynamic[Sudoku`Private`controlliAttivi$$]]}}], 
-            Button[
-            "Ricomincia", (Sudoku`Private`timer$$ = -1; 
-             Sudoku`Private`aiuto$$ = False; 
-             Sudoku`Private`controlliAttivi$$ = True; 
-             Sudoku`Private`refreshTimer$$ = True; 
-             Sudoku`Private`mostraSoluzione$$ = False; 
-             Sudoku`Private`sudoku$$ = 
-              Sudoku`CreateSudoku[
-               Sudoku`Private`dimQuadratoSudoku$$, 
-                Sudoku`Private`numSudoku$$]; 
-             Sudoku`Private`fullBoard$$ = 
-              Part[Sudoku`Private`sudoku$$, "fullBoard"]; 
-             Sudoku`Private`puzzle$$ = 
-              Part[Sudoku`Private`sudoku$$, "sudokuPuzzle"]; 
-             Sudoku`Private`startPosition$$ = 
-              Part[Sudoku`Private`sudoku$$, "startPosition"]; Null)& ]}], 
-          Spacer[{350, 0}], 
-          Column[{
-            Row[{
-              Style["Tempo:  ", FontSize -> 14], 
-              Dynamic[
-               Refresh[
-               If[Sudoku`Private`refreshTimer$$, Sudoku`Private`timer$$ = 
-                  Sudoku`Private`timer$$ + 1, Sudoku`Private`timer$$]; 
-                Sudoku`Private`convert[Sudoku`Private`timer$$], 
-                TrackedSymbols :> {}, UpdateInterval -> 1]]}]}]}]], 
-       Manipulate`Dump`ThisIsNotAControl}, {
-       Hold[
-        Row[{
-          Spacer[{100, 0}], 
-          Column[{
-            Style[
-            "Nuovo Sudoku:", FontSize -> 14, Bold, FontFamily -> "Arial"], 
-            Panel[
-             Column[{
-               Grid[{{
-                  Style["Difficolt\[AGrave]: ", FontSize -> 14], 
-                  PopupMenu[
-                   Dynamic[Sudoku`Private`difficolta$$], {
-                   "Tutorial", "Facile", "Medio", "Difficile"}, FieldSize -> 
-                   Small]}}], 
-               Button[
-               "Nuovo Sudoku", (Sudoku`Private`timer$$ = -1; 
-                Sudoku`Private`aiuto$$ = False; 
-                Sudoku`Private`controlliAttivi$$ = True; 
-                Sudoku`Private`refreshTimer$$ = True; 
-                Sudoku`Private`mostraSoluzione$$ = False; 
-                Sudoku`Private`difficoltaInCorso$$ = 
-                 Sudoku`Private`difficolta$$; 
-                Sudoku`Private`cursor$$ = {0, 0}; 
-                Sudoku`Private`numSudoku$$ = 
-                 Sudoku`Private`generaNuovoSeed[
-                  Sudoku`Private`difficoltaInCorso$$]; 
-                Sudoku`Private`dimQuadratoSudoku$$ = 
-                 Sudoku`Private`getDimSudoku[
-                  Sudoku`Private`difficoltaInCorso$$]; 
-                Sudoku`Private`sudoku$$ = 
-                 Sudoku`CreateSudoku[
-                  Sudoku`Private`dimQuadratoSudoku$$, 
-                   Sudoku`Private`numSudoku$$]; 
-                Sudoku`Private`fullBoard$$ = 
-                 Part[Sudoku`Private`sudoku$$, "fullBoard"]; 
-                Sudoku`Private`puzzle$$ = 
-                 Part[Sudoku`Private`sudoku$$, "sudokuPuzzle"]; 
-                Sudoku`Private`startPosition$$ = 
-                 Part[Sudoku`Private`sudoku$$, "startPosition"]; 
-                Null)& ]}]]}], 
-          Spacer[{50, 0}], 
-          Column[{
-            Spacer[{0, 5}], 
-            Style[
-            "Carica Sudoku:", FontSize -> 14, Bold, FontFamily -> "Arial"], 
-            Panel[
-             Column[{
-               Grid[{{
-                  Style["Numero sudoku:", FontSize -> 14], 
-                  InputField[
-                   Dynamic[Sudoku`Private`caricaSudoku$$], FieldSize -> 
-                   Small]}}], 
-               Button[
-               "Carica Sudoku", (Sudoku`Private`timer$$ = -1; 
-                Sudoku`Private`aiuto$$ = False; 
-                Sudoku`Private`controlliAttivi$$ = True; 
-                Sudoku`Private`refreshTimer$$ = True; 
-                Sudoku`Private`mostraSoluzione$$ = False; 
-                Sudoku`Private`numSudoku$$ = Sudoku`Private`caricaSudoku$$; 
-                Sudoku`Private`difficoltaInCorso$$ = 
-                 Sudoku`Private`getDifficoltaCarica[
-                  Sudoku`Private`numSudoku$$]; 
-                Sudoku`Private`dimQuadratoSudoku$$ = 
-                 Sudoku`Private`getDimSudoku[
-                  Sudoku`Private`difficoltaInCorso$$]; 
-                Sudoku`Private`sudoku$$ = 
-                 Sudoku`CreateSudoku[
-                  Sudoku`Private`dimQuadratoSudoku$$, 
-                   Sudoku`Private`numSudoku$$]; 
-                Sudoku`Private`fullBoard$$ = 
-                 Part[Sudoku`Private`sudoku$$, "fullBoard"]; 
-                Sudoku`Private`puzzle$$ = 
-                 Part[Sudoku`Private`sudoku$$, "sudokuPuzzle"]; 
-                Sudoku`Private`startPosition$$ = 
-                 Part[Sudoku`Private`sudoku$$, "startPosition"]; 
-                Null)& ]}]]}]}]], Manipulate`Dump`ThisIsNotAControl}}, 
-     Typeset`size$$ = {112., {45.79541020881152, 50.20458979118848}}, 
-     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
-     False}, 
-     DynamicBox[Manipulate`ManipulateBoxes[
-      1, StandardForm, "Variables" :> {}, "ControllerVariables" :> {}, 
-       "OtherVariables" :> {
-        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
-         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
-         Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
-         Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> Grid[{{
-           Column[{
-             If[
-              Sudoku`Private`checkVittoria[
-              Sudoku`Private`fullBoard$$, Sudoku`Private`puzzle$$], 
-              Sudoku`Private`refreshTimer$$ = False; 
-              Sudoku`Private`controlliAttivi$$ = False; 
-              Sudoku`Private`stampaVittoria[Sudoku`Private`timer$$], 
-              EventHandler[
-               Sudoku`Private`stampaSudokuManipulate[
-               Sudoku`Private`puzzle$$, 
-                Sudoku`Private`grandezzaGrigliaSudoku$$, 
-                Sudoku`Private`dimQuadratoSudoku$$, Sudoku`Private`cursor$$, 
-                Sudoku`Private`startPosition$$, Sudoku`Private`aiuto$$], {
-               "MouseClicked" :> (Sudoku`Private`cursor$$ = 
-                 Sudoku`Private`loc2[
-                   MousePosition["EventHandlerScaled"], 
-                   Sudoku`Private`startPosition$$, 
-                   Sudoku`Private`dimQuadratoSudoku$$^2])}]], 
-             If[
-              Or[
-               Sudoku`Private`checkVittoria[
-               Sudoku`Private`fullBoard$$, Sudoku`Private`puzzle$$], 
-               Sudoku`Private`cursor$$ === {0, 0}], "", 
-              Column[{
-                Sudoku`Private`elemStyle[
-                "\nSeleziona il valore che vuoi inserire:"], 
-                EventHandler[
-                 Sudoku`Private`stampaGrigliaSelezioneNumeri[
-                 Sudoku`Private`difficoltaInCorso$$], "MouseClicked" :> 
-                 Module[{
-                   Sudoku`Private`num$ = 
-                    If[Sudoku`Private`difficoltaInCorso$$ === "Tutorial", 
-                    Floor[5 First[
-                    MousePosition["EventHandlerScaled"]]], 
-                    Floor[10 First[
-                    MousePosition["EventHandlerScaled"]]]]}, 
-                   If[Sudoku`Private`num$ == 0, Part[
-                    Part[Sudoku`Private`puzzle$$, 
-                    Part[Sudoku`Private`cursor$$, 1]], 
-                    Part[Sudoku`Private`cursor$$, 2]] = Blank[], Part[
-                    Part[Sudoku`Private`puzzle$$, 
-                    Part[Sudoku`Private`cursor$$, 1]], 
-                    Part[Sudoku`Private`cursor$$, 2]] = 
-                    Sudoku`Private`num$]]]}]]}], "\t", 
-           If[Sudoku`Private`mostraSoluzione$$, 
-            Dynamic[
-             Sudoku`ShowSudoku[
-             Sudoku`Private`fullBoard$$, 15, 
-              Sudoku`Private`dimQuadratoSudoku$$, Sudoku`Private`cursor$$]], 
-            ""]}}, Editable -> False], "Specifications" :> {
-         Row[{
-           Spacer[170], 
-           Style["Difficolt\[AGrave]:  ", FontSize -> 16], 
-           Style[
-            Dynamic[Sudoku`Private`difficoltaInCorso$$], FontSize -> 16, 
-            Bold], 
-           Spacer[20], 
-           Style["Numero Sudoku:  ", FontSize -> 16], 
-           Style[
-            Dynamic[Sudoku`Private`numSudoku$$], FontSize -> 16, Bold]}], 
-         Row[{
-           Spacer[{20, 50}], 
-           Column[{
-             Grid[{{
-                Style["Aiuto: ", FontSize -> 14], 
-                Checkbox[
-                 Dynamic[Sudoku`Private`aiuto$$], Enabled -> 
-                 Dynamic[Sudoku`Private`controlliAttivi$$]]}, {
-                Style["Mostra soluzione: ", FontSize -> 14], 
-                Checkbox[
-                 Dynamic[Sudoku`Private`mostraSoluzione$$], Enabled -> 
-                 Dynamic[Sudoku`Private`controlliAttivi$$]]}}], 
-             Button[
-             "Ricomincia", (Sudoku`Private`timer$$ = -1; 
-              Sudoku`Private`aiuto$$ = False; 
-              Sudoku`Private`controlliAttivi$$ = True; 
-              Sudoku`Private`refreshTimer$$ = True; 
-              Sudoku`Private`mostraSoluzione$$ = False; 
-              Sudoku`Private`sudoku$$ = 
-               Sudoku`CreateSudoku[
-                Sudoku`Private`dimQuadratoSudoku$$, 
-                 Sudoku`Private`numSudoku$$]; 
-              Sudoku`Private`fullBoard$$ = 
-               Part[Sudoku`Private`sudoku$$, "fullBoard"]; 
-              Sudoku`Private`puzzle$$ = 
-               Part[Sudoku`Private`sudoku$$, "sudokuPuzzle"]; 
-              Sudoku`Private`startPosition$$ = 
-               Part[Sudoku`Private`sudoku$$, "startPosition"]; Null)& ]}], 
-           Spacer[{350, 0}], 
-           Column[{
-             Row[{
-               Style["Tempo:  ", FontSize -> 14], 
-               Dynamic[
-                Refresh[
-                If[Sudoku`Private`refreshTimer$$, Sudoku`Private`timer$$ = 
-                   Sudoku`Private`timer$$ + 1, Sudoku`Private`timer$$]; 
-                 Sudoku`Private`convert[Sudoku`Private`timer$$], 
-                 TrackedSymbols :> {}, UpdateInterval -> 1]]}]}]}], 
-         Row[{
-           Spacer[{100, 0}], 
-           Column[{
-             Style[
-             "Nuovo Sudoku:", FontSize -> 14, Bold, FontFamily -> "Arial"], 
-             Panel[
-              Column[{
-                Grid[{{
-                   Style["Difficolt\[AGrave]: ", FontSize -> 14], 
-                   PopupMenu[
-                    Dynamic[Sudoku`Private`difficolta$$], {
-                    "Tutorial", "Facile", "Medio", "Difficile"}, FieldSize -> 
-                    Small]}}], 
-                Button[
-                "Nuovo Sudoku", (Sudoku`Private`timer$$ = -1; 
-                 Sudoku`Private`aiuto$$ = False; 
-                 Sudoku`Private`controlliAttivi$$ = True; 
-                 Sudoku`Private`refreshTimer$$ = True; 
-                 Sudoku`Private`mostraSoluzione$$ = False; 
-                 Sudoku`Private`difficoltaInCorso$$ = 
-                  Sudoku`Private`difficolta$$; 
-                 Sudoku`Private`cursor$$ = {0, 0}; 
-                 Sudoku`Private`numSudoku$$ = 
-                  Sudoku`Private`generaNuovoSeed[
-                   Sudoku`Private`difficoltaInCorso$$]; 
-                 Sudoku`Private`dimQuadratoSudoku$$ = 
-                  Sudoku`Private`getDimSudoku[
-                   Sudoku`Private`difficoltaInCorso$$]; 
-                 Sudoku`Private`sudoku$$ = 
-                  Sudoku`CreateSudoku[
-                   Sudoku`Private`dimQuadratoSudoku$$, 
-                    Sudoku`Private`numSudoku$$]; 
-                 Sudoku`Private`fullBoard$$ = 
-                  Part[Sudoku`Private`sudoku$$, "fullBoard"]; 
-                 Sudoku`Private`puzzle$$ = 
-                  Part[Sudoku`Private`sudoku$$, "sudokuPuzzle"]; 
-                 Sudoku`Private`startPosition$$ = 
-                  Part[Sudoku`Private`sudoku$$, "startPosition"]; 
-                 Null)& ]}]]}], 
-           Spacer[{50, 0}], 
-           Column[{
-             Spacer[{0, 5}], 
-             Style[
-             "Carica Sudoku:", FontSize -> 14, Bold, FontFamily -> "Arial"], 
-             Panel[
-              Column[{
-                Grid[{{
-                   Style["Numero sudoku:", FontSize -> 14], 
-                   InputField[
-                    Dynamic[Sudoku`Private`caricaSudoku$$], FieldSize -> 
-                    Small]}}], 
-                Button[
-                "Carica Sudoku", (Sudoku`Private`timer$$ = -1; 
-                 Sudoku`Private`aiuto$$ = False; 
-                 Sudoku`Private`controlliAttivi$$ = True; 
-                 Sudoku`Private`refreshTimer$$ = True; 
-                 Sudoku`Private`mostraSoluzione$$ = False; 
-                 Sudoku`Private`numSudoku$$ = Sudoku`Private`caricaSudoku$$; 
-                 Sudoku`Private`difficoltaInCorso$$ = 
-                  Sudoku`Private`getDifficoltaCarica[
-                   Sudoku`Private`numSudoku$$]; 
-                 Sudoku`Private`dimQuadratoSudoku$$ = 
-                  Sudoku`Private`getDimSudoku[
-                   Sudoku`Private`difficoltaInCorso$$]; 
-                 Sudoku`Private`sudoku$$ = 
-                  Sudoku`CreateSudoku[
-                   Sudoku`Private`dimQuadratoSudoku$$, 
-                    Sudoku`Private`numSudoku$$]; 
-                 Sudoku`Private`fullBoard$$ = 
-                  Part[Sudoku`Private`sudoku$$, "fullBoard"]; 
-                 Sudoku`Private`puzzle$$ = 
-                  Part[Sudoku`Private`sudoku$$, "sudokuPuzzle"]; 
-                 Sudoku`Private`startPosition$$ = 
-                  Part[Sudoku`Private`sudoku$$, "startPosition"]; 
-                 Null)& ]}]]}]}]}, 
-       "Options" :> {
-        ContentSize -> {700, 480}, ControlPlacement -> {Top, Top, Bottom}}, 
-       "DefaultOptions" :> {}],
-      ImageSizeCache->{365., {193.79541020881152`, 198.20458979118848`}},
-      SingleEvaluation->True],
-     Deinitialization:>None,
-     DynamicModuleValues:>{},
-     Initialization:>({Sudoku`Private`checkVittoria[
-          Pattern[Sudoku`Private`fullBoard, 
-           Blank[]], 
-          Pattern[Sudoku`Private`puzzle, 
-           Blank[]]] := 
-        Normal[Sudoku`Private`fullBoard] === Normal[Sudoku`Private`puzzle], 
-        Sudoku`Private`stampaVittoria[
-          Pattern[Sudoku`Private`time, 
-           Blank[]]] := Row[{
-           Column[{
-             Sudoku`Private`vittoriaStyle[
-             "\n\n\n\n\t        Complimenti! Hai vinto!"], 
-             Sudoku`Private`elemStyle[
-             "\n\n\n\t\t\t\t\t         Tempo trascorso:\n\t\t\t\t\t" <> 
-              ToString[
-                Sudoku`Private`convert[Sudoku`Private`time]]]}]}], 
-        Sudoku`Private`vittoriaStyle[
-          Pattern[Sudoku`Private`s, 
-           Blank[]]] := Style[Sudoku`Private`s, FontSize -> 30, Bold, 
-          RGBColor[0, 0.64, 0.36], FontFamily -> "Arial", TextAlignment -> 
-          Center], Sudoku`Private`elemStyle[
-          Pattern[Sudoku`Private`s, 
-           Blank[]]] := 
-        Style[Sudoku`Private`s, FontSize -> 14, Bold, FontFamily -> "Arial"], 
-        Sudoku`Private`convert[
-          Pattern[Sudoku`Private`x, 
-           Blank[]]] := Sudoku`Private`elemStyle[
-          UnitConvert[
-           Quantity[Sudoku`Private`x, "Seconds"], 
-           MixedUnit[{"Hours", "Minutes", "Seconds"}]]], 
-        Sudoku`Private`stampaSudokuManipulate[
-          Pattern[Sudoku`Private`puzzle, 
-           Blank[]], 
-          Pattern[Sudoku`Private`grandezzaGrigliaSudoku, 
-           Blank[]], 
-          Pattern[Sudoku`Private`dimQuadratoSudoku, 
-           Blank[]], 
-          Pattern[Sudoku`Private`cursor, 
-           Blank[]], 
-          Pattern[Sudoku`Private`startPosition, 
-           Blank[]], 
-          Pattern[Sudoku`Private`aiuto, 
-           Blank[]]] := Dynamic[
-          Sudoku`ShowSudoku[
-          Sudoku`Private`puzzle, Sudoku`Private`grandezzaGrigliaSudoku, 
-           Sudoku`Private`dimQuadratoSudoku, Sudoku`Private`cursor, 
-           Sudoku`Private`startPosition, Sudoku`Private`aiuto]], 
-        Sudoku`ShowSudoku[
-          Pattern[Sudoku`Private`board, 
-           Blank[]], 
-          Pattern[Sudoku`Private`dim, 
-           Blank[]], 
-          Pattern[Sudoku`Private`dimQ, 
-           Blank[]], 
-          Optional[
-           Pattern[Sudoku`Private`cursor, 
-            Blank[]], {0, 0}], 
-          Optional[
-           Pattern[Sudoku`Private`startPosition, 
-            Blank[]], {}], 
-          Optional[
-           Pattern[Sudoku`Private`aiuti, 
-            Blank[]], False]] := 
-        Module[{Sudoku`Private`background, Sudoku`Private`err, 
-           Sudoku`Private`un, Sudoku`Private`numberColor, 
-           Sudoku`Private`maxIndex}, 
-          Sudoku`Private`maxIndex = If[Sudoku`Private`dimQ == 2, 4, 9]; 
-          Sudoku`Private`background = Flatten[
-             Table[{Sudoku`Private`i, Sudoku`Private`j} -> If[
-                EvenQ[
-                 Apply[Plus, 
-                  
-                  Floor[{Sudoku`Private`i - 1, Sudoku`Private`j - 1}/
-                   Sudoku`Private`dimQ]]], 
-                Darker[White], White], {
-              Sudoku`Private`i, Sudoku`Private`maxIndex}, {
-              Sudoku`Private`j, Sudoku`Private`maxIndex}]]; 
-          Sudoku`Private`numberColor = If[Sudoku`Private`startPosition != {}, 
-             Flatten[
-              Table[
-               If[
-                MemberQ[
-                Sudoku`Private`startPosition, {
-                 Sudoku`Private`x, Sudoku`Private`y}], {
-                 Sudoku`Private`x, Sudoku`Private`y} -> {Black}, {
-                 Sudoku`Private`x, Sudoku`Private`y} -> {Blue}], {
-               Sudoku`Private`x, 1, Sudoku`Private`maxIndex}, {
-               Sudoku`Private`y, 1, Sudoku`Private`maxIndex}]], Black]; 
-          Sudoku`Private`un = 
-           If[Sudoku`Private`aiuti, 
-             Sudoku`Private`err = 
-              Sudoku`Private`checkErrors[
-               Sudoku`Private`board, Sudoku`Private`startPosition, 
-                Sudoku`Private`maxIndex]; 
-             Join[Sudoku`Private`background, Sudoku`Private`err], 
-             Sudoku`Private`background]; 
-          Grid[Sudoku`Private`board, ItemSize -> Full, 
-            ItemStyle -> {Automatic, Automatic, Sudoku`Private`numberColor}, 
-            Frame -> If[
-             Sudoku`Private`cursor == {0, 0}, All, {
-              All, All, Sudoku`Private`cursor -> {Blue, Thickness -> 1.5}}], 
-            BaseStyle -> Sudoku`Private`dim, Spacings -> {
-              Offset[1.2], 
-              Offset[0.9]}, 
-            Background -> {Automatic, Automatic, Sudoku`Private`un}]], 
-        TagSet[Sudoku`ShowSudoku, 
-         MessageName[Sudoku`ShowSudoku, "usage"], "mostra"], 
-        Sudoku`Private`un = 
-        If[Sudoku`Private`aiuti, 
-          Sudoku`Private`err = 
-           Sudoku`Private`checkErrors[
-            Sudoku`Private`board, Sudoku`Private`startPosition, 
-             Sudoku`Private`maxIndex]; 
-          Join[Sudoku`Private`background, Sudoku`Private`err], 
-          Sudoku`Private`background], Sudoku`Private`checkErrors[
-          Pattern[Sudoku`Private`puzzle, 
-           Blank[]], 
-          Pattern[Sudoku`Private`startPosition, 
-           Blank[]], 
-          Pattern[Sudoku`Private`maxInd, 
-           Blank[]]] := 
-        Module[{Sudoku`Private`auxRow, Sudoku`Private`auxColumn, 
-           Sudoku`Private`maxSq, Sudoku`Private`incr, 
-           Sudoku`Private`auxSquare, Sudoku`Private`union, 
-           Sudoku`Private`final}, Sudoku`Private`auxRow = Flatten[
-             Table[
-              Sudoku`Private`calcErrors[
-               Part[Sudoku`Private`puzzle, Sudoku`Private`x], 2, {
-               Sudoku`Private`x, True}], {
-              Sudoku`Private`x, 1, Sudoku`Private`maxInd}], 1]; 
-          Sudoku`Private`auxColumn = Flatten[
-             Table[
-              Sudoku`Private`calcErrors[
-               Part[Sudoku`Private`puzzle, All, Sudoku`Private`x], 2, {
-               Sudoku`Private`x, False}], {
-              Sudoku`Private`x, 1, Sudoku`Private`maxInd}], 1]; 
-          Sudoku`Private`maxSq = If[Sudoku`Private`maxInd == 9, 7, 3]; 
-          Sudoku`Private`incr = If[Sudoku`Private`maxInd == 9, 3, 2]; 
-          Sudoku`Private`auxSquare = Flatten[
-             Table[
-              Sudoku`Private`calcErrors[
-               Part[Sudoku`Private`puzzle, 
-                Span[
-                Sudoku`Private`x, 
-                 Sudoku`Private`x + (Sudoku`Private`incr - 1)], 
-                Span[
-                Sudoku`Private`y, 
-                 Sudoku`Private`y + (Sudoku`Private`incr - 1)]], 
-               1, {{Sudoku`Private`x, Sudoku`Private`y}}], {
-              Sudoku`Private`x, 1, Sudoku`Private`maxSq, 
-               Sudoku`Private`incr}, {
-              Sudoku`Private`y, 1, Sudoku`Private`maxSq, 
-               Sudoku`Private`incr}], 2]; 
-          Sudoku`Private`union = 
-           Union[Sudoku`Private`auxRow, Sudoku`Private`auxColumn, 
-             Sudoku`Private`auxSquare]; 
-          Sudoku`Private`final = DeleteCases[Sudoku`Private`union, 
-             Condition[{
-               Pattern[Sudoku`Private`x, 
-                Blank[]], 
-               Pattern[Sudoku`Private`y, 
-                Blank[]]}, 
-              MemberQ[
-              Sudoku`Private`startPosition, {
-               Sudoku`Private`x, Sudoku`Private`y}]]]; 
-          Map[# -> LightRed& , Sudoku`Private`final]], 
-        Sudoku`Private`calcErrors[
-          Pattern[Sudoku`Private`struct, 
-           Blank[]], 
-          Pattern[Sudoku`Private`lFlat, 
-           Blank[]], 
-          Pattern[Sudoku`Private`listPar, 
-           Blank[]]] := 
-        Module[{Sudoku`Private`norm, Sudoku`Private`auxNorm, 
-           Sudoku`Private`cnt, Sudoku`Private`dupl, Sudoku`Private`coord, 
-           Sudoku`Private`aux}, 
-          Sudoku`Private`norm = Normal[Sudoku`Private`struct]; 
-          Sudoku`Private`auxNorm = If[Length[Sudoku`Private`listPar] == 1, 
-             Flatten[Sudoku`Private`norm], Sudoku`Private`norm]; 
-          Sudoku`Private`cnt = Tally[
-             Cases[Sudoku`Private`auxNorm, 
-              Blank[Integer]]]; 
-          Sudoku`Private`dupl = Cases[Sudoku`Private`cnt, 
-             Condition[{
-               Pattern[Sudoku`Private`x, 
-                Blank[]], 
-               Pattern[Sudoku`Private`y, 
-                Blank[]]}, Sudoku`Private`y > 1]]; 
-          Sudoku`Private`coord = If[Length[Sudoku`Private`dupl] > 0, 
-             Flatten[
-              Map[Position[Sudoku`Private`norm, 
-                First[#]]& , Sudoku`Private`dupl], Sudoku`Private`lFlat], 
-             Nothing]; Switch[
-            Length[Sudoku`Private`listPar], 1, 
-            
-            Map[{First[#] + Part[Sudoku`Private`listPar, 1, 1] - 1, 
-              Part[#, 2] + Part[Sudoku`Private`listPar, 1, 2] - 1}& , 
-             Sudoku`Private`coord], 2, 
-            If[
-             Part[Sudoku`Private`listPar, 2], 
-             Map[{
-               Part[Sudoku`Private`listPar, 1], #}& , Sudoku`Private`coord], 
-             Map[{#, 
-               Part[Sudoku`Private`listPar, 1]}& , Sudoku`Private`coord]]]], 
-        Sudoku`Private`numberColor = If[Sudoku`Private`startPosition != {}, 
-          Flatten[
-           Table[
-            If[
-             MemberQ[
-             Sudoku`Private`startPosition, {
-              Sudoku`Private`x, Sudoku`Private`y}], {
-              Sudoku`Private`x, Sudoku`Private`y} -> {Black}, {
-              Sudoku`Private`x, Sudoku`Private`y} -> {Blue}], {
-            Sudoku`Private`x, 1, Sudoku`Private`maxIndex}, {
-            Sudoku`Private`y, 1, Sudoku`Private`maxIndex}]], Black], 
-        Sudoku`Private`loc2[{
-           Pattern[Sudoku`Private`x, 
-            Blank[]], 
-           Pattern[Sudoku`Private`y, 
-            Blank[]]}, 
-          Pattern[Sudoku`Private`startPosition, 
-           Blank[]], 
-          Pattern[Sudoku`Private`dimQ, 
-           Blank[]]] := 
-        Module[{Sudoku`Private`coord}, 
-          Sudoku`Private`coord = {
-            Floor[Sudoku`Private`dimQ (1 - Sudoku`Private`y)] + 1, 
-             Floor[Sudoku`Private`dimQ Sudoku`Private`x] + 1}; If[
-            Not[
-             MemberQ[Sudoku`Private`startPosition, Sudoku`Private`coord]], 
-            Sudoku`Private`coord, {0, 0}]], 
-        Sudoku`Private`stampaGrigliaSelezioneNumeri[
-          Pattern[Sudoku`Private`difficolta, 
-           Blank[]]] := 
-        Module[{Sudoku`Private`grigliaSelezionaNumeri, 
-           Sudoku`Private`grigliaNumeriTutorial, Sudoku`Private`griglia}, 
-          Sudoku`Private`grigliaSelezionaNumeri = {{
-             "C", 1, 2, 3, 4, 5, 6, 7, 8, 9}}; 
-          Sudoku`Private`grigliaNumeriTutorial = {{"C", 1, 2, 3, 4}}; 
-          Sudoku`Private`griglia = 
-           If[Sudoku`Private`difficolta === "Tutorial", 
-             Sudoku`Private`grigliaNumeriTutorial, 
-             Sudoku`Private`grigliaSelezionaNumeri]; 
-          Grid[Sudoku`Private`griglia, Frame -> All, Background -> 
-            RGBColor[0.5, 0.74, 0.5, 0.4], BaseStyle -> Large]], 
-        Attributes[Sudoku`Private`num$] = {Temporary}, Sudoku`CreateSudoku[
-          Pattern[Sudoku`Private`dim, 
-           Blank[]], 
-          Pattern[Sudoku`Private`seed, 
-           Blank[]]] := 
-        Module[{Sudoku`Private`sudokuCompleto, 
-           Sudoku`Private`sudokuDaCompletare, 
-           Sudoku`Private`percentualeDifficolta, Sudoku`Private`difficolta, 
-           Sudoku`Private`posizioniIniziali}, SeedRandom[Sudoku`Private`seed]; 
-          Sudoku`Private`difficolta = 
-           Sudoku`Private`getDifficoltaCarica[Sudoku`Private`seed]; 
-          Sudoku`Private`percentualeDifficolta = 
-           Switch[Sudoku`Private`difficolta, "Tutorial", 0.9, "Facile", 0.7, 
-             "Medio", 0.5, "Difficile", 0.2]; {
-            Sudoku`Private`sudokuCompleto, Sudoku`Private`sudokuDaCompletare} = 
-           ResourceFunction["GenerateSudokuPuzzle"][
-            Sudoku`Private`dim, Sudoku`Private`percentualeDifficolta]; 
-          Sudoku`Private`posizioniIniziali = Position[
-             Normal[Sudoku`Private`sudokuDaCompletare], 
-             Blank[Integer]]; 
-          Return[<|"fullBoard" -> Sudoku`Private`sudokuCompleto, 
-             "sudokuPuzzle" -> Sudoku`Private`sudokuDaCompletare, 
-             "startPosition" -> Sudoku`Private`posizioniIniziali|>]], 
-        TagSet[Sudoku`CreateSudoku, 
-         MessageName[Sudoku`CreateSudoku, "usage"], " "], 
-        Sudoku`Private`getDifficoltaCarica[
-          Pattern[Sudoku`Private`seed, 
-           Blank[]]] := Switch[
-          Mod[Sudoku`Private`seed, 4], 0, "Tutorial", 1, "Facile", 2, "Medio", 
-          Blank[], "Difficile"], Sudoku`Private`generaNuovoSeed[
-          Pattern[Sudoku`Private`difficolta, 
-           Blank[]]] := 
-        Module[{Sudoku`Private`seedDiBase}, 
-          Sudoku`Private`seedDiBase = 
-           IntegerPart[RandomInteger[{10, 100000}] 4]; 
-          Switch[Sudoku`Private`difficolta, "Tutorial", 
-            Sudoku`Private`seedDiBase, "Facile", Sudoku`Private`seedDiBase + 
-            1, "Medio", Sudoku`Private`seedDiBase + 2, 
-            Blank[], Sudoku`Private`seedDiBase + 3]], 
-        Sudoku`Private`getDimSudoku[
-          Pattern[Sudoku`Private`diff, 
-           Blank[]]] := If[Sudoku`Private`diff == "Tutorial", 2, 3]}; 
-      Typeset`initDone$$ = True),
-     SynchronousInitialization->True,
-     UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
-     UnsavedVariables:>{Typeset`initDone$$},
-     UntrackedVariables:>{Typeset`size$$}], "Manipulate",
-    Deployed->True,
-    StripOnInput->False],
-   Manipulate`InterpretManipulate[1]],
-  DynamicModuleValues:>{}]], "Output",
- GeneratedCell->False,
- CellAutoOverwrite->False,
- CellChangeTimes->{
-  3.8615283223246727`*^9, 3.8615283702954907`*^9, 3.861528416473988*^9, {
-   3.8615284572822933`*^9, 3.8615284694247713`*^9}, {3.861528550776003*^9, 
-   3.8615285686492662`*^9}, {3.861528654469509*^9, 3.861528686190486*^9}, 
-   3.8615292734678135`*^9, {3.8615294092869453`*^9, 3.861529426532909*^9}, {
-   3.8615295100018578`*^9, 3.861529586254882*^9}, 3.861529707473983*^9, 
-   3.8615297678227377`*^9, 3.861529888230332*^9, 3.8615299277377043`*^9, 
-   3.8615299713326993`*^9, {3.86153003856701*^9, 3.8615300404340253`*^9}, 
-   3.8615301014088273`*^9, {3.8615301539895115`*^9, 3.861530155658107*^9}, 
-   3.8615303154975457`*^9, 3.861530356790654*^9, {3.861530615856992*^9, 
-   3.8615306201376314`*^9}, 3.8615311498279934`*^9},
- CellLabel->
-  "Out[463]=",ExpressionUUID->"881ae8ad-b771-4ea8-98c4-2289f5cc492e"]
+ CellChangeTimes->{3.861677025994375*^9},
+ CellLabel->"Out[66]=",ExpressionUUID->"caac9a9d-fc04-4085-a3a0-d7962d79e844"]
 }, Open  ]]
 }, Open  ]]
 },
 ScreenStyleEnvironment->"SlideShow",
-WindowSize->{1440., 755.25},
-WindowMargins->{{Automatic, -4.7999999999999545`}, {Automatic, -6}},
+WindowSize->{1152., 592.8},
+WindowMargins->{{Automatic, -5.399999999999864}, {
+  Automatic, -5.3999999999999995`}},
 DockedCells->{},
 TaggingRules-><|"TryRealOnly" -> False|>,
 Magnification:>0.5 Inherited,
@@ -16859,32 +14561,28 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 335, 6, 114, "Title",ExpressionUUID->"a681d5b2-1764-41cc-a06b-368d5ea352bf"],
+Cell[580, 22, 335, 6, 105, "Title",ExpressionUUID->"a681d5b2-1764-41cc-a06b-368d5ea352bf"],
 Cell[918, 30, 317, 5, 33, "Subtitle",ExpressionUUID->"b89c6e2f-9ee4-407d-bd9c-01d2cf54d9f0"],
 Cell[1238, 37, 71, 0, 25, "Text",ExpressionUUID->"5c856080-c2e6-4dc0-9d07-58c372f451c4"],
 Cell[CellGroupData[{
 Cell[1334, 41, 596025, 9787, 158, "Input",ExpressionUUID->"56133431-4c52-4e79-a3e8-ec0274d7e63a"],
-Cell[597362, 9830, 234386, 3841, 130, "Output",ExpressionUUID->"f57b55f5-16ed-4bd4-9888-8c8798447b65"]
+Cell[597362, 9830, 234983, 3849, 130, "Output",ExpressionUUID->"e6e8a2d6-c535-43fc-8134-d04a008a30a4"]
 }, Open  ]],
-Cell[831763, 13674, 456, 6, 26, "Text",ExpressionUUID->"9fe5f7d7-543c-4e1c-9137-e7f51f701f48"],
-Cell[832222, 13682, 261, 4, 33, "Text",ExpressionUUID->"2c7f16d7-e156-413a-85ba-77b0f7617d34"],
-Cell[832486, 13688, 834, 23, 207, "Text",ExpressionUUID->"900f1b01-8f9f-47a5-b140-c2e03fdc5358"],
-Cell[833323, 13713, 2480, 51, 274, "Text",ExpressionUUID->"75880340-32aa-4794-a66b-d6a60c0d15ae"],
+Cell[832360, 13682, 456, 6, 26, "Text",ExpressionUUID->"9fe5f7d7-543c-4e1c-9137-e7f51f701f48"],
+Cell[832819, 13690, 261, 4, 33, "Text",ExpressionUUID->"2c7f16d7-e156-413a-85ba-77b0f7617d34"],
+Cell[833083, 13696, 834, 23, 207, "Text",ExpressionUUID->"900f1b01-8f9f-47a5-b140-c2e03fdc5358"],
+Cell[833920, 13721, 2480, 51, 309, "Text",ExpressionUUID->"75880340-32aa-4794-a66b-d6a60c0d15ae"],
+Cell[836403, 13774, 274, 6, 25, "Input",ExpressionUUID->"9a39f568-919f-4adb-8af6-e8e71e19f064"],
+Cell[836680, 13782, 341, 6, 38, "Input",ExpressionUUID->"f74477cc-5091-4301-8864-0f395ffe0271"],
 Cell[CellGroupData[{
-Cell[835828, 13768, 727, 15, 23, "Input",ExpressionUUID->"3fc6b9ab-cd71-4295-be44-8919554c9149"],
-Cell[836558, 13785, 555, 15, 63, "Output",ExpressionUUID->"f417a08b-d1a2-4416-a79f-1dc8561bd008"]
-}, Open  ]],
-Cell[837128, 13803, 274, 6, 25, "Input",ExpressionUUID->"9a39f568-919f-4adb-8af6-e8e71e19f064"],
-Cell[837405, 13811, 254, 4, 23, "Input",ExpressionUUID->"f74477cc-5091-4301-8864-0f395ffe0271"],
-Cell[CellGroupData[{
-Cell[837684, 13819, 253, 4, 23, "Input",ExpressionUUID->"423ffae2-6041-4243-a41d-4be3275970a1"],
-Cell[837940, 13825, 47224, 948, 60, "Output",ExpressionUUID->"72fbbc94-d706-4476-ad4c-a85a1ffa5416"]
+Cell[837046, 13792, 849, 18, 13, "Input",ExpressionUUID->"3fc6b9ab-cd71-4295-be44-8919554c9149",
+ CellOpen->False],
+Cell[837898, 13812, 1059, 22, 63, "Output",ExpressionUUID->"fb5293f7-dfd6-46e2-af3e-9205d2a4a5fb"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[885201, 14778, 308, 5, 23, "Input",ExpressionUUID->"129225ac-57d0-4eb3-ade8-5a1611fdb436"],
-Cell[885512, 14785, 32374, 681, 405, "Output",ExpressionUUID->"f1ae89e7-6c46-4b8a-b4c4-48a508cb1ac3"],
-Cell[917889, 15468, 32346, 680, 405, "Output",ExpressionUUID->"24cf0751-cd2b-4fb6-9dd0-c16256a1e808"],
-Cell[950238, 16150, 32328, 681, 405, "Output",ExpressionUUID->"881ae8ad-b771-4ea8-98c4-2289f5cc492e"]
+Cell[838994, 13839, 223, 4, 13, "Input",ExpressionUUID->"7ff7ca20-e480-47ef-9a35-6a7db4db5833",
+ CellOpen->False],
+Cell[839220, 13845, 32388, 687, 403, "Output",ExpressionUUID->"caac9a9d-fc04-4085-a3a0-d7962d79e844"]
 }, Open  ]]
 }, Open  ]]
 }
