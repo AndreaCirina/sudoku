@@ -194,7 +194,7 @@ Manipulate[
  Grid[{{
   (*Griglia sudoku, la visualizziamo solo se l'utente non ha ancora vinto. *)
   Column[{
-  If[checkVittoria[fullBoard, puzzle], refreshTimer = False; controlliAttivi = False; stampaVittoria[timer],
+  If[checkVittoria[fullBoard, puzzle], refreshTimer = False; mostraSoluzione = False; controlliAttivi = False; stampaVittoria[timer],
   EventHandler[
    stampaSudokuManipulate[puzzle, grandezzaGrigliaSudoku, dimQuadratoSudoku, cursor, startPosition, aiuto],
    {"MouseClicked":> (cursor = loc2[MousePosition["EventHandlerScaled"], startPosition, dimQuadratoSudoku^2])}
