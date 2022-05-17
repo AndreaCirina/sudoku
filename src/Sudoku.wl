@@ -144,7 +144,7 @@ stampaTimerManipulate[] := Column[{Row[{mainStyle["Tempo:  "], avviaTimer[]}]}];
 (*Stampa messaggio di vittoria. *)
 stampaVittoria[time_] := 
  Row[{Column[{
- vittoriaStyle["\n\n\n\n\t        Complimenti! Hai vinto!"], elemStyle[StringJoin["\n\n\n\t\t\t\t\t         Tempo trascorso:\n\t\t\t\t\t", ToString[convert[time]]]]}]}];
+ vittoriaStyle["\n\n\n\n\t       Complimenti! Hai vinto!"], elemStyle[StringJoin["\n\n\n\t\t\t\t\t\t         Tempo trascorso:\n\t\t\t\t\t\t", ToString[convert[time]]]]}]}];
 (*Stampa la griglia del sudoku nella manipulate. *)
 stampaSudokuManipulate[puzzle_, grandezzaGrigliaSudoku_, dimQuadratoSudoku_, cursor_, startPosition_, aiuto_] :=
  Dynamic[ShowSudoku[puzzle, grandezzaGrigliaSudoku,dimQuadratoSudoku, cursor, startPosition, aiuto]];
@@ -239,6 +239,7 @@ Manipulate[
  Grid[{{
   (*Griglia sudoku, la visualizziamo solo se l'utente non ha ancora vinto. *)
   Column[{
+  Row[{
   (*Se l'utente ha vinto stampiamo il messaggio di vittoria, altrimenti il sudoku*)
   If[checkVittoria[fullBoard, puzzle], refreshTimer = False; mostraSoluzione = False; controlliAttivi = False; stampaVittoria[timer],
   EventHandler[
@@ -246,6 +247,10 @@ Manipulate[
    (*eventHandler per il clic, restituisce le coordinate {x,y} rispetto la griglia, con origine in basso a sinistra*)
    {"MouseClicked":> (cursor = loc2[MousePosition["EventHandlerScaled"], startPosition, dimQuadratoSudoku^2])} 
   ]],
+  "\t",
+	(*Griglia soluzione. *)
+	If[mostraSoluzione, Dynamic[ShowSudoku[fullBoard, 11, dimQuadratoSudoku, cursor]], ""]
+  }],
   (* Griglia numeri da selezionare, appare solo quando c'\[EGrave] una cella selezionata per evitare errori e quando l'utente
   non ha ancora vinto. *)
   If[checkVittoria[fullBoard, puzzle] || cursor === {0,0}, "",
@@ -259,10 +264,7 @@ Manipulate[
 	  (*Se \[EGrave] stata selezionata la caseslla per cancellare mettiamo un trattino al suo interno, altrimenti il numero selezionato. *)
 	  If[num == 0, puzzle[[cursor[[1]]]][[cursor[[2]]]] = _, puzzle[[cursor[[1]]]][[cursor[[2]]]] = num]]]
     }]]
-   }],
-   "\t",
-	(*Griglia soluzione. *)
-	If[mostraSoluzione, Dynamic[ShowSudoku[fullBoard, 11, dimQuadratoSudoku, cursor]], ""]
+   }]
   }}, Editable->False],
  (*Intestazione manipulate con scritta della difficolt\[AGrave] e del seed. *)
  Control[
